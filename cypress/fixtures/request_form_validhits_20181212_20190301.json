@@ -1,0 +1,92 @@
+{
+    "records": {
+        "2018-12-12": {
+            "validhits": [
+                {
+                    "post_form": "/admin/users",
+                    "value": "1"
+                }
+            ]
+        },
+        "2018-12-13": {
+            "validhits": [
+                {
+                    "post_form": "/admin/users",
+                    "value": "1"
+                }
+            ]
+        },
+        "2018-12-14": {
+            "validhits": [
+                {
+                    "post_form": "/admin/users",
+                    "value": "1"
+                }
+            ]
+        },
+        "2018-12-15": {
+            "validhits": [
+                {
+                    "post_form": "/admin/users",
+                    "value": "1"
+                }
+            ]
+        },
+        "2018-12-16": {
+            "validhits": [
+                {
+                    "post_form": "/admin/users",
+                    "value": "1"
+                }
+            ]
+        },
+        "2018-W51": {
+            "validhits": [
+                {
+                    "post_form": "/admin/users",
+                    "value": "7"
+                }
+            ]
+        },
+        "2018-W52": {
+            "validhits": [
+                {
+                    "post_form": "/admin/users",
+                    "value": "7"
+                }
+            ]
+        },
+        "2018-12-31": {
+            "validhits": [
+                {
+                    "post_form": "/admin/users",
+                    "value": "1"
+                }
+            ]
+        },
+        "2019-01": {
+            "validhits": [
+                {
+                    "post_form": "/admin/users",
+                    "value": "31"
+                }
+            ]
+        },
+        "2019-02": {
+            "validhits": [
+                {
+                    "post_form": "/admin/users",
+                    "value": "28"
+                }
+            ]
+        },
+        "2019-03-01": {
+            "validhits": [
+                {
+                    "post_form": "/admin/users",
+                    "value": "1"
+                }
+            ]
+        }
+    }
+}

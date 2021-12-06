@@ -1,0 +1,67 @@
+[
+  {
+    "title": "OVHcloud Web Statistics est-il payant?",
+    "value": "L’accès aux statistiques de votre site est compris dans votre hébergement. Vous n’avez pas besoin de souscrire à un autre abonnement pour bénéficier de ce service.",
+    "category": "global"
+  },
+  {
+    "title": "Qu'est-ce qu'une page vue?",
+    "value": "Une page vue est une page qu'un utilisateur a pu voir avec succès.",
+    "category": "dashboard"
+  },
+  {
+    "title": "Qu'est-ce qu'une page en erreur?",
+    "value": "Une page est considérée en erreur lorsque la page ou l'un de ses éléments n'a pas pu etre affiché. Il peut s'agir d'une erreur client web ou d'une erreur serveur.",
+    "category": "dashboard"
+  },
+  {
+    "title": "Qu'est-ce qu'une session?",
+    "value": "Elle correspond à un visiteur qui a parcouru une ou plusieurs pages du site durant une fenêtre de temps. Une session se termine après 30 minutes d'inactivité.",
+    "category": "dashboard"
+  },
+  {
+    "title": "Qu'est-ce que le temps moyen d'une session?",
+    "value": "Moyenne des durées durant lesquelles les utilisateurs sont actifs et naviguent sur votre site.",
+    "category": "dashboard"
+  },
+  {
+    "title": "Quels sont les navigateurs?",
+    "value": "Les navigateurs référencés sont les principaux utilisés par les visiteurs, tels que : Mozilla Firefox, Safari, Chrome, IE+Edge, etc.",
+    "category": "browser"
+  },
+  {
+    "title": "A quoi correspondent les Plateformes?",
+    "value": "Les plateformes correspondent aux systèmes d'exploitations utilisés par les visiteurs. Cela permet entre autres de distinguer la part des appareils mobiles.",
+    "category": "browser"
+  },
+  {
+    "title": "A quoi correspond l'origine?",
+    "value": "L'origine des visiteurs permet d'indiquer la provenance géographique des visiteurs.",
+    "category": "geolocalization"
+  },
+  {
+    "title": "A quoi correspond une page?",
+    "value": "Il s'agit d'une page ou plus précisément d'une url spécifique du site web.",
+    "category": "request"
+  },
+  {
+    "title": "A quoi correspond un Formulaire?",
+    "value": "Il s'agit d'une page de votre site dans laquelle un visiteur peut saisir des données via un formulaire. Par exemple, formulaire de contact, identifiants de connexion ... Et plus généralement toute requête HTTP de type POST",
+    "category": "request"
+  },
+  {
+    "title": "A quoi correspond un Parcours de navigation?",
+    "value": "Il s'agit des enchainements de pages les plus fréquemment réalisé par vos visiteurs. Ces informations peuvent vous permettre d'améliorer les pages les plus souvent parcourues.",
+    "category": "request"
+  },
+  {
+    "title": "Qu'est-ce qu'un robot?",
+    "value": "Les robots sont utilisés par de nombreux moteurs de recherche pour parcourir automatiquement le web et procéder à l'indexation de votre site. Ils vous permettent d'apparaître dans les résultats de recherche. Ces robots ont des noms techniques. Ils sont nombreux et évoluent très souvent.",
+    "category": "robot"
+  },
+  {
+    "title": "Qu'est-ce qu'un accès?",
+    "value": "Un accès est une requête pour obtenir un fichier (.html, .css, .js, .jpg ..).",
+    "category": "status"
+  }
+]

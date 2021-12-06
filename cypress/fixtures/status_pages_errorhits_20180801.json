@@ -1,0 +1,120 @@
+{
+    "records": {
+        "2018-08-01": {
+            "errorhits": [
+                {
+                    "status_code": "503",
+                    "request_origfilepath": "/",
+                    "request_host": "",
+                    "request_stem": "/",
+                    "value": "4"
+                },
+                {
+                    "status_code": "503",
+                    "request_origfilepath": "/",
+                    "request_host": "test.com",
+                    "request_stem": "/",
+                    "value": "3"
+                },
+                {
+                    "status_code": "301",
+                    "request_origfilepath": "/filemanager/dialog.php",
+                    "request_host": "",
+                    "request_stem": "/filemanager/dialog.php",
+                    "value": "2"
+                },
+                {
+                    "status_code": "503",
+                    "request_origfilepath": "/filemanager/dialog.php",
+                    "request_host": "",
+                    "request_stem": "/filemanager/dialog.php",
+                    "value": "2"
+                },
+                {
+                    "status_code": "404",
+                    "request_origfilepath": "/favicon.ico",
+                    "request_host": "",
+                    "request_stem": "/favicon.ico",
+                    "value": "2"
+                },
+                {
+                    "status_code": "301",
+                    "request_origfilepath": "/blog/wp-login.php",
+                    "request_host": "",
+                    "request_stem": "/blog/wp-login.php",
+                    "value": "1"
+                },
+                {
+                    "status_code": "503",
+                    "request_origfilepath": "/tag/getting-started",
+                    "request_host": "test.com",
+                    "request_stem": "/tag/getting-started",
+                    "value": "1"
+                },
+                {
+                    "status_code": "404",
+                    "request_origfilepath": "/test/wp-login.php",
+                    "request_host": "test.com",
+                    "request_stem": "/test/wp-login.php",
+                    "value": "1"
+                },
+                {
+                    "status_code": "301",
+                    "request_origfilepath": "/wordpress/wp-login.php",
+                    "request_host": "",
+                    "request_stem": "/wordpress/wp-login.php",
+                    "value": "1"
+                },
+                {
+                    "status_code": "503",
+                    "request_origfilepath": "/author/ghost",
+                    "request_host": "test.com",
+                    "request_stem": "/author/ghost",
+                    "value": "1"
+                },
+                {
+                    "status_code": "404",
+                    "request_origfilepath": "/wordpress/wp-login.php",
+                    "request_host": "test.com",
+                    "request_stem": "/wordpress/wp-login.php",
+                    "value": "1"
+                },
+                {
+                    "status_code": "404",
+                    "request_origfilepath": "/",
+                    "request_host": "test.com",
+                    "request_stem": "/",
+                    "value": "1"
+                },
+                {
+                    "status_code": "503",
+                    "request_origfilepath": "/wp-login.php",
+                    "request_host": "",
+                    "request_stem": "/wp-login.php",
+                    "value": "1"
+                },
+                {
+                    "status_code": "301",
+                    "request_origfilepath": "/test/wp-login.php",
+                    "request_host": "",
+                    "request_stem": "/test/wp-login.php",
+                    "value": "1"
+                },
+                {
+                    "status_code": "404",
+                    "request_origfilepath": "/blog/wp-login.php",
+                    "request_host": "test.com",
+                    "request_stem": "/blog/wp-login.php",
+                    "value": "1"
+                },
+                {
+                    "status_code": "404",
+                    "request_origfilepath": "/filemanager/dialog.php",
+                    "request_host": "",
+                    "request_stem": "/filemanager/dialog.php",
+                    "value": "1"
+                }
+            ]
+        }
+    }
+}

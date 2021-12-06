@@ -1,0 +1,87 @@
+// Colors //
+$white: #fff;
+$t-800: #4d5592;
+$p-800: #00185e;
+$p-700: #000e9c;
+$p-500: #0050d7;
+$p-100: #bef1ff;
+
+$yellow-graph: #fbff47;
+$green-graph: #47FF78;
+$red-graph: #ff4400;
+$blue-graph-1: #002dbe;
+$blue-graph-2: #157eea;
+$blue-graph-3: #2bd1fb;
+$green-graph-1: #008686;
+$green-graph-2: #95d326;
+$green-graph-3: #7cffb0;
+$orange-graph: #ffce0d;
+$violet-graph: #ac246f;
+
+$body-bg: $white;
+$card-bg: $white;
+
+// Breakpoints
+$breakpoint-m:900px;
+
+// Spacing
+$spacing-xxs:4px;
+$spacing-xs:8px;
+$spacing-s:16px;
+$spacing-m:24px;
+$spacing-l:48px;
+
+// Border radius
+$border-radius-xxs:2px;
+$border-radius-s:6px;
+$border-radius-m:8px;
+
+// Typography
+// -------------------------
+$font-family-sans-serif: "Source Sans Pro",
+sans-serif;
+
+$font-size-root: 16px;
+$font-size-base: 1rem !default;
+$font-size-lg: 1.25rem !default;
+$font-size-sm: 0.875rem !default;
+
+$font-weight-bold: 700 !default;
+$font-weight-semi-bold: 600 !default;
+$font-weight-normal: 400 !default;
+$font-weight-thin: 300 !default;
+
+// Layout //
+$layout-padding: $spacing-m;
+$layout-padding-right: 44px;
+
+$top-nav-height: 44px;
+$nav-padding-left: $layout-padding;
+$nav-padding-right: $layout-padding-right;
+$navbar-brand-container-left: 75px;
+
+$sidebar-top: calc(#{$top-nav-height} + #{$layout-padding});
+$sidebar-width: 225px;
+$sidebar-left: $layout-padding;
+
+$content-wrap-ml: calc(#{$sidebar-left} + #{$sidebar-width});
+$content-wrap-header: calc(#{$sidebar-left} + #{$sidebar-width});
+
+:export {
+  p100: $p-100;
+  p700: $p-700;
+  t800: $t-800;
+  white: $white;
+  yellowGraph: $yellow-graph;
+  greenGraph: $green-graph;
+  redGraph: $red-graph;
+  blueGraph1: $blue-graph-1;
+  blueGraph2: $blue-graph-2;
+  blueGraph3: $blue-graph-3;
+  greenGraph1: $green-graph-1;
+  greenGraph2: $green-graph-2;
+  greenGraph3: $green-graph-3;
+  orangeGraph: $orange-graph;
+  violetGraph: $violet-graph;
+  fontFamily: $font-family-sans-serif;
+}

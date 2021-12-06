@@ -1,0 +1,16 @@
+Source: owstats-ui
+Section: devel
+Priority: optional
+Maintainer: Julien Delayen <julien.delayen@corp.ovh.com>
+Uploaders: Matias Hastaran <matias.hastaran@corp.ovh.com>, Julien Delayen <julien.delayen@corp.ovh.com>
+Standards-Version: 4.4.1.1
+
+Package: owstats-ui
+Architecture: all
+Suggests:
+  owstats-backend,
+  owstats-api,
+  owstats-api-doc
+Description: OWStats UI static files
+ This package installs OWStats UI.
+ A solution to extract statistics for your website.

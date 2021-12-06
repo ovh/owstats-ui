@@ -1,0 +1,1104 @@
+{
+    "records": {
+        "2018-12-12": {
+            "visits": [
+                {
+                    "page_1": "/",
+                    "page_2": "",
+                    "page_3": "",
+                    "value": "8"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/author/ghost",
+                    "page_3": "/welcome",
+                    "value": "3"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "2"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/",
+                    "value": "2"
+                },
+                {
+                    "page_1": "/admin-settings",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/the-editor",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/publishing-options",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/",
+                    "page_3": "/publishing-options",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/author/ghost",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/welcome",
+                    "page_3": "/tag/getting-started",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "1"
+                }
+            ]
+        },
+        "2018-12-13": {
+            "visits": [
+                {
+                    "page_1": "/",
+                    "page_2": "",
+                    "page_3": "",
+                    "value": "8"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/author/ghost",
+                    "page_3": "/welcome",
+                    "value": "3"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "2"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/",
+                    "value": "2"
+                },
+                {
+                    "page_1": "/admin-settings",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/the-editor",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/publishing-options",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/",
+                    "page_3": "/publishing-options",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/author/ghost",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/welcome",
+                    "page_3": "/tag/getting-started",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "1"
+                }
+            ]
+        },
+        "2018-12-14": {
+            "visits": [
+                {
+                    "page_1": "/",
+                    "page_2": "",
+                    "page_3": "",
+                    "value": "8"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/author/ghost",
+                    "page_3": "/welcome",
+                    "value": "3"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "2"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/",
+                    "value": "2"
+                },
+                {
+                    "page_1": "/admin-settings",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/the-editor",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/publishing-options",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/",
+                    "page_3": "/publishing-options",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/author/ghost",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/welcome",
+                    "page_3": "/tag/getting-started",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "1"
+                }
+            ]
+        },
+        "2018-12-15": {
+            "visits": [
+                {
+                    "page_1": "/",
+                    "page_2": "",
+                    "page_3": "",
+                    "value": "8"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/author/ghost",
+                    "page_3": "/welcome",
+                    "value": "3"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "2"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/",
+                    "value": "2"
+                },
+                {
+                    "page_1": "/admin-settings",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/the-editor",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/publishing-options",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/",
+                    "page_3": "/publishing-options",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/author/ghost",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/welcome",
+                    "page_3": "/tag/getting-started",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "1"
+                }
+            ]
+        },
+        "2018-12-16": {
+            "visits": [
+                {
+                    "page_1": "/",
+                    "page_2": "",
+                    "page_3": "",
+                    "value": "8"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/author/ghost",
+                    "page_3": "/welcome",
+                    "value": "3"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "2"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/",
+                    "value": "2"
+                },
+                {
+                    "page_1": "/admin-settings",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/the-editor",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/publishing-options",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/",
+                    "page_3": "/publishing-options",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/author/ghost",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/welcome",
+                    "page_3": "/tag/getting-started",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "1"
+                }
+            ]
+        },
+        "2018-W51": {
+            "visits": [
+                {
+                    "page_1": "/",
+                    "page_2": "",
+                    "page_3": "",
+                    "value": "56"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/author/ghost",
+                    "page_3": "/welcome",
+                    "value": "21"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "14"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/",
+                    "value": "14"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/admin-settings",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/author/ghost",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "/",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/welcome",
+                    "page_3": "/tag/getting-started",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/the-editor",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/publishing-options",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/",
+                    "page_3": "/publishing-options",
+                    "value": "7"
+                }
+            ]
+        },
+        "2018-W52": {
+            "visits": [
+                {
+                    "page_1": "/",
+                    "page_2": "",
+                    "page_3": "",
+                    "value": "56"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/author/ghost",
+                    "page_3": "/welcome",
+                    "value": "21"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "14"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/",
+                    "value": "14"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/admin-settings",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/author/ghost",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "/",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/welcome",
+                    "page_3": "/tag/getting-started",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/the-editor",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/publishing-options",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "7"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/",
+                    "page_3": "/publishing-options",
+                    "value": "7"
+                }
+            ]
+        },
+        "2018-12-31": {
+            "visits": [
+                {
+                    "page_1": "/",
+                    "page_2": "",
+                    "page_3": "",
+                    "value": "8"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/author/ghost",
+                    "page_3": "/welcome",
+                    "value": "3"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "2"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/",
+                    "value": "2"
+                },
+                {
+                    "page_1": "/admin-settings",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/the-editor",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/publishing-options",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/",
+                    "page_3": "/publishing-options",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/author/ghost",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/welcome",
+                    "page_3": "/tag/getting-started",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "1"
+                }
+            ]
+        },
+        "2019-01": {
+            "visits": [
+                {
+                    "page_1": "/",
+                    "page_2": "",
+                    "page_3": "",
+                    "value": "248"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/author/ghost",
+                    "page_3": "/welcome",
+                    "value": "93"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "62"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/",
+                    "value": "62"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "31"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "31"
+                },
+                {
+                    "page_1": "/admin-settings",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "31"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/author/ghost",
+                    "value": "31"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "/",
+                    "value": "31"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/welcome",
+                    "page_3": "/tag/getting-started",
+                    "value": "31"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "31"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "31"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "",
+                    "value": "31"
+                },
+                {
+                    "page_1": "/the-editor",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "31"
+                },
+                {
+                    "page_1": "/publishing-options",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "31"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/",
+                    "page_3": "/publishing-options",
+                    "value": "31"
+                }
+            ]
+        },
+        "2019-02": {
+            "visits": [
+                {
+                    "page_1": "/",
+                    "page_2": "",
+                    "page_3": "",
+                    "value": "224"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/author/ghost",
+                    "page_3": "/welcome",
+                    "value": "84"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "56"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/",
+                    "value": "56"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "28"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "28"
+                },
+                {
+                    "page_1": "/admin-settings",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "28"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/author/ghost",
+                    "value": "28"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "/",
+                    "value": "28"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/welcome",
+                    "page_3": "/tag/getting-started",
+                    "value": "28"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "28"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "28"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "",
+                    "value": "28"
+                },
+                {
+                    "page_1": "/the-editor",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "28"
+                },
+                {
+                    "page_1": "/publishing-options",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "28"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/",
+                    "page_3": "/publishing-options",
+                    "value": "28"
+                }
+            ]
+        },
+        "2019-03-01": {
+            "visits": [
+                {
+                    "page_1": "/",
+                    "page_2": "",
+                    "page_3": "",
+                    "value": "8"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/author/ghost",
+                    "page_3": "/welcome",
+                    "value": "3"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "2"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/",
+                    "value": "2"
+                },
+                {
+                    "page_1": "/admin-settings",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/the-editor",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/publishing-options",
+                    "page_2": "/",
+                    "page_3": "/author/ghost",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/",
+                    "page_3": "/publishing-options",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/tag/getting-started",
+                    "page_3": "/author/ghost",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/",
+                    "page_3": "",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/the-editor",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/author/ghost",
+                    "page_2": "/welcome",
+                    "page_3": "/",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/",
+                    "page_2": "/welcome",
+                    "page_3": "/tag/getting-started",
+                    "value": "1"
+                },
+                {
+                    "page_1": "/tag/getting-started",
+                    "page_2": "/author/ghost",
+                    "page_3": "/",
+                    "value": "1"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,199 @@
+#RangeDatePicker-input {
+  border: 1px solid $p-100 !important;
+  color: $t-800 !important;
+  font-family: $font-family-sans-serif !important;
+  font-weight: $font-weight-normal !important;
+  letter-spacing: 0px !important;
+  padding-top: 0px !important;
+  font-size: $font-size-base !important;
+  height: 2rem !important;
+  min-height: 2rem !important;
+  border-radius: $border-radius-xxs !important;
+  margin-right: $spacing-s !important;
+  min-width: 240px !important;
+}
+
+.pickers-container {
+  background-color: $white !important;
+}
+
+#RangeDatePicker-picker-container-DatePicker {
+  padding: $spacing-m !important;
+}
+
+.field-label {
+  display: none;
+}
+
+.header-picker {
+  display: none;
+}
+
+.datepicker {
+  background-color: $white !important;
+  box-shadow: 0 0 6px 0 rgba(0, 14, 156, .2) !important;
+  border: calc(.625rem - 2px) solid transparent !important;
+  border-radius: $border-radius-m !important;
+  border-color: $t-800 !important;
+  border-width: 0px !important;
+  border-style: none !important;
+  padding: 0px !important;
+  box-sizing: border-box !important;
+  margin-top: $spacing-s !important;
+  font-size: 1rem !important;
+  max-width: 500px !important;
+  width: 500px !important;
+}
+
+.date-time-picker {
+  -moz-osx-font-smoothing: auto !important;
+  -webkit-font-smoothing: auto !important;
+}
+
+.calendar {
+  margin-left: $spacing-s;
+}
+
+.custom-button {
+  border-style: none !important;
+  margin-bottom: $spacing-xs !important;
+  padding: 0px !important;
+  width: 120px !important;
+  background-color: $white !important;
+
+  &:hover {
+    background-color: none !important;
+
+    .custom-button-effect {
+      background-color: $p-100 !important;
+      opacity: 1 !important;
+    }
+  }
+}
+
+.custom-button.is-selected {
+  .custom-button-content {
+    .lm-fs-12.flex-1 {
+      color: $t-800 !important;
+      font-weight: $font-weight-semi-bold !important;
+    }
+  }
+}
+
+.custom-button-effect {
+  border-radius: 0px !important;
+  background-color: $p-100 !important
+}
+
+.custom-button-content {
+  font-family: $font-family-sans-serif !important;
+  color: $t-800 !important;
+  font-size: $font-size-lg !important;
+  font-weight: $font-weight-semi-bold !important;
+  letter-spacing: normal !important;
+
+  .lm-fs-12.flex-1 {
+    font-family: $font-family-sans-serif !important;
+    color: $t-800 !important;
+    font-size: $font-size-base !important;
+    font-weight: $font-weight-normal !important;
+  }
+}
+
+.datepicker-buttons-container {
+  border-top-color: $p-100 !important;
+  background-color: $white !important;
+}
+
+.datepicker-button svg {
+  fill: $t-800 !important;
+}
+
+.datepicker-button.validate {
+  background-color: $p-500 !important;
+  border-radius: $border-radius-m !important;
+  border-style: none !important;
+  color: $white !important;
+
+  svg {
+    fill: $white !important;
+  }
+}
+
+.datepicker-button-effect {
+  background-color: $p-100 !important;
+  border-radius: $border-radius-m !important;
+}
+
+.datepicker-controls {
+  border-bottom: $p-100;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+.datepicker-day-text {
+  font-family: $font-family-sans-serif !important;
+  color: $t-800 !important;
+  font-size: $font-size-base !important;
+  font-weight: $font-weight-normal !important;
+}
+
+.datepicker-day-effect {
+  background-color: $p-500 !important;
+  opacity: O !important;
+}
+
+.datepicker-day.selected {
+  .datepicker-day-text {
+    color: $white !important;
+    font-weight: $font-weight-semi-bold !important;
+  }
+}
+
+.datepicker-day.between {
+  .datepicker-day-text {
+    color: $white !important;
+    font-weight: $font-weight-semi-bold !important;
+  }
+}
+
+.datepicker-day.between.enable {
+  .datepicker-day-effect {
+    opacity: 1 !important;
+  }
+}
+
+.datepicker-day:hover {
+  .datepicker-day-effect {
+    background-color: $p-500 !important;
+    color: $p-500 !important;
+    opacity: 1 !important;
+  }
+
+  .datepicker-day-text {
+    color: $white !important;
+  }
+}
+
+.shortcuts-container {
+  width: auto !important;
+  min-width: 130px !important;
+
+  border-right-style: none !important;
+  padding: 0px !important;
+  margin-top: $spacing-s;
+  height: auto !important
+}
+
+.week-days-container.text-muted.lm-fs-12 {
+  font-family: $font-family-sans-serif !important;
+  color: $t-800 !important;
+  font-size: $font-size-base !important;
+  font-weight: $font-weight-semi-bold !important;
+}
+
+@media screen and (max-width:$breakpoint-m) {
+  #RangeDatePicker-input {
+    margin-right: 0px !important;
+  }
+}

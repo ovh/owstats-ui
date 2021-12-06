@@ -1,0 +1,19 @@
+// Import external styles
+@import "~bootstrap/scss/bootstrap";
+
+// Import core styles
+@import "variables";
+@import "oui";
+@import "ouiIcons";
+
+// Components
+@import "dateTimePicker";
+@import "faqAccordion";
+@import "domainSelection";
+@import "loader";
+
+//dashboards
+@import "dashboards";
+
+// Layout
+@import "layout";

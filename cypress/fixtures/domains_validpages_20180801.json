@@ -1,0 +1,20 @@
+{
+    "records": {
+      "2018-08-01": {
+        "validpages": [
+          {
+            "subdomain": "api.test.com",
+            "value": "28"
+          },
+          {
+            "subdomain": "shop.test.com",
+            "value": "29"
+          },
+          {
+            "subdomain": "www.test.com",
+            "value": "62"
+          }
+        ]
+      }
+    }
+  }

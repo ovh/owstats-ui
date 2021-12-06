@@ -1,0 +1,28 @@
+{
+    "records": {
+        "2018-07-31": {
+            "pages": [
+                {
+                    "status_code": "200",
+                    "value": "100"
+                },
+                {
+                    "status_code": "302",
+                    "value": "8"
+                },
+                {
+                    "status_code": "401",
+                    "value": "5"
+                },
+                {
+                    "status_code": "404",
+                    "value": "5"
+                },
+                {
+                    "status_code": "503",
+                    "value": "14"
+                }
+            ]
+        }
+    }
+}

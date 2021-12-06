@@ -1,0 +1,108 @@
+{
+    "records": {
+        "2019-07-10": {
+            "visits": [
+                {
+                    "country": "United States",
+                    "region": "California",
+                    "value": "4"
+                },
+                {
+                    "country": "Germany",
+                    "region": "Saxe",
+                    "value": "2"
+                }
+            ]
+        },
+        "2019-07-11": {
+            "visits": [
+                {
+                    "country": "France",
+                    "region": "Occitanie",
+                    "value": "4"
+                }
+            ]
+        },
+        "2019-07-12": {
+            "visits": [
+                {
+                    "country": "United States",
+                    "region": "California",
+                    "value": "4"
+                }
+            ]
+        },
+        "2019-07-13": {
+            "visits": [
+                {
+                    "country": "United States",
+                    "region": "California",
+                    "value": "4"
+                }
+            ]
+        },
+        "2019-07-14": {
+            "visits": [
+                {
+                    "country": "United States",
+                    "region": "California",
+                    "value": "4"
+                }
+            ]
+        },
+        "2019-07-15": {
+            "visits": [
+                {
+                    "country": "United States",
+                    "region": "California",
+                    "value": "4"
+                }
+            ]
+        },
+        "2019-07-16": {
+            "visits": [
+                {
+                    "country": "United States",
+                    "region": "California",
+                    "value": "4"
+                }
+            ]
+        },
+        "2019-07-17": {
+            "visits": [
+                {
+                    "country": "United States",
+                    "region": "California",
+                    "value": "4"
+                }
+            ]
+        },
+        "2019-07-18": {
+            "visits": [
+                {
+                    "country": "United States",
+                    "region": "California",
+                    "value": "4"
+                }
+            ]
+        },
+        "2019-07-19": {
+            "visits": [
+                {
+                    "country": "United States",
+                    "region": "California",
+                    "value": "4"
+                }
+            ]
+        },
+        "2019-07-20": {
+            "visits": [
+                {
+                    "country": "United States",
+                    "region": "California",
+                    "value": "4"
+                }
+            ]
+        }
+    }
+}

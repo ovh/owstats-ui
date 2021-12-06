@@ -1,0 +1,92 @@
+{
+    "records": {
+        "2018-08-01": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2018-08-02": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2018-08-03": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2018-08-04": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2018-08-05": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2018-08-06": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2018-08-07": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2018-08-08": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2018-08-09": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2018-08-10": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2018-08-11": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        }
+    }
+}

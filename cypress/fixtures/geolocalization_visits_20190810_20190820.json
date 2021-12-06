@@ -1,0 +1,49 @@
+{
+    "records": {
+        "2019-08-10": {
+            "visits": [
+                {
+                    "country": "United States",
+                    "region": "California",
+                    "value": "4"
+                }
+            ]
+        },
+        "2019-08-11": {
+            "visits": [
+                {
+                    "country": "United States",
+                    "region": "California",
+                    "value": "4"
+                }
+            ]
+        },
+        "2019-W33": {
+            "visits": [
+                {
+                    "country": "United States",
+                    "region": "California",
+                    "value": "28"
+                }
+            ]
+        },
+        "2019-08-19": {
+            "visits": [
+                {
+                    "country": "United States",
+                    "region": "California",
+                    "value": "4"
+                }
+            ]
+        },
+        "2019-08-20": {
+            "visits": [
+                {
+                    "country": "United States",
+                    "region": "California",
+                    "value": "4"
+                }
+            ]
+        }
+    }
+}

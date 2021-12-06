@@ -1,0 +1,103 @@
+.faq {
+  width: 100%;
+  padding: 0 $spacing-s;
+
+  &__title {
+    text-align: center;
+    margin-bottom: $spacing-m;
+  }
+
+  &_tab {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__nav-item {
+    height: $spacing-l;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    user-select: none;
+    color: $p-500;
+    background-color: $white;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-color: $p-500;
+    border-width: 2px;
+    border-radius: $border-radius-m;
+    margin-right: $spacing-xs;
+    font-weight: $font-weight-semi-bold;
+    padding: $spacing-xxs;
+
+    &_active {
+      color: $white;
+      background-color: $p-500;
+    }
+
+    &:hover {
+      background-color: $p-100;
+      $color: $p-500 !important
+    }
+
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+
+  &__accordion {
+    min-height: 250px;
+  }
+}
+
+.faq .accordion-title {
+  position: relative;
+  display: block;
+  padding: 8px 0 8px 50px;
+  overflow: hidden;
+  background: $white;
+  color: $p-500;
+  width: 100%;
+  text-align: left;
+  font-weight: $font-weight-semi-bold;
+  cursor: pointer;
+
+  i {
+    position: absolute;
+    width: 40px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    color: $p-500;
+    background: $white;
+    text-align: center;
+  }
+}
+
+.accordeon-item {
+  border-style: solid;
+  border-color: $p-100;
+  border-width: 2px;
+  margin-bottom: $spacing-s;
+
+  &:hover {
+    background-color: $p-100;
+    border-color: $p-500;
+
+    .accordion-title {
+      background-color: $p-100;
+    }
+
+    .oui-icon {
+      background-color: $p-100;
+    }
+  }
+}
+
+.accordion-body {
+  padding: $spacing-xs;
+}

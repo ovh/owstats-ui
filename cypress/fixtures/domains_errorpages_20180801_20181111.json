@@ -1,0 +1,68 @@
+{
+    "records": {
+        "2018-08": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "682"
+                }
+            ]
+        },
+        "2018-09": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "660"
+                }
+            ]
+        },
+        "2018-10": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "682"
+                }
+            ]
+        },
+        "2018-11-01": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2018-11-02": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2018-11-03": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2018-11-04": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2018-W45": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "154"
+                }
+            ]
+        }
+    }
+}

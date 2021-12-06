@@ -1,0 +1,532 @@
+{
+    "records": {
+        "2018-12-12": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "66"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "32"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "11"
+                },
+                {
+                    "request_origfilepath": "/tag/getting-started",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "6"
+                },
+                {
+                    "request_origfilepath": "/favicon.ico",
+                    "value": "3"
+                },
+                {
+                    "request_origfilepath": "/the-editor",
+                    "value": "3"
+                },
+                {
+                    "request_origfilepath": "/publishing-options",
+                    "value": "2"
+                },
+                {
+                    "request_origfilepath": "/admin-settings",
+                    "value": "1"
+                }
+            ]
+        },
+        "2018-12-13": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "66"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "32"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "11"
+                },
+                {
+                    "request_origfilepath": "/tag/getting-started",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "6"
+                },
+                {
+                    "request_origfilepath": "/favicon.ico",
+                    "value": "3"
+                },
+                {
+                    "request_origfilepath": "/the-editor",
+                    "value": "3"
+                },
+                {
+                    "request_origfilepath": "/publishing-options",
+                    "value": "2"
+                },
+                {
+                    "request_origfilepath": "/admin-settings",
+                    "value": "1"
+                }
+            ]
+        },
+        "2018-12-14": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "66"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "32"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "11"
+                },
+                {
+                    "request_origfilepath": "/tag/getting-started",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "6"
+                },
+                {
+                    "request_origfilepath": "/favicon.ico",
+                    "value": "3"
+                },
+                {
+                    "request_origfilepath": "/the-editor",
+                    "value": "3"
+                },
+                {
+                    "request_origfilepath": "/publishing-options",
+                    "value": "2"
+                },
+                {
+                    "request_origfilepath": "/admin-settings",
+                    "value": "1"
+                }
+            ]
+        },
+        "2018-12-15": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "66"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "32"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "11"
+                },
+                {
+                    "request_origfilepath": "/tag/getting-started",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "6"
+                },
+                {
+                    "request_origfilepath": "/favicon.ico",
+                    "value": "3"
+                },
+                {
+                    "request_origfilepath": "/the-editor",
+                    "value": "3"
+                },
+                {
+                    "request_origfilepath": "/publishing-options",
+                    "value": "2"
+                },
+                {
+                    "request_origfilepath": "/admin-settings",
+                    "value": "1"
+                }
+            ]
+        },
+        "2018-12-16": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "66"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "32"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "11"
+                },
+                {
+                    "request_origfilepath": "/tag/getting-started",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "6"
+                },
+                {
+                    "request_origfilepath": "/favicon.ico",
+                    "value": "3"
+                },
+                {
+                    "request_origfilepath": "/the-editor",
+                    "value": "3"
+                },
+                {
+                    "request_origfilepath": "/publishing-options",
+                    "value": "2"
+                },
+                {
+                    "request_origfilepath": "/admin-settings",
+                    "value": "1"
+                }
+            ]
+        },
+        "2018-W51": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "462"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "413"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "413"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "224"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "77"
+                },
+                {
+                    "request_origfilepath": "/tag/getting-started",
+                    "value": "49"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "42"
+                },
+                {
+                    "request_origfilepath": "/favicon.ico",
+                    "value": "21"
+                },
+                {
+                    "request_origfilepath": "/the-editor",
+                    "value": "21"
+                },
+                {
+                    "request_origfilepath": "/publishing-options",
+                    "value": "14"
+                },
+                {
+                    "request_origfilepath": "/admin-settings",
+                    "value": "7"
+                }
+            ]
+        },
+        "2018-W52": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "462"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "413"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "413"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "224"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "77"
+                },
+                {
+                    "request_origfilepath": "/tag/getting-started",
+                    "value": "49"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "42"
+                },
+                {
+                    "request_origfilepath": "/favicon.ico",
+                    "value": "21"
+                },
+                {
+                    "request_origfilepath": "/the-editor",
+                    "value": "21"
+                },
+                {
+                    "request_origfilepath": "/publishing-options",
+                    "value": "14"
+                },
+                {
+                    "request_origfilepath": "/admin-settings",
+                    "value": "7"
+                }
+            ]
+        },
+        "2018-12-31": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "66"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "32"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "11"
+                },
+                {
+                    "request_origfilepath": "/tag/getting-started",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "6"
+                },
+                {
+                    "request_origfilepath": "/favicon.ico",
+                    "value": "3"
+                },
+                {
+                    "request_origfilepath": "/the-editor",
+                    "value": "3"
+                },
+                {
+                    "request_origfilepath": "/publishing-options",
+                    "value": "2"
+                },
+                {
+                    "request_origfilepath": "/admin-settings",
+                    "value": "1"
+                }
+            ]
+        },
+        "2019-01": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "2046"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "1829"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "1829"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "992"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "341"
+                },
+                {
+                    "request_origfilepath": "/tag/getting-started",
+                    "value": "217"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "186"
+                },
+                {
+                    "request_origfilepath": "/favicon.ico",
+                    "value": "93"
+                },
+                {
+                    "request_origfilepath": "/the-editor",
+                    "value": "93"
+                },
+                {
+                    "request_origfilepath": "/publishing-options",
+                    "value": "62"
+                },
+                {
+                    "request_origfilepath": "/admin-settings",
+                    "value": "31"
+                }
+            ]
+        },
+        "2019-02": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "1848"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "1652"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "1652"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "896"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "308"
+                },
+                {
+                    "request_origfilepath": "/tag/getting-started",
+                    "value": "196"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "168"
+                },
+                {
+                    "request_origfilepath": "/favicon.ico",
+                    "value": "84"
+                },
+                {
+                    "request_origfilepath": "/the-editor",
+                    "value": "84"
+                },
+                {
+                    "request_origfilepath": "/publishing-options",
+                    "value": "56"
+                },
+                {
+                    "request_origfilepath": "/admin-settings",
+                    "value": "28"
+                }
+            ]
+        },
+        "2019-03-01": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "66"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "32"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "11"
+                },
+                {
+                    "request_origfilepath": "/tag/getting-started",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "6"
+                },
+                {
+                    "request_origfilepath": "/favicon.ico",
+                    "value": "3"
+                },
+                {
+                    "request_origfilepath": "/the-editor",
+                    "value": "3"
+                },
+                {
+                    "request_origfilepath": "/publishing-options",
+                    "value": "2"
+                },
+                {
+                    "request_origfilepath": "/admin-settings",
+                    "value": "1"
+                }
+            ]
+        }
+    }
+}

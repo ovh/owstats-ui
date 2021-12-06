@@ -1,0 +1,928 @@
+{
+    "records": {
+        "2018-12-12": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "66"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "51"
+                },
+                {
+                    "request_origfilepath": "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js",
+                    "value": "26"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/styles.self-e97ea4088c36862d2f050d39ed457919910202b54d3331b8eb706f40a45155ac.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/style.self-a9d28c69f4ad017edaeaa70a960f9499cd2d4c4e384479b731e204baaca8b7e9.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/main.self-f9e7c1541e1b8783561468c59162bd896007380f5a3799ef2169d3a3fdf40bed.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/js/main.self-de3615060568b463d43b07d97e54e44d624bb66c323372bf19f0d7cab7415efb.js",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/genericons/genericons.self-17f7a66bf8f6efe54bf5d779f1e74511160f380c0af314768f60fc2d46270c53.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/circle-c8061aef5d8c226eea0f28353c365efdb7bbdd43db909d81f644b5e32557cd71.png",
+                    "value": "22"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/search-icon-77cc2a262c38bdfeaf27050d2e54b5927c5744f4d80e2fa466c526d524e7c2ae.png",
+                    "value": "21"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "18"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "11"
+                },
+                {
+                    "request_origfilepath": "/sample-post",
+                    "value": "9"
+                },
+                {
+                    "request_origfilepath": "/admin/login",
+                    "value": "9"
+                },
+                {
+                    "request_origfilepath": "/static/js/wsgi.js",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/admin",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/static/css/welcome_page.css",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/static/css/wsgi.css",
+                    "value": "7"
+                }
+            ]
+        },
+        "2018-12-13": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "66"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "51"
+                },
+                {
+                    "request_origfilepath": "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js",
+                    "value": "26"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/styles.self-e97ea4088c36862d2f050d39ed457919910202b54d3331b8eb706f40a45155ac.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/style.self-a9d28c69f4ad017edaeaa70a960f9499cd2d4c4e384479b731e204baaca8b7e9.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/main.self-f9e7c1541e1b8783561468c59162bd896007380f5a3799ef2169d3a3fdf40bed.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/js/main.self-de3615060568b463d43b07d97e54e44d624bb66c323372bf19f0d7cab7415efb.js",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/genericons/genericons.self-17f7a66bf8f6efe54bf5d779f1e74511160f380c0af314768f60fc2d46270c53.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/circle-c8061aef5d8c226eea0f28353c365efdb7bbdd43db909d81f644b5e32557cd71.png",
+                    "value": "22"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/search-icon-77cc2a262c38bdfeaf27050d2e54b5927c5744f4d80e2fa466c526d524e7c2ae.png",
+                    "value": "21"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "18"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "11"
+                },
+                {
+                    "request_origfilepath": "/sample-post",
+                    "value": "9"
+                },
+                {
+                    "request_origfilepath": "/admin/login",
+                    "value": "9"
+                },
+                {
+                    "request_origfilepath": "/static/js/wsgi.js",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/admin",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/static/css/welcome_page.css",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/static/css/wsgi.css",
+                    "value": "7"
+                }
+            ]
+        },
+        "2018-12-14": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "66"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "51"
+                },
+                {
+                    "request_origfilepath": "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js",
+                    "value": "26"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/styles.self-e97ea4088c36862d2f050d39ed457919910202b54d3331b8eb706f40a45155ac.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/style.self-a9d28c69f4ad017edaeaa70a960f9499cd2d4c4e384479b731e204baaca8b7e9.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/main.self-f9e7c1541e1b8783561468c59162bd896007380f5a3799ef2169d3a3fdf40bed.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/js/main.self-de3615060568b463d43b07d97e54e44d624bb66c323372bf19f0d7cab7415efb.js",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/genericons/genericons.self-17f7a66bf8f6efe54bf5d779f1e74511160f380c0af314768f60fc2d46270c53.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/circle-c8061aef5d8c226eea0f28353c365efdb7bbdd43db909d81f644b5e32557cd71.png",
+                    "value": "22"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/search-icon-77cc2a262c38bdfeaf27050d2e54b5927c5744f4d80e2fa466c526d524e7c2ae.png",
+                    "value": "21"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "18"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "11"
+                },
+                {
+                    "request_origfilepath": "/sample-post",
+                    "value": "9"
+                },
+                {
+                    "request_origfilepath": "/admin/login",
+                    "value": "9"
+                },
+                {
+                    "request_origfilepath": "/static/js/wsgi.js",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/admin",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/static/css/welcome_page.css",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/static/css/wsgi.css",
+                    "value": "7"
+                }
+            ]
+        },
+        "2018-12-15": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "66"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "51"
+                },
+                {
+                    "request_origfilepath": "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js",
+                    "value": "26"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/styles.self-e97ea4088c36862d2f050d39ed457919910202b54d3331b8eb706f40a45155ac.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/style.self-a9d28c69f4ad017edaeaa70a960f9499cd2d4c4e384479b731e204baaca8b7e9.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/main.self-f9e7c1541e1b8783561468c59162bd896007380f5a3799ef2169d3a3fdf40bed.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/js/main.self-de3615060568b463d43b07d97e54e44d624bb66c323372bf19f0d7cab7415efb.js",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/genericons/genericons.self-17f7a66bf8f6efe54bf5d779f1e74511160f380c0af314768f60fc2d46270c53.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/circle-c8061aef5d8c226eea0f28353c365efdb7bbdd43db909d81f644b5e32557cd71.png",
+                    "value": "22"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/search-icon-77cc2a262c38bdfeaf27050d2e54b5927c5744f4d80e2fa466c526d524e7c2ae.png",
+                    "value": "21"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "18"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "11"
+                },
+                {
+                    "request_origfilepath": "/sample-post",
+                    "value": "9"
+                },
+                {
+                    "request_origfilepath": "/admin/login",
+                    "value": "9"
+                },
+                {
+                    "request_origfilepath": "/static/js/wsgi.js",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/admin",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/static/css/welcome_page.css",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/static/css/wsgi.css",
+                    "value": "7"
+                }
+            ]
+        },
+        "2018-12-16": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "66"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "51"
+                },
+                {
+                    "request_origfilepath": "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js",
+                    "value": "26"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/styles.self-e97ea4088c36862d2f050d39ed457919910202b54d3331b8eb706f40a45155ac.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/style.self-a9d28c69f4ad017edaeaa70a960f9499cd2d4c4e384479b731e204baaca8b7e9.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/main.self-f9e7c1541e1b8783561468c59162bd896007380f5a3799ef2169d3a3fdf40bed.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/js/main.self-de3615060568b463d43b07d97e54e44d624bb66c323372bf19f0d7cab7415efb.js",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/genericons/genericons.self-17f7a66bf8f6efe54bf5d779f1e74511160f380c0af314768f60fc2d46270c53.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/circle-c8061aef5d8c226eea0f28353c365efdb7bbdd43db909d81f644b5e32557cd71.png",
+                    "value": "22"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/search-icon-77cc2a262c38bdfeaf27050d2e54b5927c5744f4d80e2fa466c526d524e7c2ae.png",
+                    "value": "21"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "18"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "11"
+                },
+                {
+                    "request_origfilepath": "/sample-post",
+                    "value": "9"
+                },
+                {
+                    "request_origfilepath": "/admin/login",
+                    "value": "9"
+                },
+                {
+                    "request_origfilepath": "/static/js/wsgi.js",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/admin",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/static/css/welcome_page.css",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/static/css/wsgi.css",
+                    "value": "7"
+                }
+            ]
+        },
+        "2018-W51": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "462"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "413"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "413"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "357"
+                },
+                {
+                    "request_origfilepath": "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js",
+                    "value": "182"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/genericons/genericons.self-17f7a66bf8f6efe54bf5d779f1e74511160f380c0af314768f60fc2d46270c53.css",
+                    "value": "168"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/main.self-f9e7c1541e1b8783561468c59162bd896007380f5a3799ef2169d3a3fdf40bed.css",
+                    "value": "168"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/styles.self-e97ea4088c36862d2f050d39ed457919910202b54d3331b8eb706f40a45155ac.css",
+                    "value": "168"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/style.self-a9d28c69f4ad017edaeaa70a960f9499cd2d4c4e384479b731e204baaca8b7e9.css",
+                    "value": "168"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/js/main.self-de3615060568b463d43b07d97e54e44d624bb66c323372bf19f0d7cab7415efb.js",
+                    "value": "168"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/circle-c8061aef5d8c226eea0f28353c365efdb7bbdd43db909d81f644b5e32557cd71.png",
+                    "value": "154"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/search-icon-77cc2a262c38bdfeaf27050d2e54b5927c5744f4d80e2fa466c526d524e7c2ae.png",
+                    "value": "147"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "126"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "77"
+                },
+                {
+                    "request_origfilepath": "/sample-post",
+                    "value": "63"
+                },
+                {
+                    "request_origfilepath": "/admin/login",
+                    "value": "63"
+                },
+                {
+                    "request_origfilepath": "/static/css/welcome_page.css",
+                    "value": "49"
+                },
+                {
+                    "request_origfilepath": "/static/css/wsgi.css",
+                    "value": "49"
+                },
+                {
+                    "request_origfilepath": "/tag/getting-started",
+                    "value": "49"
+                },
+                {
+                    "request_origfilepath": "/static/js/wsgi.js",
+                    "value": "49"
+                }
+            ]
+        },
+        "2018-W52": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "462"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "413"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "413"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "357"
+                },
+                {
+                    "request_origfilepath": "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js",
+                    "value": "182"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/genericons/genericons.self-17f7a66bf8f6efe54bf5d779f1e74511160f380c0af314768f60fc2d46270c53.css",
+                    "value": "168"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/main.self-f9e7c1541e1b8783561468c59162bd896007380f5a3799ef2169d3a3fdf40bed.css",
+                    "value": "168"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/styles.self-e97ea4088c36862d2f050d39ed457919910202b54d3331b8eb706f40a45155ac.css",
+                    "value": "168"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/style.self-a9d28c69f4ad017edaeaa70a960f9499cd2d4c4e384479b731e204baaca8b7e9.css",
+                    "value": "168"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/js/main.self-de3615060568b463d43b07d97e54e44d624bb66c323372bf19f0d7cab7415efb.js",
+                    "value": "168"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/circle-c8061aef5d8c226eea0f28353c365efdb7bbdd43db909d81f644b5e32557cd71.png",
+                    "value": "154"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/search-icon-77cc2a262c38bdfeaf27050d2e54b5927c5744f4d80e2fa466c526d524e7c2ae.png",
+                    "value": "147"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "126"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "77"
+                },
+                {
+                    "request_origfilepath": "/sample-post",
+                    "value": "63"
+                },
+                {
+                    "request_origfilepath": "/admin/login",
+                    "value": "63"
+                },
+                {
+                    "request_origfilepath": "/static/css/welcome_page.css",
+                    "value": "49"
+                },
+                {
+                    "request_origfilepath": "/static/css/wsgi.css",
+                    "value": "49"
+                },
+                {
+                    "request_origfilepath": "/tag/getting-started",
+                    "value": "49"
+                },
+                {
+                    "request_origfilepath": "/static/js/wsgi.js",
+                    "value": "49"
+                }
+            ]
+        },
+        "2018-12-31": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "66"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "51"
+                },
+                {
+                    "request_origfilepath": "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js",
+                    "value": "26"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/styles.self-e97ea4088c36862d2f050d39ed457919910202b54d3331b8eb706f40a45155ac.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/style.self-a9d28c69f4ad017edaeaa70a960f9499cd2d4c4e384479b731e204baaca8b7e9.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/main.self-f9e7c1541e1b8783561468c59162bd896007380f5a3799ef2169d3a3fdf40bed.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/js/main.self-de3615060568b463d43b07d97e54e44d624bb66c323372bf19f0d7cab7415efb.js",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/genericons/genericons.self-17f7a66bf8f6efe54bf5d779f1e74511160f380c0af314768f60fc2d46270c53.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/circle-c8061aef5d8c226eea0f28353c365efdb7bbdd43db909d81f644b5e32557cd71.png",
+                    "value": "22"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/search-icon-77cc2a262c38bdfeaf27050d2e54b5927c5744f4d80e2fa466c526d524e7c2ae.png",
+                    "value": "21"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "18"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "11"
+                },
+                {
+                    "request_origfilepath": "/sample-post",
+                    "value": "9"
+                },
+                {
+                    "request_origfilepath": "/admin/login",
+                    "value": "9"
+                },
+                {
+                    "request_origfilepath": "/static/js/wsgi.js",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/admin",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/static/css/welcome_page.css",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/static/css/wsgi.css",
+                    "value": "7"
+                }
+            ]
+        },
+        "2019-01": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "2046"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "1829"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "1829"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "1581"
+                },
+                {
+                    "request_origfilepath": "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js",
+                    "value": "806"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/genericons/genericons.self-17f7a66bf8f6efe54bf5d779f1e74511160f380c0af314768f60fc2d46270c53.css",
+                    "value": "744"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/main.self-f9e7c1541e1b8783561468c59162bd896007380f5a3799ef2169d3a3fdf40bed.css",
+                    "value": "744"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/styles.self-e97ea4088c36862d2f050d39ed457919910202b54d3331b8eb706f40a45155ac.css",
+                    "value": "744"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/style.self-a9d28c69f4ad017edaeaa70a960f9499cd2d4c4e384479b731e204baaca8b7e9.css",
+                    "value": "744"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/js/main.self-de3615060568b463d43b07d97e54e44d624bb66c323372bf19f0d7cab7415efb.js",
+                    "value": "744"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/circle-c8061aef5d8c226eea0f28353c365efdb7bbdd43db909d81f644b5e32557cd71.png",
+                    "value": "682"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/search-icon-77cc2a262c38bdfeaf27050d2e54b5927c5744f4d80e2fa466c526d524e7c2ae.png",
+                    "value": "651"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "558"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "341"
+                },
+                {
+                    "request_origfilepath": "/sample-post",
+                    "value": "279"
+                },
+                {
+                    "request_origfilepath": "/admin/login",
+                    "value": "279"
+                },
+                {
+                    "request_origfilepath": "/static/css/welcome_page.css",
+                    "value": "217"
+                },
+                {
+                    "request_origfilepath": "/static/css/wsgi.css",
+                    "value": "217"
+                },
+                {
+                    "request_origfilepath": "/tag/getting-started",
+                    "value": "217"
+                },
+                {
+                    "request_origfilepath": "/static/js/wsgi.js",
+                    "value": "217"
+                }
+            ]
+        },
+        "2019-02": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "1848"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "1652"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "1652"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "1428"
+                },
+                {
+                    "request_origfilepath": "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js",
+                    "value": "728"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/genericons/genericons.self-17f7a66bf8f6efe54bf5d779f1e74511160f380c0af314768f60fc2d46270c53.css",
+                    "value": "672"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/main.self-f9e7c1541e1b8783561468c59162bd896007380f5a3799ef2169d3a3fdf40bed.css",
+                    "value": "672"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/styles.self-e97ea4088c36862d2f050d39ed457919910202b54d3331b8eb706f40a45155ac.css",
+                    "value": "672"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/style.self-a9d28c69f4ad017edaeaa70a960f9499cd2d4c4e384479b731e204baaca8b7e9.css",
+                    "value": "672"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/js/main.self-de3615060568b463d43b07d97e54e44d624bb66c323372bf19f0d7cab7415efb.js",
+                    "value": "672"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/circle-c8061aef5d8c226eea0f28353c365efdb7bbdd43db909d81f644b5e32557cd71.png",
+                    "value": "616"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/search-icon-77cc2a262c38bdfeaf27050d2e54b5927c5744f4d80e2fa466c526d524e7c2ae.png",
+                    "value": "588"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "504"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "308"
+                },
+                {
+                    "request_origfilepath": "/sample-post",
+                    "value": "252"
+                },
+                {
+                    "request_origfilepath": "/admin/login",
+                    "value": "252"
+                },
+                {
+                    "request_origfilepath": "/static/css/welcome_page.css",
+                    "value": "196"
+                },
+                {
+                    "request_origfilepath": "/static/css/wsgi.css",
+                    "value": "196"
+                },
+                {
+                    "request_origfilepath": "/tag/getting-started",
+                    "value": "196"
+                },
+                {
+                    "request_origfilepath": "/static/js/wsgi.js",
+                    "value": "196"
+                }
+            ]
+        },
+        "2019-03-01": {
+            "validhits": [
+                {
+                    "request_origfilepath": "/assets/built/screen.css",
+                    "value": "66"
+                },
+                {
+                    "request_origfilepath": "/assets/built/jquery.fitvids.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/assets/built/infinitescroll.js",
+                    "value": "59"
+                },
+                {
+                    "request_origfilepath": "/",
+                    "value": "51"
+                },
+                {
+                    "request_origfilepath": "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js",
+                    "value": "26"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/styles.self-e97ea4088c36862d2f050d39ed457919910202b54d3331b8eb706f40a45155ac.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/style.self-a9d28c69f4ad017edaeaa70a960f9499cd2d4c4e384479b731e204baaca8b7e9.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/css/main.self-f9e7c1541e1b8783561468c59162bd896007380f5a3799ef2169d3a3fdf40bed.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/js/main.self-de3615060568b463d43b07d97e54e44d624bb66c323372bf19f0d7cab7415efb.js",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/genericons/genericons.self-17f7a66bf8f6efe54bf5d779f1e74511160f380c0af314768f60fc2d46270c53.css",
+                    "value": "24"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/circle-c8061aef5d8c226eea0f28353c365efdb7bbdd43db909d81f644b5e32557cd71.png",
+                    "value": "22"
+                },
+                {
+                    "request_origfilepath": "/assets/themes/default/assets/images/search-icon-77cc2a262c38bdfeaf27050d2e54b5927c5744f4d80e2fa466c526d524e7c2ae.png",
+                    "value": "21"
+                },
+                {
+                    "request_origfilepath": "/welcome",
+                    "value": "18"
+                },
+                {
+                    "request_origfilepath": "/author/ghost",
+                    "value": "11"
+                },
+                {
+                    "request_origfilepath": "/sample-post",
+                    "value": "9"
+                },
+                {
+                    "request_origfilepath": "/admin/login",
+                    "value": "9"
+                },
+                {
+                    "request_origfilepath": "/static/js/wsgi.js",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/admin",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/static/css/welcome_page.css",
+                    "value": "7"
+                },
+                {
+                    "request_origfilepath": "/static/css/wsgi.css",
+                    "value": "7"
+                }
+            ]
+        }
+    }
+}

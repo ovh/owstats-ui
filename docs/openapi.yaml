@@ -1,0 +1,3007 @@
+openapi: 3.0.2
+info:
+  title: OWStats
+  version: 0.4.3
+  description: |
+    This document lists API calls which can be made with owstats API.<br><br>
+                Dates format in query parameters is YYYY-MM-DD<br><br>
+                Responses are splitted by time intervals, corresponding to "property1" and "property2" in response samples of this documentation.<br>
+                For performance reasons, depending on the data available in databases and the date range of the request, these time intervals can have different granularities in the response :<br>
+                <ul>
+                    <li> day : 2020-12-31</li>
+                    <li>week : 2020-12-W06</li>
+                    <li> month : 2020-12</li>
+                    <li> year : 2020</li>
+                </ul>
+                
+    Response sample in documentation :
+
+            {
+                "records": {
+                    "property1": { "visits": [...]},
+                    "property2": { "visits": [...]}
+                }
+            }
+        
+    <br>
+    Possible corresponding response in "real" world :
+       
+            {
+                "records": {
+                    "2018": {"visits": [...]},
+                    "2019-01": {"visits": [...]},
+                    "2019-W10": {"visits": [...]},
+                    "2019-03-11": {"visits": [...]}
+                }
+            }
+
+paths:
+  /{domain}/v1/browser/visits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrowserVisitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Browser Visits
+      description:  For a given domain and time span, it returns the number of sessions aggregated per browser and operating system.<br>
+          A session corresponds to a visitor browsing one or more website's pages during a time window.<br>
+          A session ends after 30 minutes of inactivity.
+      operationId: visits_get_handler__domain__v1_browser_visits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/click_thru/pages:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClickThruPagesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Click truh Pages
+      description: For a given domain and time span, it returns the number of occurences of a user navigation between 2 pages of a website.
+      operationId: pages_get_handler__domain__v1_click_thru_pages_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+        - required: false
+          schema:
+            title: Page to be retrieved
+            type: integer
+            default: 1
+          name: page
+          in: query
+  /{domain}/v1/domains:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainsListResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Domains
+      description: It returns the list of subdomains for a given domain name
+      operationId: get_list_handler__domain__v1_domains_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/domains/hits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainsHitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Domains Hits
+      description: For a given domain and time span, it returns the number of hits aggregated per subdomain.<br>
+                    A hit is a request to get a file (.html, .css, .js, .jpg ..).
+      operationId: get_hits_handler__domain__v1_domains_hits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/domains/errorhits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainsErrorHitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Domains Error Hits
+      description: For a given domain and time span, it returns the number of error hits aggregated per subdomain.<br> 
+                    An error hit is a request to get a file (.html, .css, .js, .jpg ..) which failed.
+      operationId: get_errorhits_handler__domain__v1_domains_errorhits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/domains/validhits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainsValidHitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Domains valid hits
+      description: For a given domain and time span, it returns the number of valid hits aggregated per subdomain.<br> 
+                    A valid hit is a successful request to get a file (.html, .css, .js, .jpg ..).
+      operationId: get_validhits_handler__domain__v1_domains_validhits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/domains/pages:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainsPagesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Domains pages
+      description: For a given domain and time span, it returns the number of pages (success and errors) visited aggregated per subdomain.<br> 
+                    Response is splitted by time interval.
+      operationId: get_pages_handler__domain__v1_domains_pages_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/domains/errorpages:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainsErrorPagesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Domains error pages
+      description: For a given domain and time span, it returns the number of pages visited (errors) aggregated per subdomain.<br> 
+                    Response is splitted by time interval.
+      operationId: get_errorpages_handler__domain__v1_domains_errorpages_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/domains/validpages:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainsValidPagesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Domains Valid Pages
+      description: For a given domain and time span, it returns the number of pages visited (success) aggregated per subdomain.<br> 
+                    Response is splitted by time interval.
+      operationId: get_validpages_handler__domain__v1_domains_validpages_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/geolocalization/pages:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeoLocPagesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Geolocalization pages
+      description: For a given domain and time span, it returns the number of pages visited (error and success) aggregated per geolocalization of the visitor.<br> 
+                    Geolocalization of a user is its country and region.
+      operationId: pages_get_handler__domain__v1_geolocalization_pages_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/geolocalization/visits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeoLocVisitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Geolocalization visits
+      description: For a given domain and time span, it returns the number of user sessions aggregated per geolocalization of the visitor.<br> 
+                    Geolocalization of a user is its country and region.<br> 
+                    A session corresponds to a visitor browsing one or more website's pages during a time window.<br> 
+                    A session ends after 30 minutes of inactivity.
+      operationId: visits_get_handler__domain__v1_geolocalization_visits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/geolocalization/hits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeoLocHitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Geolocalization Hits
+      description: For a given domain and time span, it returns the number of hits aggregated per geolocalization of the visitor.<br> 
+                    Geolocalization of a user is its country and region.<br> 
+                    A hit is a request to get a file (.html, .css, .js, .jpg ..).<br> 
+
+      operationId: hits_get_handler__domain__v1_geolocalization_hits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/hour/hits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HourHitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Hour Hits
+      description: For a given domain and time span, it returns the number of hits aggregated per hour (if response is splitted by time interval "day") or per day.<br> 
+                    A hit is a request to get a file (.html, .css, .js, .jpg ..).<br> 
+      operationId: hits_get_handler__domain__v1_hour_hits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/hour/validhits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HourValidHitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Hour Valid Hits
+      description: For a given domain and time span, it returns the number of valid hits aggregated per hour (if response is splitted by time interval "day") or per day.<br> 
+                    A valid hit is a successful request to get a file (.html, .css, .js, .jpg ..).<br> 
+      operationId: validhits_get_handler__domain__v1_hour_validhits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/hour/errorhits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HourErrorHitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Hour Error Hits
+      description: For a given domain and time span, it returns the number of error hits aggregated per hour (if response is splitted by time interval "day") or per day.<br> 
+                    An error hit is a failed request to get a file (.html, .css, .js, .jpg ..).<br> 
+      operationId: errorhits_get_handler__domain__v1_hour_errorhits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/hour/bytes:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HourBytesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Hour bytes
+      description: For a given domain and time span, it returns the number of bytes transferred aggregated per hour (if response is splitted by time interval "day") or per day.<br> 
+      operationId: bytes_get_handler__domain__v1_hour_bytes_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/hour/bouncepages:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HourBouncePagesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Hour Bounce pages
+      description: For a given domain and time span, it returns the number of times a user visited only one page of the website and left<br> 
+      operationId: bouncepages_get_handler__domain__v1_hour_bouncepages_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/hour/entrancepages:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HourEntrancePagesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Hour entrance pages
+      description: For a given domain and time span, it returns the number of times a user entered a website<br> 
+      operationId: entrancepages_get_handler__domain__v1_hour_entrancepages_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/hour/exitpages:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HourExitPagesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Hour exit pages
+      description: For a given domain and time span, it returns the number of times a user exited a website<br> 
+      operationId: exitpages_get_handler__domain__v1_hour_exitpages_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/hour/pages:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HourPagesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Hour pages
+      description: For a given domain and time span, it returns the number of pages requests (error and success) aggregated per hour (if response is splitted by time interval "day") or per day.<br> 
+      operationId: pages_get_handler__domain__v1_hour_pages_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/hour/validpages:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HourValidPagesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Hour Valid Pages
+      description: For a given domain and time span, it returns the number of successful pages requests aggregated per hour (if response is splitted by time interval "day") or per day.<br> 
+      operationId: validpages_get_handler__domain__v1_hour_validpages_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/hour/errorpages:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HourErrorPagesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Hour Error pages
+      description: For a given domain and time span, it returns the number of pages requests in error aggregated per hour (if response is splitted by time interval "day") or per day.<br> 
+      operationId: errorpages_get_handler__domain__v1_hour_errorpages_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/hour/pagetime:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HourPageTimeResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Hour Pagetime
+      description: For a given domain and time span, it returns the number of seconds spent by users on the website.<br> 
+      operationId: pagetime_get_handler__domain__v1_hour_pagetime_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/hour/visits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HourVisitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Hour visits
+      description: For a given domain and time span, it returns the number of user sessions aggregated per hour (if response is splitted by time interval "day") or per day.<br> 
+                    A session corresponds to a visitor browsing one or more website's pages during a time window.<br>
+                    A session ends after 30 minutes of inactivity.
+      operationId: visits_get_handler__domain__v1_hour_visits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/hour/avgsessiontime:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HourAvgSessionTimeResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Hour Average Session Time
+      description: For a given domain and time span, it returns the average session time computed per hour (if response is splitted by time interval "day") or per day.<br> 
+                    A session corresponds to a visitor browsing one or more website's pages during a time window.<br>
+                    A session ends after 30 minutes of inactivity.
+      operationId: avgsessiontime_get_handler__domain__v1_hour_avgsessiontime_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/initial_path/visits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InitialPathVisitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Initial Path Visits
+      description: For a given domain and time span, it returns the number of user sessions aggregated per initial path.<br> 
+                    Initial path is the first 3 pages of a website browsed by a visitor.<br>
+                    A session corresponds to a visitor browsing one or more website's pages during a time window.<br>
+                    A session ends after 30 minutes of inactivity.
+      operationId: visits_get_handler__domain__v1_initial_path_visits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+        - required: false
+          schema:
+            title: Page to be retrieved
+            type: integer
+            default: 1
+          name: page
+          in: query
+  /{domain}/v1/request_form/validhits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestFormValidHitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Request Form Valid Hits
+      description: For a given domain and time span, it returns the number of valid hits aggregated per form.<br> 
+                    A form is the html element form <br> 
+                    A valid hit is a successful request to get a file (.html, .css, .js, .jpg ..).<br> 
+      operationId: validhits_get_handler__domain__v1_request_form_validhits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+        - required: false
+          schema:
+            title: Page to be retrieved
+            type: integer
+            default: 1
+          name: page
+          in: query
+  /{domain}/v1/robots/bytes:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RobotsBytesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Robots Bytes
+      description: For a given domain and time span, it returns the bytes transferred aggregated per robot type.<br> 
+                    Robots are used by many search engines to automatically browse the web and index your site.<br>
+      operationId: bytes_get_handler__domain__v1_robots_bytes_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/robots/errorhits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RobotsErrorHitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Robots Error Hits
+      description: For a given domain and time span, it returns the number of error hits aggregated per robot type.<br> 
+                    Robots are used by many search engines to automatically browse the web and index your site.<br>
+                    An error hit is a failed request to get a file (.html, .css, .js, .jpg ..).<br> 
+      operationId: errorhits_get_handler__domain__v1_robots_errorhits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/robots/validhits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RobotsValidHitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Robots Valid Hits
+      description: For a given domain and time span, it returns the number of valid hits aggregated per robot type.<br> 
+                    Robots are used by many search engines to automatically browse the web and index your site.<br>
+                    A Valid hit is a successful request to get a file (.html, .css, .js, .jpg ..).<br> 
+      operationId: validhits_get_handler__domain__v1_robots_validhits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/robots_pages/hits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RobotsPagesHitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Robots pages hits
+      description: For a given domain and time span, it returns the number of hits aggregated per robot type and page.<br> 
+                    Robots are used by many search engines to automatically browse the web and index your site.<br>
+      operationId: hits_get_handler__domain__v1_robots_pages_hits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+        - required: false
+          schema:
+            title: Page to be retrieved
+            type: integer
+            default: 1
+          name: page
+          in: query
+  /{domain}/v1/status/validhits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusValidHitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Status Valid Hits
+      description: For a given domain and time span, it returns the number of valid hits aggregated per status code.<br> 
+                    A Valid hit is a successful request to get a file (.html, .css, .js, .jpg ..).<br> 
+      operationId: validhits_get_handler__domain__v1_status_validhits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/status/errorhits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusErrorHitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Status Error Hits
+      description: For a given domain and time span, it returns the number of  error hits aggregated per status code.<br> 
+                    An error hit is a failed request to get a file (.html, .css, .js, .jpg ..).<br> 
+      operationId: errorhits_get_handler__domain__v1_status_errorhits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/status/hits:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusHitsResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Status Hits
+      description: For a given domain and time span, it returns the number of hits aggregated per status code.<br> 
+                    A hit is a request to get a file (.html, .css, .js, .jpg ..).<br> 
+      operationId: hits_get_handler__domain__v1_status_hits_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/status/validpages:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusValidPagesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Status Valid Pages
+      description: For a given domain and time span, it returns the number of valid pages requests aggregated per status code.<br> 
+      operationId: validpages_get_handler__domain__v1_status_validpages_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/status/errorpages:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusErrorPagesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Status Error Pages
+      description: For a given domain and time span, it returns the number of failed pages requests aggregated per status code.<br> 
+      operationId: errorpages_get_handler__domain__v1_status_errorpages_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+  /{domain}/v1/status/pages:
+    get:
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusPagesResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      summary: Status Pages
+      description: For a given domain and time span, it returns the number of pages requests aggregated per status code.<br> 
+      operationId: pages_get_handler__domain__v1_status_pages_get
+      parameters:
+        - required: true
+          schema:
+            title: Domain to query
+            type: string
+          name: domain
+          in: path
+        - required: false
+          schema:
+            title: Subdomain to query
+            type: string
+            default: ''
+          name: subdomain
+          in: query
+        - required: true
+          schema:
+            title: Start of the selection
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: start_date
+          in: query
+        - required: true
+          schema:
+            title: End of the selection (inclusive)
+            pattern: ^\d{4}-\d{2}-\d{2}$
+            type: string
+          name: end_date
+          in: query
+components:
+  schemas:
+    BrowserEntry:
+      title: BrowserEntry
+      required:
+        - browser
+        - browser_version
+        - platform
+        - platform_version
+        - value
+      type: object
+      properties:
+        browser:
+          title: Browser
+          type: string
+        browser_version:
+          title: Browser_Version
+          type: string
+        platform:
+          title: Platform
+          type: string
+        platform_version:
+          title: Platform_Version
+          type: string
+        value:
+          title: Value
+          type: string
+    BrowserVisitsModel:
+      title: BrowserVisitsModel
+      required:
+        - visits
+      type: object
+      properties:
+        visits:
+          title: Visits
+          type: array
+          items:
+            $ref: '#/components/schemas/BrowserEntry'
+    BrowserVisitsResponse:
+      title: BrowserVisitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/BrowserVisitsModel'
+    ClickThruEntry:
+      title: ClickThruEntry
+      required:
+        - page_from
+        - page_to
+        - value
+      type: object
+      properties:
+        page_from:
+          title: Page_From
+          type: string
+        page_to:
+          title: Page_To
+          type: string
+        value:
+          title: Value
+          type: string
+    ClickThruPagesModel:
+      title: ClickThruPagesModel
+      required:
+        - pages
+      type: object
+      properties:
+        pages:
+          title: Pages
+          type: array
+          items:
+            $ref: '#/components/schemas/ClickThruEntry'
+    ClickThruPagesResponse:
+      title: ClickThruPagesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ClickThruPagesModel'
+    DCBytesModel:
+      title: DCBytesModel
+      required:
+        - bytes
+      type: object
+      properties:
+        bytes:
+          title: Bytes
+          type: array
+          items:
+            $ref: '#/components/schemas/DCEntry'
+    DCBytesResponse:
+      title: DCBytesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/DCBytesModel'
+    DCEntry:
+      title: DCEntry
+      required:
+        - domain
+        - value
+      type: object
+      properties:
+        domain:
+          title: Domain
+          type: string
+        value:
+          title: Value
+          type: string
+    DCHitsModel:
+      title: DCHitsModel
+      required:
+        - hits
+      type: object
+      properties:
+        hits:
+          title: Hits
+          type: array
+          items:
+            $ref: '#/components/schemas/DCEntry'
+    DCHitsResponse:
+      title: DCHitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/DCHitsModel'
+    DomainsEntry:
+      title: DomainsEntry
+      required:
+        - subdomain
+        - value
+      type: object
+      properties:
+        subdomain:
+          title: Subdomain
+          type: string
+        value:
+          title: Value
+          type: string
+    DomainsErrorHitsModel:
+      title: DomainsErrorHitsModel
+      required:
+        - errorhits
+      type: object
+      properties:
+        errorhits:
+          title: Errorhits
+          type: array
+          items:
+            $ref: '#/components/schemas/DomainsEntry'
+    DomainsErrorHitsResponse:
+      title: DomainsErrorHitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/DomainsErrorHitsModel'
+    DomainsErrorPagesModel:
+      title: DomainsErrorPagesModel
+      required:
+        - errorpages
+      type: object
+      properties:
+        errorpages:
+          title: Errorpages
+          type: array
+          items:
+            $ref: '#/components/schemas/DomainsEntry'
+    DomainsErrorPagesResponse:
+      title: DomainsErrorPagesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/DomainsErrorPagesModel'
+    DomainsHitsModel:
+      title: DomainsHitsModel
+      required:
+        - hits
+      type: object
+      properties:
+        hits:
+          title: Hits
+          type: array
+          items:
+            $ref: '#/components/schemas/DomainsEntry'
+    DomainsHitsResponse:
+      title: DomainsHitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/DomainsHitsModel'
+    DomainsListResponse:
+      title: DomainsListResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: array
+          items:
+            type: string
+    DomainsPagesModel:
+      title: DomainsPagesModel
+      required:
+        - pages
+      type: object
+      properties:
+        pages:
+          title: Pages
+          type: array
+          items:
+            $ref: '#/components/schemas/DomainsEntry'
+    DomainsPagesResponse:
+      title: DomainsPagesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/DomainsPagesModel'
+    DomainsValidHitsModel:
+      title: DomainsValidHitsModel
+      required:
+        - validhits
+      type: object
+      properties:
+        validhits:
+          title: Validhits
+          type: array
+          items:
+            $ref: '#/components/schemas/DomainsEntry'
+    DomainsValidHitsResponse:
+      title: DomainsValidHitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/DomainsValidHitsModel'
+    DomainsValidPagesModel:
+      title: DomainsValidPagesModel
+      required:
+        - validpages
+      type: object
+      properties:
+        validpages:
+          title: Validpages
+          type: array
+          items:
+            $ref: '#/components/schemas/DomainsEntry'
+    DomainsValidPagesResponse:
+      title: DomainsValidPagesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/DomainsValidPagesModel'
+    GeoLocEntry:
+      title: GeoLocEntry
+      required:
+        - country
+        - region
+        - value
+      type: object
+      properties:
+        country:
+          title: Country
+          type: string
+        region:
+          title: Region
+          type: string
+        value:
+          title: Value
+          type: string
+    GeoLocHitsModel:
+      title: GeoLocHitsModel
+      required:
+        - hits
+      type: object
+      properties:
+        hits:
+          title: Hits
+          type: array
+          items:
+            $ref: '#/components/schemas/GeoLocEntry'
+    GeoLocHitsResponse:
+      title: GeoLocHitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/GeoLocHitsModel'
+    GeoLocPagesModel:
+      title: GeoLocPagesModel
+      required:
+        - pages
+      type: object
+      properties:
+        pages:
+          title: Pages
+          type: array
+          items:
+            $ref: '#/components/schemas/GeoLocEntry'
+    GeoLocPagesResponse:
+      title: GeoLocPagesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/GeoLocPagesModel'
+    GeoLocVisitsModel:
+      title: GeoLocVisitsModel
+      required:
+        - visits
+      type: object
+      properties:
+        visits:
+          title: Visits
+          type: array
+          items:
+            $ref: '#/components/schemas/GeoLocEntry'
+    GeoLocVisitsResponse:
+      title: GeoLocVisitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/GeoLocVisitsModel'
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    HourAvgSessionTimeModel:
+      title: HourAvgSessionTimeModel
+      required:
+        - avgsessiontime
+      type: object
+      properties:
+        avgsessiontime:
+          title: Avgsessiontime
+          type: array
+          items:
+            $ref: '#/components/schemas/HourEntry'
+    HourAvgSessionTimeResponse:
+      title: HourAvgSessionTimeResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/HourAvgSessionTimeModel'
+    HourBouncePagesModel:
+      title: HourBouncePagesModel
+      required:
+        - bouncepages
+      type: object
+      properties:
+        bouncepages:
+          title: Bouncepages
+          type: array
+          items:
+            $ref: '#/components/schemas/HourEntry'
+    HourBouncePagesResponse:
+      title: HourBouncePagesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/HourBouncePagesModel'
+    HourBytesModel:
+      title: HourBytesModel
+      required:
+        - bytes
+      type: object
+      properties:
+        bytes:
+          title: Bytes
+          type: array
+          items:
+            $ref: '#/components/schemas/HourEntry'
+    HourBytesResponse:
+      title: HourBytesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/HourBytesModel'
+    HourEntrancePagesModel:
+      title: HourEntrancePagesModel
+      required:
+        - entrancepages
+      type: object
+      properties:
+        entrancepages:
+          title: Entrancepages
+          type: array
+          items:
+            $ref: '#/components/schemas/HourEntry'
+    HourEntrancePagesResponse:
+      title: HourEntrancePagesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/HourEntrancePagesModel'
+    HourEntry:
+      title: HourEntry
+      required:
+        - time
+        - value
+      type: object
+      properties:
+        time:
+          title: Time
+          type: string
+        value:
+          title: Value
+          type: string
+    HourErrorHitsModel:
+      title: HourErrorHitsModel
+      required:
+        - errorhits
+      type: object
+      properties:
+        errorhits:
+          title: Errorhits
+          type: array
+          items:
+            $ref: '#/components/schemas/HourEntry'
+    HourErrorHitsResponse:
+      title: HourErrorHitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/HourErrorHitsModel'
+    HourErrorPagesModel:
+      title: HourErrorPagesModel
+      required:
+        - errorpages
+      type: object
+      properties:
+        errorpages:
+          title: Errorpages
+          type: array
+          items:
+            $ref: '#/components/schemas/HourEntry'
+    HourErrorPagesResponse:
+      title: HourErrorPagesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/HourErrorPagesModel'
+    HourExitPagesModel:
+      title: HourExitPagesModel
+      required:
+        - exitpages
+      type: object
+      properties:
+        exitpages:
+          title: Exitpages
+          type: array
+          items:
+            $ref: '#/components/schemas/HourEntry'
+    HourExitPagesResponse:
+      title: HourExitPagesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/HourExitPagesModel'
+    HourHitsModel:
+      title: HourHitsModel
+      required:
+        - hits
+      type: object
+      properties:
+        hits:
+          title: Hits
+          type: array
+          items:
+            $ref: '#/components/schemas/HourEntry'
+    HourHitsResponse:
+      title: HourHitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/HourHitsModel'
+    HourPageTimeModel:
+      title: HourPageTimeModel
+      required:
+        - pagetime
+      type: object
+      properties:
+        pagetime:
+          title: Pagetime
+          type: array
+          items:
+            $ref: '#/components/schemas/HourEntry'
+    HourPageTimeResponse:
+      title: HourPageTimeResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/HourPageTimeModel'
+    HourPagesModel:
+      title: HourPagesModel
+      required:
+        - pages
+      type: object
+      properties:
+        pages:
+          title: Pages
+          type: array
+          items:
+            $ref: '#/components/schemas/HourEntry'
+    HourPagesResponse:
+      title: HourPagesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/HourPagesModel'
+    HourValidHitsModel:
+      title: HourValidHitsModel
+      required:
+        - validhits
+      type: object
+      properties:
+        validhits:
+          title: Validhits
+          type: array
+          items:
+            $ref: '#/components/schemas/HourEntry'
+    HourValidHitsResponse:
+      title: HourValidHitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/HourValidHitsModel'
+    HourValidPagesModel:
+      title: HourValidPagesModel
+      required:
+        - validpages
+      type: object
+      properties:
+        validpages:
+          title: Validpages
+          type: array
+          items:
+            $ref: '#/components/schemas/HourEntry'
+    HourValidPagesResponse:
+      title: HourValidPagesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/HourValidPagesModel'
+    HourVisitsModel:
+      title: HourVisitsModel
+      required:
+        - visits
+      type: object
+      properties:
+        visits:
+          title: Visits
+          type: array
+          items:
+            $ref: '#/components/schemas/HourEntry'
+    HourVisitsResponse:
+      title: HourVisitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/HourVisitsModel'
+    InitialPathEntry:
+      title: InitialPathEntry
+      required:
+        - page_1
+        - page_2
+        - page_3
+        - value
+      type: object
+      properties:
+        page_1:
+          title: Page_1
+          type: string
+        page_2:
+          title: Page_2
+          type: string
+        page_3:
+          title: Page_3
+          type: string
+        value:
+          title: Value
+          type: string
+    InitialPathVisitsModel:
+      title: InitialPathVisitsModel
+      required:
+        - visits
+      type: object
+      properties:
+        visits:
+          title: Visits
+          type: array
+          items:
+            $ref: '#/components/schemas/InitialPathEntry'
+    InitialPathVisitsResponse:
+      title: InitialPathVisitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/InitialPathVisitsModel'
+    RequestFilePathBytesModel:
+      title: RequestFilePathBytesModel
+      required:
+        - bytes
+      type: object
+      properties:
+        bytes:
+          title: Bytes
+          type: array
+          items:
+            $ref: '#/components/schemas/RequestFilePathEntry'
+    RequestFilePathBytesResponse:
+      title: RequestFilePathBytesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RequestFilePathBytesModel'
+    RequestFilePathEntry:
+      title: RequestFilePathEntry
+      required:
+        - request_origfilepath
+        - value
+      type: object
+      properties:
+        request_origfilepath:
+          title: Request_Origfilepath
+          type: string
+        value:
+          title: Value
+          type: string
+    RequestFilePathValidHitsModel:
+      title: RequestFilePathValidHitsModel
+      required:
+        - validhits
+      type: object
+      properties:
+        validhits:
+          title: Validhits
+          type: array
+          items:
+            $ref: '#/components/schemas/RequestFilePathEntry'
+    RequestFilePathValidHitsResponse:
+      title: RequestFilePathValidHitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RequestFilePathValidHitsModel'
+    RequestFormEntry:
+      title: RequestFormEntry
+      required:
+        - post_form
+        - value
+      type: object
+      properties:
+        post_form:
+          title: Post_Form
+          type: string
+        value:
+          title: Value
+          type: string
+    RequestFormValidHitsModel:
+      title: RequestFormValidHitsModel
+      required:
+        - validhits
+      type: object
+      properties:
+        validhits:
+          title: Validhits
+          type: array
+          items:
+            $ref: '#/components/schemas/RequestFormEntry'
+    RequestFormValidHitsResponse:
+      title: RequestFormValidHitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RequestFormValidHitsModel'
+    RequestQueryEntry:
+      title: RequestQueryEntry
+      required:
+        - stem
+        - query
+        - value
+      type: object
+      properties:
+        stem:
+          title: Stem
+          type: string
+        query:
+          title: Query
+          type: string
+        value:
+          title: Value
+          type: string
+    RequestQueryPagesModel:
+      title: RequestQueryPagesModel
+      required:
+        - pages
+      type: object
+      properties:
+        pages:
+          title: Pages
+          type: array
+          items:
+            $ref: '#/components/schemas/RequestQueryEntry'
+    RequestQueryPagesResponse:
+      title: RequestQueryPagesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RequestQueryPagesModel'
+    RobotsBytesModel:
+      title: RobotsBytesModel
+      required:
+        - bytes
+      type: object
+      properties:
+        bytes:
+          title: Bytes
+          type: array
+          items:
+            $ref: '#/components/schemas/RobotsEntry'
+    RobotsBytesResponse:
+      title: RobotsBytesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RobotsBytesModel'
+    RobotsEntry:
+      title: RobotsEntry
+      required:
+        - robot_agent
+        - useragent
+        - value
+      type: object
+      properties:
+        robot_agent:
+          title: Robot_Agent
+          type: string
+        useragent:
+          title: Useragent
+          type: string
+        value:
+          title: Value
+          type: string
+    RobotsErrorHitsModel:
+      title: RobotsErrorHitsModel
+      required:
+        - errorhits
+      type: object
+      properties:
+        errorhits:
+          title: Errorhits
+          type: array
+          items:
+            $ref: '#/components/schemas/RobotsEntry'
+    RobotsErrorHitsResponse:
+      title: RobotsErrorHitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RobotsErrorHitsModel'
+    RobotsPagesEntry:
+      title: RobotsPagesEntry
+      required:
+        - robot_agent
+        - useragent
+        - request_origfilepath
+        - value
+      type: object
+      properties:
+        robot_agent:
+          title: Robot_Agent
+          type: string
+        useragent:
+          title: Useragent
+          type: string
+        request_origfilepath:
+          title: Request_Origfilepath
+          type: string
+        value:
+          title: Value
+          type: string
+    RobotsPagesHitsModel:
+      title: RobotsPagesHitsModel
+      required:
+        - hits
+      type: object
+      properties:
+        hits:
+          title: Hits
+          type: array
+          items:
+            $ref: '#/components/schemas/RobotsPagesEntry'
+    RobotsPagesHitsResponse:
+      title: RobotsPagesHitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RobotsPagesHitsModel'
+    RobotsValidHitsModel:
+      title: RobotsValidHitsModel
+      required:
+        - validhits
+      type: object
+      properties:
+        validhits:
+          title: Validhits
+          type: array
+          items:
+            $ref: '#/components/schemas/RobotsEntry'
+    RobotsValidHitsResponse:
+      title: RobotsValidHitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RobotsValidHitsModel'
+    StatusEntry:
+      title: StatusEntry
+      required:
+        - status_code
+        - value
+      type: object
+      properties:
+        status_code:
+          title: Status_Code
+          type: string
+        value:
+          title: Value
+          type: string
+    StatusErrorHitsModel:
+      title: StatusErrorHitsModel
+      required:
+        - errorhits
+      type: object
+      properties:
+        errorhits:
+          title: Errorhits
+          type: array
+          items:
+            $ref: '#/components/schemas/StatusEntry'
+    StatusErrorHitsResponse:
+      title: StatusErrorHitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/StatusErrorHitsModel'
+    StatusErrorPagesModel:
+      title: StatusErrorPagesModel
+      required:
+        - errorpages
+      type: object
+      properties:
+        errorpages:
+          title: Errorpages
+          type: array
+          items:
+            $ref: '#/components/schemas/StatusEntry'
+    StatusErrorPagesResponse:
+      title: StatusErrorPagesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/StatusErrorPagesModel'
+    StatusHitsModel:
+      title: StatusHitsModel
+      required:
+        - hits
+      type: object
+      properties:
+        hits:
+          title: Hits
+          type: array
+          items:
+            $ref: '#/components/schemas/StatusEntry'
+    StatusHitsResponse:
+      title: StatusHitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/StatusHitsModel'
+    StatusPagesEntry:
+      title: StatusPagesEntry
+      required:
+        - status_code
+        - request_origfilepath
+        - request_host
+        - request_stem
+        - value
+      type: object
+      properties:
+        status_code:
+          title: Status_Code
+          type: string
+        request_origfilepath:
+          title: Request_Origfilepath
+          type: string
+        request_host:
+          title: Request_Host
+          type: string
+        request_stem:
+          title: Request_Stem
+          type: string
+        value:
+          title: Value
+          type: string
+    StatusPagesErrorHitsModel:
+      title: StatusPagesErrorHitsModel
+      required:
+        - errorhits
+      type: object
+      properties:
+        errorhits:
+          title: Errorhits
+          type: array
+          items:
+            $ref: '#/components/schemas/StatusPagesEntry'
+    StatusPagesErrorHitsResponse:
+      title: StatusPagesErrorHitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/StatusPagesErrorHitsModel'
+    StatusPagesModel:
+      title: StatusPagesModel
+      required:
+        - pages
+      type: object
+      properties:
+        pages:
+          title: Pages
+          type: array
+          items:
+            $ref: '#/components/schemas/StatusEntry'
+    StatusPagesResponse:
+      title: StatusPagesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/StatusPagesModel'
+    StatusValidHitsModel:
+      title: StatusValidHitsModel
+      required:
+        - validhits
+      type: object
+      properties:
+        validhits:
+          title: Validhits
+          type: array
+          items:
+            $ref: '#/components/schemas/StatusEntry'
+    StatusValidHitsResponse:
+      title: StatusValidHitsResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/StatusValidHitsModel'
+    StatusValidPagesModel:
+      title: StatusValidPagesModel
+      required:
+        - validpages
+      type: object
+      properties:
+        validpages:
+          title: Validpages
+          type: array
+          items:
+            $ref: '#/components/schemas/StatusEntry'
+    StatusValidPagesResponse:
+      title: StatusValidPagesResponse
+      required:
+        - records
+      type: object
+      properties:
+        records:
+          title: Records
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/StatusValidPagesModel'
+    ValidationError:
+      title: ValidationError
+      required:
+        - loc
+        - msg
+        - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            type: string
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string

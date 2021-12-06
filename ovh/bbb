@@ -1,0 +1,27 @@
+# set -e to stop on first failure.
+set -e
+
+DISTRIB=${CDS_PIP_OS}
+DISTRIB=${DISTRIB%-*}
+export FULL_DISTRIB=${CDS_PIP_OS/-/+}
+
+# Update the package changelog to add the build number and
+# the git commit id.
+#
+# It will give a package name with the following format:
+# package-name_1.0.0-1+distrib-arch-build1~git123abcd_arch.deb
+#
+# The first arch in the package name is the architecture 
+# the package was build on.
+#
+# The final arch is appended automatically by debian
+# packaging scripts and corresponds to the architecture
+# field of the debian/control file.
+#
+
+if [ "${CDS_PIP_OS}" == "buster-amd64" ]; then
+    # Build UI
+    sed -ri "1s/([^(]*\()([^)]*)(\).*)\s+(.*);/\1\2+${FULL_DISTRIB}+build${CDS_VERSION}~git$(cd /home/pkg/src && git log -n 1 --format="%h")\3 ${DISTRIB};/" debian/changelog
+    debuild $DEBUILD_OPTIONS -us -uc -b -j$(nproc)
+fi
+

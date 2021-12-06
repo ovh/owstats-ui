@@ -1,0 +1,130 @@
+.card {
+  background-color: $card-bg !important;
+}
+
+.card-margin {
+  box-shadow: rgba(0, 14, 156, 0.2) 0px 0px 6px 0px;
+  margin-bottom: $spacing-m;
+  border-radius: 6px;
+  min-width: 300px;
+}
+
+.dashb-widget-chart {
+  text-align: center;
+  padding: $spacing-s;
+  position: relative;
+}
+
+.icon-wrapper {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.icon-wrapper .icon-wrapper-bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+  opacity: .2;
+  background-color: $p-100;
+}
+
+.icon-wrapper span {
+  margin: 0 auto;
+  font-size: $font-size-lg;
+  position: relative;
+  z-index: 5;
+}
+
+.widget-numbers {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-lg;
+  display: block;
+  line-height: 1;
+  margin: $spacing-s auto;
+}
+
+.widget-chart {
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+}
+
+.icon-wrapper i {
+  margin: 0 auto;
+  font-size: 1.7rem;
+  position: relative;
+  z-index: 5;
+}
+
+.trend-subtitle {
+  text-align: center;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  font-size: $font-size-lg;
+}
+
+table {
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: $p-100 !important;
+}
+
+th {
+  background-color: $p-100 !important;
+  color: $t-800 !important;
+  font-size: $font-size-sm !important;
+  hyphens: auto !important;
+  word-break: normal !important;
+  border-style: none !important;
+  border-width: 0px !important;
+}
+
+td {
+  background-color: $white !important;
+  color: $t-800 !important;
+  border-color: $p-100 !important;
+  font-size: $font-size-sm !important;
+  hyphens: auto !important;
+  word-break: normal !important;
+}
+
+thead {
+  border-style: none !important;
+  border-width: 0px !important;
+}
+
+tbody {
+  border-style: none !important;
+  border-width: 0px;
+}
+
+.apexcharts-legend-text {
+  color: $t-800 !important
+}
+
+.tops {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tops .card {
+  flex: 1;
+  margin-right: $spacing-m;
+
+  &:last-child {
+    margin-right: 0px;
+  }
+}

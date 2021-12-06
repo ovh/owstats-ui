@@ -1,0 +1,67 @@
+[
+  {
+    "title": "Is OVHcloud Web Statistics free of charge?",
+    "value": "Access to the statistics of your site is included in your hosting. You do not need to subscribe to another subscription to benefit from this service.",
+    "category": "global"
+  },
+  {
+    "title": "What is a page viewed?",
+    "value": "A viewed page is a page that the user has successfully viewed.",
+    "category": "dashboard"
+  },
+  {
+    "title": "What is a page in error?",
+    "value": "A page is considered in error when the page or one of its elements could not be displayed. This may be a web client error or a server error.",
+    "category": "dashboard"
+  },
+  {
+    "title": "What is a session?",
+    "value": "It corresponds to a visitor browsing one or more website's pages during a time window. A session ends after 30 minutes of inactivity.",
+    "category": "dashboard"
+  },
+  {
+    "title": "What is the average time of a session?",
+    "value": "Average time during which users are active and browsing on your site. A session ends after 30 minutes of inactivity.",
+    "category": "dashboard"
+  },
+  {
+    "title": "What is a browser?",
+    "value": "It corresponds to the name of the browsers used by your visitors, such as: Mozilla Firefox, Safari, Chrome, IE+Edge, etc.",
+    "category": "browser"
+  },
+  {
+    "title": "What is a Platform?",
+    "value": "A platform is the type of operating system used by a visitor. For instance, this allows among other things to distinguish the proportion of mobile devices.",
+    "category": "browser"
+  },
+  {
+    "title": "What is the origin?",
+    "value": "The origin of the visitors makes it possible to indicate their geographical location.",
+    "category": "geolocalization"
+  },
+  {
+    "title": "What is a page?",
+    "value": "It's a specific url of the web site.",
+    "category": "request"
+  },
+  {
+    "title": "What is a form?",
+    "value": "It's a page on your website where a visitor can fill data in a form. e.g. contact form, authentication textbox ... And in general, any HTTP POST request.",
+    "category": "request"
+  },
+  {
+    "title": "What is a browsing journey?",
+    "value": "This is the sequence of pages most frequently followed by your visitors. This information can be used to improve specific pages the user is most likely to browse.",
+    "category": "request"
+  },
+  {
+    "title": "What is a robot?",
+    "value": "Robots are used by many search engines to automatically browse the web and index your site. They allow you to appear in search results. These robots have technical names. They are numerous and evolve very often.",
+    "category": "robot"
+  },
+  {
+    "title": "What is a hit?",
+    "value": "A hit is a request to get a file (.html, .css, .js, .jpg ..).",
+    "category": "status"
+  }
+]

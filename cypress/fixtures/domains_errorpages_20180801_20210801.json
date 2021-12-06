@@ -1,0 +1,180 @@
+{
+    "records": {
+        "2018-08": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "682"
+                }
+            ]
+        },
+        "2018-09": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "660"
+                }
+            ]
+        },
+        "2018-10": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "682"
+                }
+            ]
+        },
+        "2018-11": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "660"
+                }
+            ]
+        },
+        "2018-12": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "682"
+                }
+            ]
+        },
+        "2019-01": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "682"
+                }
+            ]
+        },
+        "2019-02": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "616"
+                }
+            ]
+        },
+        "2019-03": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "682"
+                }
+            ]
+        },
+        "2019-04": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "660"
+                }
+            ]
+        },
+        "2019-05": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "682"
+                }
+            ]
+        },
+        "2019-06": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "660"
+                }
+            ]
+        },
+        "2019-07": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "682"
+                }
+            ]
+        },
+        "2019-08": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "682"
+                }
+            ]
+        },
+        "2019-09": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "660"
+                }
+            ]
+        },
+        "2019-10": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "682"
+                }
+            ]
+        },
+        "2019-11-01": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2019-11-02": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2019-11-03": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2019-11-04": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2019-11-05": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2019-11-06": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        },
+        "2019-11-07": {
+            "errorpages": [
+                {
+                    "subdomain": "www.test.com",
+                    "value": "22"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,180 @@
+{
+    "records": {
+        "2018-08-01": {
+            "validpages": [
+                {
+                    "subdomain": "api.test.com",
+                    "value": "28"
+                },
+                {
+                    "subdomain": "shop.test.com",
+                    "value": "29"
+                },
+                {
+                    "subdomain": "www.test.com",
+                    "value": "62"
+                }
+            ]
+        },
+        "2018-08-02": {
+            "validpages": [
+                {
+                    "subdomain": "api.test.com",
+                    "value": "28"
+                },
+                {
+                    "subdomain": "shop.test.com",
+                    "value": "29"
+                },
+                {
+                    "subdomain": "www.test.com",
+                    "value": "62"
+                }
+            ]
+        },
+        "2018-08-03": {
+            "validpages": [
+                {
+                    "subdomain": "api.test.com",
+                    "value": "28"
+                },
+                {
+                    "subdomain": "shop.test.com",
+                    "value": "29"
+                },
+                {
+                    "subdomain": "www.test.com",
+                    "value": "62"
+                }
+            ]
+        },
+        "2018-08-04": {
+            "validpages": [
+                {
+                    "subdomain": "api.test.com",
+                    "value": "28"
+                },
+                {
+                    "subdomain": "shop.test.com",
+                    "value": "29"
+                },
+                {
+                    "subdomain": "www.test.com",
+                    "value": "62"
+                }
+            ]
+        },
+        "2018-08-05": {
+            "validpages": [
+                {
+                    "subdomain": "api.test.com",
+                    "value": "28"
+                },
+                {
+                    "subdomain": "shop.test.com",
+                    "value": "29"
+                },
+                {
+                    "subdomain": "www.test.com",
+                    "value": "62"
+                }
+            ]
+        },
+        "2018-08-06": {
+            "validpages": [
+                {
+                    "subdomain": "api.test.com",
+                    "value": "28"
+                },
+                {
+                    "subdomain": "shop.test.com",
+                    "value": "29"
+                },
+                {
+                    "subdomain": "www.test.com",
+                    "value": "62"
+                }
+            ]
+        },
+        "2018-08-07": {
+            "validpages": [
+                {
+                    "subdomain": "api.test.com",
+                    "value": "28"
+                },
+                {
+                    "subdomain": "shop.test.com",
+                    "value": "29"
+                },
+                {
+                    "subdomain": "www.test.com",
+                    "value": "62"
+                }
+            ]
+        },
+        "2018-08-08": {
+            "validpages": [
+                {
+                    "subdomain": "api.test.com",
+                    "value": "28"
+                },
+                {
+                    "subdomain": "shop.test.com",
+                    "value": "29"
+                },
+                {
+                    "subdomain": "www.test.com",
+                    "value": "62"
+                }
+            ]
+        },
+        "2018-08-09": {
+            "validpages": [
+                {
+                    "subdomain": "api.test.com",
+                    "value": "28"
+                },
+                {
+                    "subdomain": "shop.test.com",
+                    "value": "29"
+                },
+                {
+                    "subdomain": "www.test.com",
+                    "value": "62"
+                }
+            ]
+        },
+        "2018-08-10": {
+            "validpages": [
+                {
+                    "subdomain": "api.test.com",
+                    "value": "28"
+                },
+                {
+                    "subdomain": "shop.test.com",
+                    "value": "29"
+                },
+                {
+                    "subdomain": "www.test.com",
+                    "value": "62"
+                }
+            ]
+        },
+        "2018-08-11": {
+            "validpages": [
+                {
+                    "subdomain": "api.test.com",
+                    "value": "28"
+                },
+                {
+                    "subdomain": "shop.test.com",
+                    "value": "29"
+                },
+                {
+                    "subdomain": "www.test.com",
+                    "value": "62"
+                }
+            ]
+        }
+    }
+}
