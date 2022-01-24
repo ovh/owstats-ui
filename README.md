@@ -34,7 +34,7 @@ In your local machine, install dependencies and launch development server by doi
 nvm install 16
 nvm use 16
 npm install --global yarn
-git clone [ repo ]
+git clone https://github.com/ovh/owstats-ui.git
 cd owstats-ui
 yarn install
 yarn local-config
@@ -100,7 +100,7 @@ The most simple option is to deploy your webanalytics service on a domain name a
 nvm install 16
 nvm use 16
 npm install --global yarn
-git clone [ repo ]
+git clone https://github.com/ovh/owstats-ui.git
 cd owstats-ui
 yarn install
 yarn deploy
@@ -124,7 +124,7 @@ You also have the possibility to deploy your webanalytics service on a domain na
 nvm install 16
 nvm use 16
 npm install --global yarn
-git clone [ repo ]
+git clone https://github.com/ovh/owstats-ui.git
 cd owstats-ui
 yarn install
 yarn deploy
@@ -145,6 +145,6 @@ Folder "deploy" is then created in owstats-ui directory. This folder contains al
 # D. Modify owstats-ui
 You can modify the code of owstats-ui to display additional data or change the styles :
 - it uses vuejs, vue router and vuex
-- You can use any raw statistics that are documented in owstats API documentation [ link ]
+- You can use any raw statistics that are documented in owstats API documentation : https://ovh.github.io/owstats-ui/
 - styles (colors, spacing...) can be customized easily using the file "src/assets/sass/_variables.scss"
 - after modification, you can dislay your changes locally (section B) or deploy your analytics service (section C)
