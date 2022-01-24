@@ -18,6 +18,8 @@ In order to use owstats-ui, you will need to have OVHcloud API credentials. You 
  - Script name and description can have any value you wish
  - note down Application Key, Application Secret and Consumer Key generated.
 
+![credentials](./docs/doc-app-keys.png)
+
 # B. Owstats-ui local development
 
 ## Pre-requesites
