@@ -391,7 +391,9 @@
     "lastMonth": "Le mois dernier",
     "thisYear": "Cette année",
     "lastYear": "L'année dernière",
-    "selectPeriod": "Sélection de la période"
+    "selectPeriod": "Sélection de la période",
+    "warningTitle": "Avertissement",
+    "warningRobots": "Depuis le 1er avril 2022, OVHcloud Web Statistics exclu de vos principales statistiques le trafic effectué par des robots sur vos sites web. L'activité des robots sur vos sites est désormais uniquement comptabilisée à part dans la page 'Robots'. Reportez-vous à la FAQ pour en savoir plus."
   },
   "tooltips": {
     "id": "#",

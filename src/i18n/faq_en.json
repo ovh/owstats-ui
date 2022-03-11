@@ -56,7 +56,7 @@
   },
   {
     "title": "What is a robot?",
-    "value": "Robots are used by many search engines to automatically browse the web and index your site. They allow you to appear in search results. These robots have technical names. They are numerous and evolve very often.",
+    "value": "Robots are used by many search engines to automatically crawl the web and index your site. They allow you to appear in the search results. These robots have technical names. They are numerous and evolve very often. Since April 1, 2022, in order to offer you a better analysis of your data, OVHcloud Web Statistics isolates the traffic of the robots that visit your websites from that of your real visitors. Robot traffic is now excluded from all statistics outside the 'Robots' page. You may notice a decrease in your traffic from this date on.",
     "category": "robot"
   },
   {

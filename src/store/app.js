@@ -9,6 +9,7 @@ const state = {
   mainDomain: '',
   startDate: moment().subtract(1, 'days').format('YYYY-MM-DD'),
   endDate: moment().subtract(1, 'days').format('YYYY-MM-DD'),
+  displayWarning: false,
   dateChanged: false,
   domainChanged: false,
   domains: [''],
@@ -112,6 +113,9 @@ const mutations = {
   },
   setGeolocalizationVisitsData (state, geolocalizationVisitsData) {
     state.data.geolocalizationVisitsData = geolocalizationVisitsData
+  },
+  setDisplayWarning (state, displayWarning) {
+    state.displayWarning = displayWarning
   },
   toggleDateChanged (state) {
     state.dateChanged = !state.dateChanged

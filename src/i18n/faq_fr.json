@@ -56,7 +56,7 @@
   },
   {
     "title": "Qu'est-ce qu'un robot?",
-    "value": "Les robots sont utilisés par de nombreux moteurs de recherche pour parcourir automatiquement le web et procéder à l'indexation de votre site. Ils vous permettent d'apparaître dans les résultats de recherche. Ces robots ont des noms techniques. Ils sont nombreux et évoluent très souvent.",
+    "value": "Les robots sont utilisés par de nombreux moteurs de recherche pour parcourir automatiquement le web et procéder à l'indexation de votre site. Ils vous permettent d'apparaître dans les résultats de recherche. Ces robots ont des noms techniques. Ils sont nombreux et évoluent très souvent. Depuis le 1er avril 2022, pour vous proposer une meilleure analyse de vos données, OVHcloud Web Statistics isole le trafic des robots qui viennent visiter vos sites web, de celui de vos visiteurs réels. Le trafic des robots est désormais exclu de toutes les statistiques en dehors de la page 'Robots'. Vous pourriez observer une baisse de votre fréquentation à partir de cette date.",
     "category": "robot"
   },
   {
