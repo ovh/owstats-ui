@@ -29,6 +29,28 @@
         </a>
       </li>
     </ul>
+
+    <ul
+      v-if="dataSourceSelectionDisplay"
+      class="oui-navbar-list"
+    >
+      <li class="oui-navbar-list__item">
+        <button
+          :class="classDataSourceButton('webhosting')"
+          @click="setDataSource('webhosting')"
+        >
+          WEBHOSTING
+        </button>
+      </li>
+      <li class="oui-navbar-list__item">
+        <button
+          :class="classDataSourceButton('cdn')"
+          @click="setDataSource('cdn')"
+        >
+          CDN
+        </button>
+      </li>
+    </ul>
     <button
       v-if="logoutButtonDisplay"
       class="oui-button oui-button_ghost logout-button"
@@ -59,19 +81,33 @@ export default {
       } else {
         return false
       }
+    },
+    dataSourceSelectionDisplay () {
+      return this.$store.state.app.cdnDomains.length > 0
     }
   },
   created () {
     this.logsUrl = window.location.host + '/'
   },
   methods: {
+    setDataSource (dataSource) {
+      this.$store.commit('setDataSource', dataSource)
+    },
     toggleSidebar () {
       this.$store.commit('toggleSidebar')
     },
     removeTokenFromCookie () {
       utils.removeTokenFromCookie()
       router.go()
+    },
+    classDataSourceButton (dataSource) {
+      if (this.$store.state.app.dataSource === dataSource) {
+        return 'oui-button oui-button_ghost oui-sidebar-link_active'
+      } else {
+        return 'oui-button oui-button_ghost'
+      }
     }
+
   }
 }
 </script>

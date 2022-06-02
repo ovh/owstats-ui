@@ -28,6 +28,9 @@ export default {
   },
 
   computed: {
+    isCdn () {
+      return this.$store.state.app.dataSource === 'cdn'
+    },
     dateChanged () {
       return this.$store.state.app.dateChanged
     },
@@ -39,12 +42,16 @@ export default {
     }
   },
   watch: {
+    isCdn () {
+      this.updateQuery()
+    },
     dateChanged () {
       this.updateQuery()
     },
     domainChanged () {
       this.updateQuery()
     }
+
   },
   async beforeMount () {
     if (!this.isLoginNeeded) {
@@ -57,6 +64,8 @@ export default {
       this.setMainDomain()
 
       this.setDomains()
+
+      this.setCdnDomains()
 
       this.updateQuery()
 
@@ -80,6 +89,16 @@ export default {
       })
     },
 
+    setCdnDomains () {
+      this.$store.dispatch('fetchData', {
+        startDate: '2012-01-01',
+        endDate: moment().format('YYYY-MM-DD'),
+        endpoint: 'domains',
+        mutation: 'updateCdnDomains',
+        isCdn: true
+      })
+    },
+
     updateQuery () {
       const queryStart = this.$route.query.start_date
       let queryEnd = this.$route.query.end_date
@@ -89,6 +108,11 @@ export default {
       let queryDomain = this.$route.query.domain
       if (!queryDomain) {
         queryDomain = 'all'
+      }
+
+      let queryDataSource = this.$route.query.dataSource
+      if (!queryDataSource) {
+        queryDataSource = 'webhosting'
       }
 
       const storeStart = this.$store.state.app.startDate
@@ -101,16 +125,20 @@ export default {
         storeDomain = 'all'
       }
 
+      const storeDataSource = this.$store.state.app.dataSource
+
       if (this.isLoaded) {
         if (queryDomain !== storeDomain ||
         queryStart !== storeStart ||
-        queryEnd !== storeEnd) {
+        queryEnd !== storeEnd ||
+        queryDataSource !== storeDataSource) {
           this.$router.replace({
             path: this.$route.path,
             query: {
               start_date: storeStart,
               end_date: storeEnd,
-              domain: storeDomain
+              domain: storeDomain,
+              dataSource: storeDataSource
             }
           })
         }
@@ -118,6 +146,7 @@ export default {
         this.$store.commit('setStartDate', queryStart || storeStart)
         this.$store.commit('setEndDate', queryEnd || storeEnd)
         this.$store.commit('setDomainSelected', queryDomain || storeDomain)
+        this.$store.commit('setDataSource', queryDataSource || storeDataSource)
       }
     }
   }

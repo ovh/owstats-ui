@@ -114,6 +114,9 @@ export default {
     }
   },
   computed: {
+    isCdn () {
+      return this.$store.state.app.dataSource === 'cdn'
+    },
     startDate () {
       return this.$store.state.app.startDate
     },
@@ -140,6 +143,11 @@ export default {
     }
   },
   watch: {
+    isCdn () {
+      if (!this.isCdn || this.$store.state.app.cdnDomains.includes(this.$store.state.app.domainSelected)) {
+        this.fetchRobotData()
+      }
+    },
     dateChanged () {
       this.fetchRobotData()
     },
@@ -159,12 +167,14 @@ export default {
         this.$store.dispatch('fetchData', {
           endpoint: 'robots_pages/hits',
           mutation: 'setRobotspagesHitsData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: this.isCdn
         }),
         this.$store.dispatch('fetchData', {
           endpoint: 'robots/validhits',
           mutation: 'setRobotsValidhitsData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: this.isCdn
         })
       ]).finally(() => {
         this.isLoading = false

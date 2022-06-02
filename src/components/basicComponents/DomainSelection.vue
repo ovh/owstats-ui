@@ -47,9 +47,17 @@ export default {
     isComponentDisplayed () {
       return this.$store.state.app.domains.length > 1
     },
+    isCdn () {
+      return this.$store.state.app.dataSource === 'cdn'
+    },
     options () {
-      const domainList = this.$store.state.app.domains.slice()
-      domainList.unshift(this.$t('select_all'))
+      let domainList
+      if (this.isCdn) {
+        domainList = this.$store.state.app.cdnDomains
+      } else {
+        domainList = this.$store.state.app.domains.slice()
+        domainList.unshift(this.$t('select_all'))
+      }
 
       return domainList
     },
@@ -60,6 +68,15 @@ export default {
           .toLowerCase()
           .indexOf(this.display.toLowerCase()) >= 0
       })
+    }
+  },
+  watch: {
+    isCdn () {
+      if (this.isCdn && !this.$store.state.app.cdnDomains.includes(this.$store.state.app.domainSelected)) {
+        this.$store.commit('setDomainSelected', this.$store.state.app.cdnDomains[0])
+        this.$store.commit('toggleDomainChanged')
+        this.placeholder = this.$store.state.app.cdnDomains[0]
+      }
     }
   },
   methods: {

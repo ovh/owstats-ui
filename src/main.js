@@ -45,6 +45,12 @@ router.afterEach((to, from) => {
     query.domain = 'all'
   }
 
+  if (from.query.dataSource &&
+    !to.query.dataSource) {
+    query.dataSource = from.query.dataSource
+    queryToUpdate = true
+  }
+
   if (queryToUpdate) {
     router.replace({
       path: to.path,

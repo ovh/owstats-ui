@@ -7,13 +7,15 @@ const state = {
     opened: false
   },
   mainDomain: '',
+  dataSource: '',
   startDate: moment().subtract(1, 'days').format('YYYY-MM-DD'),
   endDate: moment().subtract(1, 'days').format('YYYY-MM-DD'),
   displayWarning: false,
   dateChanged: false,
   domainChanged: false,
   domains: [''],
-  domainSelected: 'all',
+  cdnDomains: [],
+  domainSelected: '',
   data: {
     browserData: {},
     hourHitsData: {},
@@ -42,6 +44,9 @@ const mutations = {
   setMainDomain (state, domain) {
     state.mainDomain = domain
   },
+  setDataSource (state, dataSource) {
+    state.dataSource = dataSource
+  },
   setStartDate (state, date) {
     state.startDate = date
   },
@@ -53,6 +58,9 @@ const mutations = {
   },
   updateDomains (state, domains) {
     state.domains = domains
+  },
+  updateCdnDomains (state, cdnDomains) {
+    state.cdnDomains = cdnDomains
   },
   setBrowserData (state, browserData) {
     state.data.browserData = browserData
@@ -139,11 +147,25 @@ const actions = {
     const mutation = payload.mutation
     const domainSelected = payload.domainSelected || context.state.domainSelected
     const domainInParamaters = payload.domainInParamaters
+    const cluster = baseUrl.split('.')[1]
+    const isCdn = payload.isCdn || false
 
-    let url = `${baseUrl}${mainDomain}/v1/${endpoint}?start_date=${startDate}&end_date=${endDate}`
+    const cdnEndpoint = 'shared_cdn'
+    const params = {
+      start_date: startDate,
+      end_date: endDate
+    }
+
+    let url
+    if (isCdn) {
+      url = `${baseUrl}${mainDomain}/v1/${cdnEndpoint}/${endpoint}`
+      params.cluster = cluster
+    } else {
+      url = `${baseUrl}${mainDomain}/v1/${endpoint}`
+    }
 
     if (domainInParamaters && domainSelected !== 'all') {
-      url = url.concat('&subdomain=' + domainSelected)
+      params.subdomain = domainSelected
     }
     // add Authorization header in developper mode (in order to target remote API in local) : else authentication is done on server side
     let headers = {}
@@ -155,7 +177,8 @@ const actions = {
 
     return axios.get(url,
       {
-        headers: headers
+        headers,
+        params
       }).then(response => {
       const records = response.data.records
       context.commit(mutation, records)
