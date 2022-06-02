@@ -150,6 +150,9 @@ h4 {
    background-color: $white
 }
 
+.navbar-large {
+   margin-right: $spacing-m;
+}
 
 // sidebar
 .oui-sidebar {
@@ -382,4 +385,16 @@ button.oui-sidebar-link:hover {
    border-width: 0;
    background-color: transparent;
    color: $p-500;
+}
+
+.oui-button.button-header_active{
+   background-color: $p-100;
+   border-bottom-style: solid;
+   border-bottom-color: $p-500;
+   border-bottom-width: $spacing-xxs;
+   border-radius: 0;
+}
+
+#page-title{
+   color: $p-700
 }

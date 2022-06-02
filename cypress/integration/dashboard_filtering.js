@@ -154,7 +154,7 @@ describe('Dashboard page filtering', () => {
     cy.get('a[href*="#/browser"]').click()
 
     // check url contains filter data
-    cy.url().should('eq', 'http://localhost:8090/test.com/owstats#/browser?start_date=2018-08-01&end_date=2018-08-11&domain=shop.test.com')
+    cy.url().should('eq', 'http://localhost:8090/test.com/owstats#/browser?start_date=2018-08-01&end_date=2018-08-11&domain=shop.test.com&dataSource=webhosting')
     cy.get('.domain-selection').contains('shop.test.com')
     cy.get('.header-picker-range').filter(':contains("1 août 2018 - 11 août 2018"), :contains("Aug 1, 2018 - Aug 11, 2018")').should('exist')
   })

@@ -79,6 +79,9 @@ export default {
     }
   },
   computed: {
+    isCdn () {
+      return this.$store.state.app.dataSource === 'cdn'
+    },
     isLoading () {
       return this.isLoadingHour | this.isLoadingDomain
     },
@@ -130,6 +133,12 @@ export default {
     }
   },
   watch: {
+    isCdn () {
+      if (!this.isCdn || this.$store.state.app.cdnDomains.includes(this.$store.state.app.domainSelected)) {
+        this.fetchingHourData()
+        this.fetchingDomainData()
+      }
+    },
     dateChanged () {
       this.fetchingHourData()
       this.fetchingDomainData()
@@ -174,11 +183,13 @@ export default {
       Promise.all([
         this.$store.dispatch('fetchData', {
           endpoint: 'domains/validpages',
-          mutation: 'setDomainValidpagesData'
+          mutation: 'setDomainValidpagesData',
+          isCdn: this.isCdn
         }),
         this.$store.dispatch('fetchData', {
           endpoint: 'domains/errorpages',
-          mutation: 'setDomainErrorpagesData'
+          mutation: 'setDomainErrorpagesData',
+          isCdn: this.isCdn
         })
       ]).finally(() => {
         this.isLoadingDomain = false
@@ -192,17 +203,20 @@ export default {
         this.$store.dispatch('fetchData', {
           endpoint: 'hour/visits',
           mutation: 'setHourVisitsData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: this.isCdn
         }),
         this.$store.dispatch('fetchData', {
           endpoint: 'hour/pages',
           mutation: 'setHourPagesData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: this.isCdn
         }),
         this.$store.dispatch('fetchData', {
           endpoint: 'hour/avgsessiontime',
           mutation: 'setHourAvgsessiontimeData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: this.isCdn
         })
       ]).finally(() => {
         this.isLoadingHour = false

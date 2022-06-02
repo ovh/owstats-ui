@@ -23,6 +23,7 @@
     <ul class="oui-navbar-list navbar-large">
       <li class="oui-navbar-list__item">
         <a
+          id="page-title"
           class="oui-navbar-link oui-navbar-link_primary"
           href
         >{{ "navbar.title" | translate }} &nbsp; - &nbsp; {{ this.$store.state.app.mainDomain }}
@@ -36,6 +37,7 @@
     >
       <li class="oui-navbar-list__item">
         <button
+          id="data-source-webhosting"
           :class="classDataSourceButton('webhosting')"
           @click="setDataSource('webhosting')"
         >
@@ -44,6 +46,7 @@
       </li>
       <li class="oui-navbar-list__item">
         <button
+          id="data-source-cdn"
           :class="classDataSourceButton('cdn')"
           @click="setDataSource('cdn')"
         >
@@ -102,9 +105,9 @@ export default {
     },
     classDataSourceButton (dataSource) {
       if (this.$store.state.app.dataSource === dataSource) {
-        return 'oui-button oui-button_ghost oui-sidebar-link_active'
+        return 'oui-button button-header_active'
       } else {
-        return 'oui-button oui-button_ghost'
+        return 'oui-button button-header_inactive'
       }
     }
 

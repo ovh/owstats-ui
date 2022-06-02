@@ -1,4 +1,4 @@
-describe('Display robot data', () => {
+describe('Display cdn robot data', () => {
   beforeEach(() => {
     cy.intercept('/test.com/v1/domains**', {
       fixture: 'domains.json'
@@ -30,8 +30,7 @@ describe('Display robot data', () => {
     cy.wait('@robots_pages_hits')
   })
 
-  it('displays top-robot component with correct values', () => {
-    // check chart legends contains correct values
+  it('displays cdn data', () => {
     cy.get('#top-robot').find('.apexcharts-legend-text').should('have.length', 1)
     cy.get('#top-robot').find('.apexcharts-legend-text').contains('Go-http-client/1.1').should('exist')
 
@@ -40,15 +39,19 @@ describe('Display robot data', () => {
 
     cy.get('#top-robot').find('tr').filter(':contains("Go-http-client/1.1")').contains('511')
     cy.get('#top-robot').find('tr').filter(':contains("Go-http-client/1.1")').contains('100.0')
-  })
 
-  it('displays top-robot-detailed component with correct values', () => {
+    // switch to cdn
+    cy.get('#data-source-cdn').click()
+    cy.wait('@cdn_domains')
+    cy.wait('@cdn_robots_validhits')
+    cy.wait('@cdn_robots_pages_hits')
+
+    cy.get('#top-robot').find('.apexcharts-legend-text').contains('Go-http-client/1.1').should('exist')
+
     // check table contains correct values
-    cy.get('#top-robot-detailed').find('tr').should('have.length', 3)
+    cy.get('#top-robot').find('tr').should('have.length', 2)
 
-    cy.get('#top-robot-detailed').find('tr').filter(':contains("Go-http-client/1.1")').contains('511')
-    cy.get('#top-robot-detailed').find('tr').filter(':contains("Go-http-client/1.1")').contains('50.0')
-    cy.get('#top-robot-detailed').find('tr').filter(':contains("Go-http-client/2.0")').contains('511')
-    cy.get('#top-robot-detailed').find('tr').filter(':contains("Go-http-client/2.0")').contains('50.0')
+    cy.get('#top-robot').find('tr').filter(':contains("Go-http-client/1.1")').contains('319')
+    cy.get('#top-robot').find('tr').filter(':contains("Go-http-client/1.1")').contains('100.0')
   })
 })

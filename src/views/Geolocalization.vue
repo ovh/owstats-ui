@@ -93,6 +93,9 @@ export default {
   },
 
   computed: {
+    isCdn () {
+      return this.$store.state.app.dataSource === 'cdn'
+    },
     startDate () {
       return this.$store.state.app.startDate
     },
@@ -118,6 +121,11 @@ export default {
     }
   },
   watch: {
+    isCdn () {
+      if (!this.isCdn || this.$store.state.app.cdnDomains.includes(this.$store.state.app.domainSelected)) {
+        this.fetchGeolocalizationData()
+      }
+    },
     dateChanged () {
       this.fetchGeolocalizationData()
     },
@@ -135,7 +143,8 @@ export default {
       await this.$store.dispatch('fetchData', {
         endpoint: 'geolocalization/visits',
         mutation: 'setGeolocalizationVisitsData',
-        domainInParamaters: true
+        domainInParamaters: true,
+        isCdn: this.isCdn
       })
 
       this.isLoading = false
