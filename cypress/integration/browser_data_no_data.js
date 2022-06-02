@@ -1,11 +1,11 @@
 describe('Display browser page: no data', () => {
   beforeEach(() => {
     cy.intercept('/test.com/v1/domains**', {
-      fixture: 'domains.json'
+      fixture: 'webhosting/domains.json'
     }).as('domains')
 
     cy.intercept('/test.com/v1/browser/visits?start_date=2019-06-06&end_date=2019-06-06', {
-      fixture: 'no_data.json'
+      fixture: 'webhosting/no_data.json'
     }).as('browser_visits')
 
     cy.visit('/test.com/owstats#/browser?start_date=2019-06-06&end_date=2019-06-06&domain=all')

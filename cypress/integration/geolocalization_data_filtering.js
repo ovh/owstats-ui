@@ -1,15 +1,15 @@
 describe('Display geolocalization data', () => {
   beforeEach(() => {
     cy.intercept('/test.com/v1/domains**', {
-      fixture: 'domains.json'
+      fixture: 'webhosting/domains.json'
     }).as('domains')
 
     cy.intercept('/test.com/v1/geolocalization/visits?start_date=2019-07-10&end_date=2019-07-20', {
-      fixture: 'geolocalization_visits_20190710_20190720.json'
+      fixture: 'webhosting/geolocalization_visits_20190710_20190720.json'
     }).as('geolocalization_visits_20190710_20190720')
 
     cy.intercept('/test.com/v1/geolocalization/visits?start_date=2019-08-10&end_date=2019-08-20', {
-      fixture: 'geolocalization_visits_20190810_20190820.json'
+      fixture: 'webhosting/geolocalization_visits_20190810_20190820.json'
     }).as('geolocalization_visits_20190810_20190820')
 
     cy.visit('/test.com/owstats#/geolocalization?start_date=2019-07-10&end_date=2019-07-20&domain=all')

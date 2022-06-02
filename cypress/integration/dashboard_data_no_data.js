@@ -2,27 +2,27 @@ describe('Display Dashboard page: no data', () => {
   it('displays dashboard page: no data', () => {
     // intercept all api calls to get data from fixture
     cy.intercept('/test.com/v1/domains**', {
-      fixture: 'domains.json'
+      fixture: 'webhosting/domains.json'
     }).as('domains')
 
     cy.intercept('/test.com/v1/hour/visits?start_date=2018-08-01&end_date=2018-08-01', {
-      fixture: 'no_data.json'
+      fixture: 'webhosting/no_data.json'
     }).as('hour_visits')
 
     cy.intercept('/test.com/v1/hour/pages?start_date=2018-08-01&end_date=2018-08-01', {
-      fixture: 'no_data.json'
+      fixture: 'webhosting/no_data.json'
     }).as('hour_pages')
 
     cy.intercept('/test.com/v1/hour/avgsessiontime?start_date=2018-08-01&end_date=2018-08-01', {
-      fixture: 'no_data.json'
+      fixture: 'webhosting/no_data.json'
     }).as('hour_avgsessiontime')
 
     cy.intercept('/test.com/v1/domains/validpages?start_date=2018-08-01&end_date=2018-08-01', {
-      fixture: 'no_data.json'
+      fixture: 'webhosting/no_data.json'
     }).as('domains_validpages')
 
     cy.intercept('/test.com/v1/domains/errorpages?start_date=2018-08-01&end_date=2018-08-01', {
-      fixture: 'no_data.json'
+      fixture: 'webhosting/no_data.json'
     }).as('domains_errorpages')
 
     cy.visit('/test.com/owstats#/dashboard?start_date=2018-08-01&end_date=2018-08-01&domain=all')

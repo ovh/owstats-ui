@@ -1,59 +1,59 @@
 describe('Dashboard page filtering', () => {
   beforeEach(() => {
     cy.intercept('/test.com/v1/domains**', {
-      fixture: 'domains.json'
+      fixture: 'webhosting/domains.json'
     }).as('domains')
 
     cy.intercept('/test.com/v1/hour/visits?start_date=2018-08-01&end_date=2018-08-01', {
-      fixture: 'hour_visits_20180801.json'
+      fixture: 'webhosting/hour_visits_20180801.json'
     }).as('hour_visits_one_day')
 
     cy.intercept('/test.com/v1/hour/pages?start_date=2018-08-01&end_date=2018-08-01', {
-      fixture: 'hour_pages_20180801.json'
+      fixture: 'webhosting/hour_pages_20180801.json'
     }).as('hour_pages_one_day')
 
     cy.intercept('/test.com/v1/hour/avgsessiontime?start_date=2018-08-01&end_date=2018-08-01', {
-      fixture: 'hour_avgsessiontime_20180801.json'
+      fixture: 'webhosting/hour_avgsessiontime_20180801.json'
     }).as('hour_avgsessiontime_one_day')
 
     cy.intercept('/test.com/v1/domains/validpages?start_date=2018-08-01&end_date=2018-08-01', {
-      fixture: 'domains_validpages_20180801.json'
+      fixture: 'webhosting/domains_validpages_20180801.json'
     }).as('domains_validpages_one_day')
 
     cy.intercept('/test.com/v1/domains/errorpages?start_date=2018-08-01&end_date=2018-08-01', {
-      fixture: 'domains_errorpages_20180801.json'
+      fixture: 'webhosting/domains_errorpages_20180801.json'
     }).as('domains_errorpages_one_day')
 
     cy.intercept('/test.com/v1/hour/visits?start_date=2018-08-01&end_date=2018-08-11', {
-      fixture: 'hour_visits_20180801_20180811.json'
+      fixture: 'webhosting/hour_visits_20180801_20180811.json'
     }).as('hour_visits_10_days')
 
     cy.intercept('/test.com/v1/hour/pages?start_date=2018-08-01&end_date=2018-08-11', {
-      fixture: 'hour_pages_20180801_20180811.json'
+      fixture: 'webhosting/hour_pages_20180801_20180811.json'
     }).as('hour_pages_10_days')
 
     cy.intercept('/test.com/v1/hour/avgsessiontime?start_date=2018-08-01&end_date=2018-08-11', {
-      fixture: 'hour_avgsessiontime_20180801_20180811.json'
+      fixture: 'webhosting/hour_avgsessiontime_20180801_20180811.json'
     }).as('hour_avgsessiontime_10_days')
 
     cy.intercept('/test.com/v1/domains/validpages?start_date=2018-08-01&end_date=2018-08-11', {
-      fixture: 'domains_validpages_20180801_20180811.json'
+      fixture: 'webhosting/domains_validpages_20180801_20180811.json'
     }).as('domains_validpages_10_days')
 
     cy.intercept('/test.com/v1/domains/errorpages?start_date=2018-08-01&end_date=2018-08-11', {
-      fixture: 'domains_errorpages_20180801_20180811.json'
+      fixture: 'webhosting/domains_errorpages_20180801_20180811.json'
     }).as('domains_errorpages_10_days')
 
     cy.intercept('/test.com/v1/hour/visits?start_date=2018-08-01&end_date=2018-08-01&subdomain=shop.test.com', {
-      fixture: 'hour_visits_20180801_shop.json'
+      fixture: 'webhosting/hour_visits_20180801_shop.json'
     }).as('hour_visits_shop')
 
     cy.intercept('/test.com/v1/hour/pages?start_date=2018-08-01&end_date=2018-08-01&subdomain=shop.test.com', {
-      fixture: 'hour_pages_20180801_shop.json'
+      fixture: 'webhosting/hour_pages_20180801_shop.json'
     }).as('hour_pages_shop')
 
     cy.intercept('/test.com/v1/hour/avgsessiontime?start_date=2018-08-01&end_date=2018-08-01&subdomain=shop.test.com', {
-      fixture: 'hour_avgsessiontime_20180801_shop.json'
+      fixture: 'webhosting/hour_avgsessiontime_20180801_shop.json'
     }).as('hour_avgsessiontime_shop')
 
     cy.visit('/test.com/owstats#/dashboard?start_date=2018-08-01&end_date=2018-08-01&domain=all')
