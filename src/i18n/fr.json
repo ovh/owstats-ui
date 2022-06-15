@@ -406,6 +406,17 @@
     "top500": "Erreur du site (erreurs 5xx: Code non fonctionnel, erreur de base de données ...)",
     "topform": "Données envoyées par un utilisateur via un formulaire (requêtes POST)"
   },
+  "cdn_cache": {
+    "cache_hit_pct": "cache hit pct",
+    "bytes_hits_pct": "cache bytes pct",
+    "total_traffic_bytes": "total bytes",
+    "cache_hit_miss": "cache_hit_miss",
+    "cache_hits": "cache_hit",
+    "cache_miss": "cache_miss",
+    "bytes_hit_miss": "bytes_hit_miss",
+    "bytes_hit": "bytes_hit",
+    "bytes_miss": "bytes_miss"
+  },
   "faq": {
     "id": "#",
     "title": "Foire aux questions",
@@ -415,7 +426,10 @@
     "geolocalization": "Géolocalisation",
     "request": "Requêtes",
     "robot": "Robots",
-    "status": "Status"
+    "status": "Status",
+    "cache_hit_pct": "cache hit pct",
+    "bytes_hits_pct": "cache bytes pct",
+    "total_traffic_bytes": "total bytes"
   },
   "domain": "Domaine",
   "domain_selection": "Sélection du domaine",

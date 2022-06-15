@@ -7,6 +7,7 @@ import Geolocalization from '../views/Geolocalization'
 import Request from '../views/Request'
 import Status from '../views/Status'
 import Robot from '../views/Robot'
+import CdnCache from '../views/CdnCache'
 import FAQ from '../views/FAQ'
 
 Vue.use(Router)
@@ -48,6 +49,11 @@ export default new Router({
       path: '/status',
       name: 'Status',
       component: Status
+    },
+    {
+      path: '/cdn_cache',
+      name: 'CdnCache',
+      component: CdnCache
     },
     {
       path: '/faq',

@@ -36,7 +36,9 @@ const state = {
     initialpathVisitsData: {},
     requestformValidhitsData: {},
     requestorigfilepathValidhitsData: {},
-    geolocalizationVisitsData: {}
+    geolocalizationVisitsData: {},
+    cdnCacheData: {},
+    cdnBytesData: {}
   }
 }
 
@@ -121,6 +123,12 @@ const mutations = {
   },
   setGeolocalizationVisitsData (state, geolocalizationVisitsData) {
     state.data.geolocalizationVisitsData = geolocalizationVisitsData
+  },
+  setCdnCacheData (state, cdnCacheData) {
+    state.data.cdnCacheData = cdnCacheData
+  },
+  setCdnBytesData (state, cdnBytesData) {
+    state.data.cdnBytesData = cdnBytesData
   },
   setDisplayWarning (state, displayWarning) {
     state.displayWarning = displayWarning

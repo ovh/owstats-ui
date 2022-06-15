@@ -37,6 +37,11 @@
           index="status"
         />
         <NavLink
+          :header="$t('menu.cdn_cache')"
+          link="cdn_cache"
+          index="cdn_cache"
+        />
+        <NavLink
           :header="$t('menu.faq')"
           link="faq"
           index="faq"

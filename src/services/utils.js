@@ -264,14 +264,30 @@ export default {
     return granularity
   },
 
+  computeChartYValue (records, period, type, time, filterParameter) {
+    let y = 0
+    const r = records[period][type]
+    let record
+
+    if (filterParameter) {
+      record = r.find(e => (e.time === time && e[filterParameter.key] === filterParameter.value))
+    } else {
+      record = r.find(e => e.time === time)
+    }
+    if (record) y = parseInt(record.value)
+
+    return y
+  },
+
   // compute x and y data for spline chart
   // startDate: string, beginning of x axis
   // endDate: String, end of x axis
   // records: Object, raw data to be displayed in the chart
+  // filterParameter: optional, Object of format {key:param, value:hits} : filter only records with param equal to hits
   // chartData: Object, data to be displayed in the chart
   // axisData: Array, points of the x axis
   // granularity: string, represents the interval between 2 points of the x axis (hours, days...)
-  computeSplineChartData (startDate, endDate, records) {
+  computeSplineChartData (startDate, endDate, records, filterParameter) {
     moment.tz.setDefault('UTC')
     const { dayFormat, weekFormat, monthFormat, yearFormat, timeFormat } = this.initializeMoment()
     const type = this.apiResponseDataType(records)
@@ -309,25 +325,16 @@ export default {
       }
 
       if (day in records) {
-        period = 'hours'
-        const r = records[day][type]
-        const record = r.find(elem => elem.time === time)
-        if (record) y = parseInt(record.value)
+        y = this.computeChartYValue(records, day, type, time, filterParameter)
       } else if (week in records) {
         period = 'hours'
-        const r = records[week][type]
-        const record = r.find(elem => elem.time === time)
-        if (record) y = parseInt(record.value)
+        y = this.computeChartYValue(records, day, type, time, filterParameter)
       } else if (month in records) {
-        const r = records[month][type]
-        const record = r.find(elem => elem.time === time)
         period = 'days'
-        if (record) y = parseInt(record.value)
+        y = this.computeChartYValue(records, day, type, time, filterParameter)
       } else if (year in records) {
-        const r = records[year][type]
-        const record = r.find(elem => elem.time === time)
         period = 'days'
-        if (record) y = parseInt(record.value)
+        y = this.computeChartYValue(records, day, type, time, filterParameter)
       }
       stats[x] || (stats[x] = 0)
       stats[x] += y

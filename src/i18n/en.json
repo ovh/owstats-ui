@@ -38,6 +38,7 @@
     "geoECharts": "ECharts - Geo charts",
     "variousECharts": "ECharts - Various charts",
     "invoice": "Invoice",
+    "cdn_cache": "cdn_cache",
     "faq": "FAQ"
   },
   "notFoundPage": {
@@ -156,7 +157,10 @@
     "top200": "Viewed pages count (Valid HTTP request)",
     "top400": "Invalid requests (Errors 4xx: file not found, unauthorized access ...)",
     "top500": "Website's errors (Errors 5xx: code errors, database ...)",
-    "topform": "Data sent by users using a form (POST requests)"
+    "topform": "Data sent by users using a form (POST requests)",
+    "cache_hit_pct": "cache hit pct",
+    "bytes_hits_pct": "cache bytes pct",
+    "total_traffic_bytes": "total bytes"
   },
   "faq": {
     "id": "#",
@@ -168,6 +172,17 @@
     "request": "Requests",
     "robot": "Robots",
     "status": "Status"
+  },
+  "cdn_cache": {
+    "cache_hit_pct": "cache hit pct",
+    "bytes_hits_pct": "cache bytes pct",
+    "total_traffic_bytes": "total bytes",
+    "cache_hit_miss": "cache_hit_miss",
+    "cache_hits": "cache_hit",
+    "cache_miss": "cache_miss",
+    "bytes_hit_miss": "bytes_hit_miss",
+    "bytes_hit": "bytes_hit",
+    "bytes_miss": "bytes_miss"
   },
   "domain": "Domain",
   "domain_selection": "Domain Selection",
