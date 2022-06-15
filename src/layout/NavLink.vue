@@ -1,7 +1,7 @@
 <template>
   <div @click="toggleSidebar">
     <router-link
-      class="oui-sidebar-link"
+      :class="[topLine ? 'oui-sidebar-link-top-line' : '', 'oui-sidebar-link']"
       :to="link"
     >
       {{ header }}
@@ -16,7 +16,8 @@ export default {
   props: {
     header: { type: String, default: '' },
     link: { type: String, default: '' },
-    index: { type: String, default: '' }
+    index: { type: String, default: '' },
+    topLine: { type: Boolean, default: false }
   },
   methods: {
     toggleSidebar () {

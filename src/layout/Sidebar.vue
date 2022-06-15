@@ -37,14 +37,17 @@
           index="status"
         />
         <NavLink
+          v-if="isCdn"
           :header="$t('menu.cdn_cache')"
           link="cdn_cache"
           index="cdn_cache"
+          :top-line="true"
         />
         <NavLink
           :header="$t('menu.faq')"
           link="faq"
           index="faq"
+          :top-line="true"
         />
       </ul>
     </div>
@@ -56,6 +59,11 @@ import NavLink from './NavLink'
 
 export default {
   name: 'Sidebar',
-  components: { NavLink }
+  components: { NavLink },
+  computed: {
+    isCdn () {
+      return this.$store.state.app.dataSource === 'cdn'
+    }
+  }
 }
 </script>

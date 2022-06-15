@@ -133,7 +133,9 @@ export default {
   },
   watch: {
     isCdn () {
-      // redirection si c'est plus cdn
+      this.$router.replace({
+        path: 'dashboard'
+      })
     },
     dateChanged () {
       this.fetchCacheData()

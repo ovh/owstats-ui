@@ -206,6 +206,11 @@ h4 {
    background-color: transparent
 }
 
+.oui-sidebar-link-top-line {
+   border-top: .125rem solid $p-100
+}
+
+
 a.oui-sidebar-link[aria-expanded=true],
 a.oui-sidebar-link_active,
 button.oui-sidebar-link[aria-expanded=true],
