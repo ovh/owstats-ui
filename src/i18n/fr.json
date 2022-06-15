@@ -404,18 +404,21 @@
     "top200": "Nombre de pages vues (requètes HTTP valides)",
     "top400": "Requêtes invalides (erreurs 4xx: ressource non existante, accès non authorisé ...)",
     "top500": "Erreur du site (erreurs 5xx: Code non fonctionnel, erreur de base de données ...)",
-    "topform": "Données envoyées par un utilisateur via un formulaire (requêtes POST)"
+    "topform": "Données envoyées par un utilisateur via un formulaire (requêtes POST)",
+    "cache_hit_pct": "Pourcentage de requêtes servies par le cache",
+    "bytes_hits_pct": "Pourcentage de volume de données servies par le cache",
+    "total_traffic_bytes": "Volume de données total servies par le cache et le serveur web"
   },
   "cdn_cache": {
-    "cache_hit_pct": "cache hit pct",
-    "bytes_hits_pct": "cache bytes pct",
-    "total_traffic_bytes": "total bytes",
-    "cache_hit_miss": "cache_hit_miss",
-    "cache_hits": "cache_hit",
-    "cache_miss": "cache_miss",
-    "bytes_hit_miss": "bytes_hit_miss",
-    "bytes_hit": "bytes_hit",
-    "bytes_miss": "bytes_miss"
+    "cache_hit_pct": "Taux d'accès au cache (requêtes)",
+    "bytes_hits_pct": "Taux d'accès au cache (volume de données)",
+    "total_traffic_bytes": "Volume de données total",
+    "cache_hit_miss": "Accès au cache (requêtes)",
+    "cache_hits": "Succès",
+    "cache_miss": "Echecs",
+    "bytes_hit_miss": "Accès au cache (volume de données en bytes)",
+    "bytes_hits": "Succès",
+    "bytes_miss": "Echecs"
   },
   "faq": {
     "id": "#",
@@ -426,10 +429,7 @@
     "geolocalization": "Géolocalisation",
     "request": "Requêtes",
     "robot": "Robots",
-    "status": "Status",
-    "cache_hit_pct": "cache hit pct",
-    "bytes_hits_pct": "cache bytes pct",
-    "total_traffic_bytes": "total bytes"
+    "status": "Status"
   },
   "domain": "Domaine",
   "domain_selection": "Sélection du domaine",

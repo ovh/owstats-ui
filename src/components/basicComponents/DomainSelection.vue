@@ -77,6 +77,11 @@ export default {
         this.$store.commit('toggleDomainChanged')
         this.placeholder = this.$store.state.app.cdnDomains[0]
       }
+      if (!this.isCdn && !this.$store.state.app.domains.includes(this.$store.state.app.domainSelected)) {
+        this.$store.commit('setDomainSelected', 'all')
+        this.$store.commit('toggleDomainChanged')
+        this.placeholder = this.$t('select_all')
+      }
     }
   },
   methods: {

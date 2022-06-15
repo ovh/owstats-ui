@@ -328,13 +328,13 @@ export default {
         y = this.computeChartYValue(records, day, type, time, filterParameter)
       } else if (week in records) {
         period = 'hours'
-        y = this.computeChartYValue(records, day, type, time, filterParameter)
+        y = this.computeChartYValue(records, week, type, time, filterParameter)
       } else if (month in records) {
         period = 'days'
-        y = this.computeChartYValue(records, day, type, time, filterParameter)
+        y = this.computeChartYValue(records, month, type, time, filterParameter)
       } else if (year in records) {
         period = 'days'
-        y = this.computeChartYValue(records, day, type, time, filterParameter)
+        y = this.computeChartYValue(records, year, type, time, filterParameter)
       }
       stats[x] || (stats[x] = 0)
       stats[x] += y
@@ -425,6 +425,18 @@ export default {
       visitsAndTotalTime.visits += visitsValue
       visitsAndTotalTime.totalTime += visitsValue * avgSessionTimeValue
     }
+  },
+
+  formatBytes (bytes, decimals = 2) {
+    if (bytes === 0) return '0 Bytes'
+
+    const k = 1024
+    const dm = decimals < 0 ? 0 : decimals
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
   },
 
   // functions to handle token in development mode and external users analytics service: does not impact OVH prod

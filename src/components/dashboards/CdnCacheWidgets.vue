@@ -51,6 +51,7 @@
 </template>
 
 <script>
+import utils from '../../services/utils.js'
 
 export default {
   name: 'CdnCacheWidgets',
@@ -67,7 +68,7 @@ export default {
   data () {
     return {
       cacheHitPercentage: 0,
-      totalTrafficBytes: 0,
+      totalTrafficBytes: '0',
       bytesHitsPercentage: 0
     }
   },
@@ -106,7 +107,7 @@ export default {
 
       this.cacheHitPercentage = (totalHits / (totalHits + totalMiss)).toPrecision(2)
       this.bytesHitsPercentage = (totalBytesHits / (totalBytesHits + totalBytesMiss)).toPrecision(2)
-      this.totalTrafficBytes = totalBytesHits + totalBytesMiss
+      this.totalTrafficBytes = utils.formatBytes(totalBytesHits + totalBytesMiss)
     }
   }
 }

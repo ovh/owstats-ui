@@ -38,7 +38,7 @@
     "geoECharts": "ECharts - Geo charts",
     "variousECharts": "ECharts - Various charts",
     "invoice": "Invoice",
-    "cdn_cache": "cdn_cache",
+    "cdn_cache": "Cdn Cache",
     "faq": "FAQ"
   },
   "notFoundPage": {
@@ -158,9 +158,9 @@
     "top400": "Invalid requests (Errors 4xx: file not found, unauthorized access ...)",
     "top500": "Website's errors (Errors 5xx: code errors, database ...)",
     "topform": "Data sent by users using a form (POST requests)",
-    "cache_hit_pct": "cache hit pct",
-    "bytes_hits_pct": "cache bytes pct",
-    "total_traffic_bytes": "total bytes"
+    "cache_hit_pct": "percentage of requests served by cache",
+    "bytes_hits_pct": "percentage of data volume served by cache",
+    "total_traffic_bytes": "Total data volume served by both cache and web server"
   },
   "faq": {
     "id": "#",
@@ -174,15 +174,15 @@
     "status": "Status"
   },
   "cdn_cache": {
-    "cache_hit_pct": "cache hit pct",
-    "bytes_hits_pct": "cache bytes pct",
-    "total_traffic_bytes": "total bytes",
-    "cache_hit_miss": "cache_hit_miss",
-    "cache_hits": "cache_hit",
-    "cache_miss": "cache_miss",
-    "bytes_hit_miss": "bytes_hit_miss",
-    "bytes_hit": "bytes_hit",
-    "bytes_miss": "bytes_miss"
+    "cache_hit_pct": "Cache Hit Ratio (requests)",
+    "bytes_hits_pct": "Cache Hit Ratio (data volume)",
+    "total_traffic_bytes": "Total traffic (bytes)",
+    "cache_hit_miss": "Cache requests",
+    "cache_hits": "Cache Hits",
+    "cache_miss": "Cache Misses",
+    "bytes_hit_miss": "Cache data volumn (bytes)",
+    "bytes_hit": "Cache Hits",
+    "bytes_miss": "Cache Misses"
   },
   "domain": "Domain",
   "domain_selection": "Domain Selection",
