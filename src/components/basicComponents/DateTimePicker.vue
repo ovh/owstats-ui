@@ -9,7 +9,7 @@
       {{ $t('calendar.warningRobots') }}
     </b-alert>
     <div class="oui-field__header">
-      <label class="oui-field__label">{{ $t('calendar.selectPeriod') }}</label>
+      <label class="oui-field__label">{{ `${$t('calendar.selectPeriod')} (${$t('calendar.timezone')} ${timezone})` }}</label>
     </div>
     <div
       class="text-nowrap"
@@ -113,7 +113,8 @@ export default {
           noClearButton: true
         }
       },
-      robotsSeparationDate: '2022-04-01'
+      robotsSeparationDate: '2022-04-01',
+      timezone: this.$store.state.app.timezone
     }
   },
   computed: {

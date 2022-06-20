@@ -145,6 +145,7 @@
     "thisYear": "This year",
     "lastYear": "Last year",
     "selectPeriod": "Period selection",
+    "timezone": "timezone",
     "warningTitle": "Warning",
     "warningRobots": "Since April 1, 2022, OVHcloud Web Statistics excludes from your main statistics the traffic made by robots on your websites. Robots activity on your sites is now only counted separately in the 'Robots' page. See the FAQ for more information."
   },

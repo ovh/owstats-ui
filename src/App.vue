@@ -67,6 +67,8 @@ export default {
 
       this.setCdnDomains()
 
+      this.setTimezone()
+
       this.updateQuery()
 
       this.isLoaded = true
@@ -97,6 +99,10 @@ export default {
         mutation: 'updateCdnDomains',
         isCdn: true
       })
+    },
+
+    setTimezone () {
+      this.$store.dispatch('setTimezone')
     },
 
     updateQuery () {

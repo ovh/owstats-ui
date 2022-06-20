@@ -10,6 +10,7 @@ const state = {
   dataSource: '',
   startDate: moment().subtract(1, 'days').format('YYYY-MM-DD'),
   endDate: moment().subtract(1, 'days').format('YYYY-MM-DD'),
+  timezone: '',
   displayWarning: false,
   dateChanged: false,
   domainChanged: false,
@@ -54,6 +55,9 @@ const mutations = {
   },
   setEndDate (state, date) {
     state.endDate = date
+  },
+  setTimezone (state, timezone) {
+    state.timezone = timezone
   },
   setDomainSelected (state, domain) {
     state.domainSelected = domain
@@ -192,6 +196,33 @@ const actions = {
       context.commit(mutation, records)
     }
     ).catch(error => console.log(error))
+  },
+
+  setTimezone (context) {
+    // timezone of ovh clusters
+    const clustersTimezone = {
+      cluster051: 'America/Montreal',
+      default: 'Europe/Paris'
+    }
+
+    // get cluster timezone
+    const baseUrl = process.env.VUE_APP_API_BASE_URL || process.env.BASE_URL
+    const cluster = baseUrl.split('.')[1]
+    const clusterTimezone = clustersTimezone[cluster] ? clustersTimezone[cluster] : clustersTimezone.default
+
+    // get timezone
+    moment.tz.setDefault('UTC')
+    const now = moment().format('x')
+
+    const offset = moment.tz.zone(clusterTimezone).utcOffset(now)
+    const offsetHour = offset / (-60)
+
+    // commit timezone
+    if (offsetHour < 0) {
+      context.commit('setTimezone', 'UTC' + offsetHour)
+    } else {
+      context.commit('setTimezone', 'UTC+' + offsetHour)
+    }
   }
 }
 
