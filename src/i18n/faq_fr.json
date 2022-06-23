@@ -11,7 +11,7 @@
   },
   {
     "title": "Qu'est-ce qu'une page en erreur?",
-    "value": "Une page est considérée en erreur lorsque la page ou l'un de ses éléments n'a pas pu etre affiché. Il peut s'agir d'une erreur client web ou d'une erreur serveur.",
+    "value": "Une page est considérée en erreur lorsque la page ou l'un de ses éléments n'a pas pu etre affiché. Il peut s'agir d'une erreur client web, d'une erreur serveur ou d'une erreur de redirection (code 301).",
     "category": "dashboard"
   },
   {
@@ -61,7 +61,17 @@
   },
   {
     "title": "Qu'est-ce qu'un accès?",
-    "value": "Un accès est une requête pour obtenir un fichier (.html, .css, .js, .jpg ..).",
+    "value": "Un accès est une requête pour obtenir un fichier (.html, .css, .js, .jpg ..). Il peut donc y avoir plusieurs accès par page.",
+    "category": "status"
+  },
+  {
+    "title": "Qu'est ce qu'une erreur client ?",
+    "value": "Une erreur client est une requête qui renvoie une erreur 40x.",
+    "category": "status"
+  },
+  {
+    "title": "Qu'est ce qu'une erreur site ?",
+    "value": "Une erreur site est une requête qui renvoie une erreur 50x.",
     "category": "status"
   }
 ]

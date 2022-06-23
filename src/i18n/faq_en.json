@@ -11,7 +11,7 @@
   },
   {
     "title": "What is a page in error?",
-    "value": "A page is considered in error when the page or one of its elements could not be displayed. This may be a web client error or a server error.",
+    "value": "A page is considered in error when the page or one of its elements could not be displayed. This may be a web client error, a server error or a redirection error (code 301).",
     "category": "dashboard"
   },
   {
@@ -61,7 +61,17 @@
   },
   {
     "title": "What is a hit?",
-    "value": "A hit is a request to get a file (.html, .css, .js, .jpg ..).",
+    "value": "A hit is a request to get a file (.html, .css, .js, .jpg ..). Therefore there can be several hits per page request.",
+    "category": "status"
+  },
+  {
+    "title": "What is a client error ?",
+    "value": "A client error is a request which ends up in 40x status code.",
+    "category": "status"
+  },
+  {
+    "title": "What is a website error ?",
+    "value": "A website error is a request which ends up in 50x code.",
     "category": "status"
   }
 ]

@@ -59,7 +59,7 @@
           <b-col>
             <b-card class="card-margin">
               <h4 class="oui-heading_4">
-                {{ $t('status.errorhits') }}
+                {{ $t('status.chart') }}
               </h4>
               <basic-spline
                 id="error-hits"
