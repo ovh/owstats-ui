@@ -8,6 +8,7 @@ import Request from '../views/Request'
 import Status from '../views/Status'
 import Robot from '../views/Robot'
 import CdnCache from '../views/CdnCache'
+import CdnCompression from '../views/CdnCompression'
 import FAQ from '../views/FAQ'
 
 Vue.use(Router)
@@ -54,6 +55,11 @@ export default new Router({
       path: '/cdn_cache',
       name: 'CdnCache',
       component: CdnCache
+    },
+    {
+      path: '/cdn_compression',
+      name: 'CdnCompression',
+      component: CdnCompression
     },
     {
       path: '/faq',

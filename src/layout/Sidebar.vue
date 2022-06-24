@@ -44,6 +44,12 @@
           :top-line="true"
         />
         <NavLink
+          v-if="isCdn"
+          :header="$t('menu.cdn_compression')"
+          link="cdn_compression"
+          index="cdn_compression"
+        />
+        <NavLink
           :header="$t('menu.faq')"
           link="faq"
           index="faq"

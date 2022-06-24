@@ -39,7 +39,8 @@ const state = {
     requestorigfilepathValidhitsData: {},
     geolocalizationVisitsData: {},
     cdnCacheData: {},
-    cdnBytesData: {}
+    cdnBytesData: {},
+    cdnCompressionData: {}
   }
 }
 
@@ -133,6 +134,9 @@ const mutations = {
   },
   setCdnBytesData (state, cdnBytesData) {
     state.data.cdnBytesData = cdnBytesData
+  },
+  setCdnCompressionData (state, cdnCompressionData) {
+    state.data.cdnCompressionData = cdnCompressionData
   },
   setDisplayWarning (state, displayWarning) {
     state.displayWarning = displayWarning

@@ -38,6 +38,8 @@
     "geoECharts": "ECharts - Geo charts",
     "variousECharts": "ECharts - Various charts",
     "invoice": "Invoice",
+    "cdn_cache": "Cdn Cache",
+    "cdn_compression": "Cdn Compression",
     "faq": "FAQ"
   },
   "notFoundPage": {
@@ -421,6 +423,15 @@
     "bytes_hit_miss": "Accès au cache (volume de données en bytes)",
     "bytes_hits": "Succès",
     "bytes_miss": "Echecs"
+  },
+  "cdn_compression": {
+    "brotli": "Number of requests encoded in brotli",
+    "plain": "Number of uncompressed requests",
+    "gzip": "Number of requests encoded in gzip",
+    "chart": "Requests encoding",
+    "chart_brotli": "brotli",
+    "chart_plain": "none",
+    "chart_gzip": "gzip"
   },
   "faq": {
     "id": "#",
