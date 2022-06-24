@@ -10,6 +10,7 @@ import Robot from '../views/Robot'
 import CdnCache from '../views/CdnCache'
 import CdnCompression from '../views/CdnCompression'
 import CdnRateLimit from '../views/CdnRateLimit'
+import CdnSecurity from '../views/CdnSecurity'
 import FAQ from '../views/FAQ'
 
 Vue.use(Router)
@@ -66,6 +67,11 @@ export default new Router({
       path: '/cdn_ratelimit',
       name: 'CdnRateLimit',
       component: CdnRateLimit
+    },
+    {
+      path: '/cdn_security',
+      name: 'CdnSecurity',
+      component: CdnSecurity
     },
     {
       path: '/faq',

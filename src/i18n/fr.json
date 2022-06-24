@@ -41,6 +41,7 @@
     "cdn_cache": "Cdn Cache",
     "cdn_compression": "Cdn Compression",
     "cdn_ratelimit": "Cdn Rate Limit",
+    "cdn_security": "Cdn Sécurité",
     "faq": "FAQ"
   },
   "notFoundPage": {
@@ -426,7 +427,7 @@
     "bytes_miss": "Echecs"
   },
   "cdn_compression": {
-    "brotli": "Number of requests en brotli",
+    "brotli": "Nombre de requêtes compressées en brotli",
     "plain": "Nombre de requêtes non compressées",
     "gzip": "Nombre de requêtes compressées en gzip",
     "chart": "Compression des requêtes",
@@ -442,6 +443,13 @@
     "ratio": "Ratio",
     "region": "Région",
     "topRegions": "Top des Régions"
+  },
+  "cdn_security": {
+    "waf_widget": "Nombre de requêtes bloquées par le firewall applicatif",
+    "https_redirect_widget": "Nombre de requêtes redirigées d'HTTP vers HTTPS",
+    "chart": "Requêtes bloquées par le firewall applicatif",
+    "request_blocked": "Requêtes bloquées en entrée",
+    "response_blocked": "Requêtes bloquées en sortie"
   },
   "faq": {
     "id": "#",

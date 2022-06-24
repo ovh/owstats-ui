@@ -5,8 +5,6 @@
         <b-col class="col-sm-4">
           <div
             class="widget-chart widget-chart-hover"
-            data-toggle="tooltip"
-            :title="$t('tooltips.compression_brotli')"
           >
             <div class="widget-subheading">
               {{ $t('cdn_compression.brotli') }}
@@ -19,8 +17,6 @@
         <b-col class="col-sm-4">
           <div
             class="widget-chart widget-chart-hover"
-            data-toggle="tooltip"
-            :title="$t('tooltips.compression_plain')"
           >
             <div class="widget-subheading">
               {{ $t('cdn_compression.plain') }}
@@ -33,8 +29,6 @@
         <b-col class="col-sm-4">
           <div
             class="widget-chart widget-chart-hover"
-            data-toggle="tooltip"
-            :title="$t('tooltips.compression_gzip')"
           >
             <div class="widget-subheading">
               {{ $t('cdn_compression.gzip') }}
