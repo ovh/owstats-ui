@@ -1,0 +1,222 @@
+{
+    "records": {
+     "2022-06-22": {
+      "ratelimit": [
+       {
+        "country": "Colombia",
+        "region": "Antioquia",
+        "value": "128"
+       },
+       {
+        "country": "Colombia",
+        "region": "Bogota D.C.",
+        "value": "347"
+       },
+       {
+        "country": "Colombia",
+        "region": "Departamento del Valle del Cauca",
+        "value": "94"
+       },
+       {
+        "country": "France",
+        "region": "(no data)",
+        "value": "13"
+       },
+       {
+        "country": "France",
+        "region": "Grand Est",
+        "value": "83"
+       },
+       {
+        "country": "France",
+        "region": "Hauts-de-France",
+        "value": "512"
+       },
+       {
+        "country": "France",
+        "region": "Nouvelle-Aquitaine",
+        "value": "44"
+       },
+       {
+        "country": "France",
+        "region": "Occitanie",
+        "value": "186"
+       },
+       {
+        "country": "France",
+        "region": "Île-de-France",
+        "value": "1246"
+       },
+       {
+        "country": "Italy",
+        "region": "Campania",
+        "value": "235"
+       },
+       {
+        "country": "Italy",
+        "region": "Liguria",
+        "value": "130"
+       },
+       {
+        "country": "Turkey",
+        "region": "Samsun",
+        "value": "130"
+       },
+       {
+        "country": "Kyrgyzstan",
+        "region": "Gorod Bishkek",
+        "value": "1597"
+       },
+       {
+        "country": "Mexico",
+        "region": "México",
+        "value": "3"
+       },
+       {
+        "country": "Peru",
+        "region": "La Libertad",
+        "value": "11"
+       },
+       {
+        "country": "Peru",
+        "region": "Piura",
+        "value": "40"
+       },
+       {
+        "country": "Portugal",
+        "region": "Lisbon",
+        "value": "1361"
+       },
+       {
+        "country": "Spain",
+        "region": "Andalusia",
+        "value": "141"
+       },
+       {
+        "country": "Spain",
+        "region": "Catalonia",
+        "value": "114"
+       },
+       {
+        "country": "Spain",
+        "region": "Madrid",
+        "value": "33"
+       },
+       {
+        "country": "Spain",
+        "region": "Valencia",
+        "value": "225"
+       }
+      ]
+     },
+     "2022-06-23": {
+      "ratelimit": [
+       {
+        "country": "Colombia",
+        "region": "Departamento de Caldas",
+        "value": "205"
+       },
+       {
+        "country": "France",
+        "region": "(no data)",
+        "value": "914"
+       },
+       {
+        "country": "France",
+        "region": "Bourgogne-Franche-Comte",
+        "value": "157"
+       },
+       {
+        "country": "France",
+        "region": "Hauts-de-France",
+        "value": "139"
+       },
+       {
+        "country": "France",
+        "region": "Occitanie",
+        "value": "195"
+       },
+       {
+        "country": "France",
+        "region": "Provence-Alpes-Côte d'Azur",
+        "value": "99"
+       },
+       {
+        "country": "Italy",
+        "region": "Calabria",
+        "value": "433"
+       },
+       {
+        "country": "Italy",
+        "region": "Lazio",
+        "value": "1189"
+       },
+       {
+        "country": "Italy",
+        "region": "Lombardy",
+        "value": "388"
+       },
+       {
+        "country": "Italy",
+        "region": "Piedmont",
+        "value": "69"
+       },
+       {
+        "country": "Italy",
+        "region": "Veneto",
+        "value": "4"
+       },
+       {
+        "country": "Madagascar",
+        "region": "(no data)",
+        "value": "64"
+       },
+       {
+        "country": "Mexico",
+        "region": "Mexico City",
+        "value": "120"
+       },
+       {
+        "country": "Mexico",
+        "region": "México",
+        "value": "248"
+       },
+       {
+        "country": "Morocco",
+        "region": "Casablanca-Settat",
+        "value": "1320"
+       },
+       {
+        "country": "Peru",
+        "region": "Lima",
+        "value": "51"
+       },
+       {
+        "country": "Spain",
+        "region": "Andalusia",
+        "value": "152"
+       },
+       {
+        "country": "Spain",
+        "region": "Catalonia",
+        "value": "603"
+       },
+       {
+        "country": "Turkey",
+        "region": "Antalya",
+        "value": "29"
+       },
+       {
+        "country": "Turkey",
+        "region": "Istanbul",
+        "value": "55"
+       },
+       {
+        "country": "Turkey",
+        "region": "Tekirdağ",
+        "value": "251"
+       }
+      ]
+     }
+    }
+   } 

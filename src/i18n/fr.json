@@ -40,6 +40,7 @@
     "invoice": "Invoice",
     "cdn_cache": "Cdn Cache",
     "cdn_compression": "Cdn Compression",
+    "cdn_ratelimit": "Cdn Rate Limit",
     "faq": "FAQ"
   },
   "notFoundPage": {
@@ -425,13 +426,22 @@
     "bytes_miss": "Echecs"
   },
   "cdn_compression": {
-    "brotli": "Number of requests encoded in brotli",
-    "plain": "Number of uncompressed requests",
-    "gzip": "Number of requests encoded in gzip",
-    "chart": "Requests encoding",
+    "brotli": "Number of requests en brotli",
+    "plain": "Nombre de requêtes non compressées",
+    "gzip": "Nombre de requêtes compressées en gzip",
+    "chart": "Compression des requêtes",
     "chart_brotli": "brotli",
-    "chart_plain": "none",
+    "chart_plain": "non compressé",
     "chart_gzip": "gzip"
+  },
+  "cdn_ratelimit": {
+    "heatmap": "Rate Limit",
+    "id": "#",
+    "country": "Pays",
+    "count": "Nombre de requêtes",
+    "ratio": "Ratio",
+    "region": "Région",
+    "topRegions": "Top des Régions"
   },
   "faq": {
     "id": "#",

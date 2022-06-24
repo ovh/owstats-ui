@@ -40,7 +40,8 @@ const state = {
     geolocalizationVisitsData: {},
     cdnCacheData: {},
     cdnBytesData: {},
-    cdnCompressionData: {}
+    cdnCompressionData: {},
+    cdnRateLimitData: {}
   }
 }
 
@@ -137,6 +138,9 @@ const mutations = {
   },
   setCdnCompressionData (state, cdnCompressionData) {
     state.data.cdnCompressionData = cdnCompressionData
+  },
+  setCdnRateLimitData (state, cdnRateLimitData) {
+    state.data.cdnRateLimitData = cdnRateLimitData
   },
   setDisplayWarning (state, displayWarning) {
     state.displayWarning = displayWarning

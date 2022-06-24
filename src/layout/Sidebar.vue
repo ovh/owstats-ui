@@ -50,6 +50,12 @@
           index="cdn_compression"
         />
         <NavLink
+          v-if="isCdn"
+          :header="$t('menu.cdn_ratelimit')"
+          link="cdn_ratelimit"
+          index="cdn_ratelimit"
+        />
+        <NavLink
           :header="$t('menu.faq')"
           link="faq"
           index="faq"
