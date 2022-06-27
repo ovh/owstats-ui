@@ -60,7 +60,7 @@ describe('Display status data', () => {
     // verifying tooltip values
     cy.get('.apexcharts-tooltip')
       .find('.apexcharts-tooltip-y-group')
-      .filter(':contains("Nombre d\'accès:"), :contains("Valid Hits")')
+      .filter(':contains("Nombre d\'accès valides:"), :contains("Valid Hits")')
       .find('.apexcharts-tooltip-text-y-value').should('have.text', '264')
 
     cy.get('.apexcharts-tooltip')

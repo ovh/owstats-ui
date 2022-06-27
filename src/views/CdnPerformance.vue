@@ -123,7 +123,7 @@ export default {
     },
     topRegionAggregatedData () {
       const rawData = this.$store.state.app.data.cdnResponseTimeData
-      return utils.rawDataAverageAggregation(rawData, this.columnsTopRegion)
+      return utils.rawDataAggregation(rawData, this.columnsTopRegion, { type: 'average', onColumn: 'value', byColumn: 'hits' })
     }
   },
   watch: {

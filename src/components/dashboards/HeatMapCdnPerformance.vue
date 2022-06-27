@@ -107,8 +107,8 @@ export default {
 
         aggregatedData.aggregatedDataPerKey[country] = responseTime
 
-        if (responseTime > mapMax) {
-          mapMax = responseTime
+        if (parseFloat(responseTime) > mapMax) {
+          mapMax = parseFloat(responseTime)
         }
       }
       return { aggregatedData, mapMax, mapData }

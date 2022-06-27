@@ -118,6 +118,126 @@ export default {
     return value
   },
 
+  // given key columns and aggregation key, get the values to be displayed in plain table for key columns
+  // aggregationKey: string, key columns values sepatated by " - ", ex : "Microsoft Windows - Chrome - 83"
+  // columns: Array, key columns to be displayed in plain table, ex : "platform, browser, version"
+  // keyColumnsDiplay : object to display key in separated columns in table
+  // ex of keyColumsDisplay: {"platform": "Android", "browser": "Chrome", "browser_version": "34"}
+  getRecordKeyColumnsDisplay (aggregationKey, columns) {
+    const aggregationKeyArray = aggregationKey.split(' - ')
+    const keyColumns = this.computeKeyColumns(columns)
+    const keyColumnsDisplay = {}
+    for (const i in keyColumns) {
+      const column = keyColumns[i]
+      let key
+      aggregationKeyArray[i] ? key = aggregationKeyArray[i] : key = null
+      keyColumnsDisplay[column] = key
+    }
+
+    return keyColumnsDisplay
+  },
+
+  // given a record and a list of key columns, get the correspoding aggregation key
+  // record : Object corresponding to one entry of raw data (ex: {"browser": "Chrome", "browser_version": "83.0.4099.2", "platform": "NT", "platform_version": "10.0", "value": "1"}})
+  // columns: list of string: key columns of the plain table (ex: [ "platform", "browser", "browser_version" ])
+  // aggregation key : string, aggregation of the values of the key columns for the record, separated by "-", for example : "Microsoft Windows - Chrome - 83"
+  getRecordAggregationKey (record, columns) {
+    let aggregationKey = ''
+    const keyColumns = this.computeKeyColumns(columns)
+
+    // code specific for tables which are more complex than key/total/ratio
+    if (keyColumns.length > 1) {
+      for (const j in keyColumns) {
+        const columnName = keyColumns[j]
+        const columnValue = this.dataValueReplacement(columnName, record)
+
+        if (aggregationKey !== '') {
+          aggregationKey = aggregationKey.concat(' - ')
+        }
+        aggregationKey = aggregationKey.concat(columnValue)
+      }
+      // code specific for simple table (key/total/ratio)
+    } else {
+      aggregationKey = this.dataValueReplacement(keyColumns[0], record)
+    }
+
+    return aggregationKey
+  },
+
+  // from raw owstats-api response, key columns and column on which sum is to be done, compute the sum of values by key
+  // rawData: Object, api response for which data will be aggregated
+  // columns: list of string: key columns of the plain table (ex: [ "browser" ])
+  // aggregationOnColumn : string, name of the column on which the sum will be performed (ex: "value")
+  // aggregatedDataPerKey: Object, result of the aggregation, for example : { Safari: 10, Chrome : 15 }
+  // sumValues : Int, total of the values of the aggregated data (ex : 25)
+  // keyColumnsDisplay : if the key is composed of more than one column, object to display key in separated columns in table
+  computeAggregationSum (rawData, columns, aggregationOnColumn) {
+    let sumValues = 0
+    const aggregatedDataPerKey = {}
+    const responseDataType = this.apiResponseDataType(rawData)
+    const keyColumnsDisplay = {}
+
+    for (const date in rawData) {
+      for (const i in rawData[date][responseDataType]) {
+        const record = rawData[date][responseDataType][i]
+        const onColumnValue = parseInt(record[aggregationOnColumn])
+        const aggregationKey = this.getRecordAggregationKey(record, columns)
+        keyColumnsDisplay[aggregationKey] = this.getRecordKeyColumnsDisplay(aggregationKey, columns)
+
+        if (aggregationKey in aggregatedDataPerKey) {
+          aggregatedDataPerKey[aggregationKey] += onColumnValue
+        } else {
+          aggregatedDataPerKey[aggregationKey] = onColumnValue
+        }
+        sumValues += onColumnValue
+      }
+    }
+
+    return { aggregatedDataPerKey, sumValues, keyColumnsDisplay }
+  },
+
+  // from raw owstats-api response, key columns and columns on which average is to be done, compute the avergage of values by key
+  // rawData: Object, api response for which data will be aggregated
+  // columns: list of string: key columns of the plain table (ex: [ "country" ])
+  // aggregationOnColumn : string, name of the column on which the sum will be performed (ex: "value")
+  // aggregationByColumn : string, name of the column by which the sum will be divided to get the avergage (ex: "hits")
+  // aggregatedDataPerKey: Object, result of the aggregation, for example : { France: 210, Belgium : 234 }
+  // sumValues : null, this metric is not needed fot average
+  // keyColumnsDisplay : if the key is composed of more than one column, object to display key in separated columns in table
+  computeAggregationAverage (rawData, columns, aggregationOnColumn, aggregationByColumn) {
+    const aggregatedDataPerKey = {}
+    const responseDataType = this.apiResponseDataType(rawData)
+    const temporaryAggregatedData = {}
+    const keyColumnsDisplay = {}
+
+    for (const date in rawData) {
+      for (const i in rawData[date][responseDataType]) {
+        const record = rawData[date][responseDataType][i]
+        const onColumnValue = parseInt(record[aggregationOnColumn])
+        const byColumnValue = parseInt(record[aggregationByColumn])
+
+        const aggregationKey = this.getRecordAggregationKey(record, columns)
+        keyColumnsDisplay[aggregationKey] = this.getRecordKeyColumnsDisplay(aggregationKey, columns)
+
+        if (aggregationKey in temporaryAggregatedData) {
+          temporaryAggregatedData[aggregationKey].onColumnValue += onColumnValue
+          temporaryAggregatedData[aggregationKey].byColumnValue += byColumnValue
+        } else {
+          temporaryAggregatedData[aggregationKey] = {}
+          temporaryAggregatedData[aggregationKey].onColumnValue = onColumnValue
+          temporaryAggregatedData[aggregationKey].byColumnValue = byColumnValue
+        }
+      }
+    }
+
+    for (const key in temporaryAggregatedData) {
+      const responseTime = (temporaryAggregatedData[key].onColumnValue / temporaryAggregatedData[key].byColumnValue).toFixed(2)
+      aggregatedDataPerKey[key] = responseTime
+    }
+
+    return { aggregatedDataPerKey, sumValues: null, keyColumnsDisplay }
+  },
+
   // from API response, aggregate data for tables and charts display
   // rawData: Object, api response for which data will be aggregated
   // columns: Array, columns to be displayed in chart/table : aggregation key will be computed with these columns
@@ -125,106 +245,14 @@ export default {
   // sumValues : Int, total of the values of the aggregated data (ex : 25)
   // keyColumnsDisplay : if the key is composed of more than one column, object to display key in separated columns in table
   // ex of keyColumsDisplay: { "Android - Chrome - 34 : {"platform": "Android", "browser": "Chrome", "browser_version": "34"},  ...}
-  rawDataAggregation (rawData, columns) {
-    const keyColumnsDisplay = {}
-    let sumValues = 0
-    const aggregatedDataPerKey = {}
-
-    const responseDataType = this.apiResponseDataType(rawData)
-    const keyColumns = this.computeKeyColumns(columns)
-
-    for (const date in rawData) {
-      for (const i in rawData[date][responseDataType]) {
-        const record = rawData[date][responseDataType][i]
-        const intValue = parseInt(record.value)
-        let aggregationKey = ''
-
-        // code specific for tables which are more complex than key/total/ratio
-        if (keyColumns.length > 1) {
-          for (const j in keyColumns) {
-            const columnName = keyColumns[j]
-            const columnValue = this.dataValueReplacement(columnName, record)
-
-            let base = {}
-            if (aggregationKey !== '') {
-              base = keyColumnsDisplay[aggregationKey]
-              aggregationKey = aggregationKey.concat(' - ')
-            }
-            aggregationKey = aggregationKey.concat(columnValue)
-            keyColumnsDisplay[aggregationKey] = base
-            keyColumnsDisplay[aggregationKey][columnName] = columnValue
-          }
-          // code specific for simple table (key/total/ratio)
-        } else {
-          const keyColumn = keyColumns[0]
-          aggregationKey = this.dataValueReplacement(keyColumn, record)
-        }
-
-        if (aggregationKey in aggregatedDataPerKey) {
-          aggregatedDataPerKey[aggregationKey] += intValue
-        } else {
-          aggregatedDataPerKey[aggregationKey] = intValue
-        }
-        sumValues += intValue
-      }
+  rawDataAggregation (rawData, columns, aggregationType = { type: 'sum', onColumn: 'value' }) {
+    if (aggregationType.type === 'sum') {
+      const { aggregatedDataPerKey, sumValues, keyColumnsDisplay } = this.computeAggregationSum(rawData, columns, aggregationType.onColumn)
+      return { aggregatedDataPerKey, sumValues, keyColumnsDisplay }
+    } else {
+      const { aggregatedDataPerKey, sumValues, keyColumnsDisplay } = this.computeAggregationAverage(rawData, columns, aggregationType.onColumn, aggregationType.byColumn)
+      return { aggregatedDataPerKey, sumValues, keyColumnsDisplay }
     }
-    return { aggregatedDataPerKey, sumValues, keyColumnsDisplay }
-  },
-
-  // from API response, aggregate data for tables and charts display where average computation is needed instead of addition
-  // rawData: Object, api response for which data will be aggregated
-  // columns: Array, columns to be displayed in chart/table : aggregation key will be computed with these columns
-  // aggregatedDataPerKey: Object, result of the aggregation, for example : { Safari: 10, Chrome : 15 }
-  // sumValues : Int, total of the values of the aggregated data (ex : 25)
-  // keyColumnsDisplay : if the key is composed of more than one column, object to display key in separated columns in table
-  // ex of keyColumsDisplay: { "Android - Chrome - 34 : {"platform": "Android", "browser": "Chrome", "browser_version": "34"},  ...}
-  rawDataAverageAggregation (rawData, columns) {
-    const keyColumnsDisplay = {}
-    const temporaryAggregatedData = {}
-    const aggregatedDataPerKey = {}
-
-    const responseDataType = this.apiResponseDataType(rawData)
-    const keyColumns = this.computeKeyColumns(columns)
-
-    for (const date in rawData) {
-      for (const i in rawData[date][responseDataType]) {
-        const record = rawData[date][responseDataType][i]
-        const value = parseInt(record.value)
-        const hits = parseInt(record.hits)
-        let aggregationKey = ''
-
-        // construction of aggregation keys
-        for (const j in keyColumns) {
-          const columnName = keyColumns[j]
-          const columnValue = this.dataValueReplacement(columnName, record)
-
-          let base = {}
-          if (aggregationKey !== '') {
-            base = keyColumnsDisplay[aggregationKey]
-            aggregationKey = aggregationKey.concat(' - ')
-          }
-          aggregationKey = aggregationKey.concat(columnValue)
-          keyColumnsDisplay[aggregationKey] = base
-          keyColumnsDisplay[aggregationKey][columnName] = columnValue
-        }
-
-        // construction of aggregated data
-        if (aggregationKey in temporaryAggregatedData) {
-          temporaryAggregatedData[aggregationKey].value += value
-          temporaryAggregatedData[aggregationKey].hits += hits
-        } else {
-          temporaryAggregatedData[aggregationKey] = {}
-          temporaryAggregatedData[aggregationKey].value = value
-          temporaryAggregatedData[aggregationKey].hits = hits
-        }
-      }
-    }
-
-    for (const key in temporaryAggregatedData) {
-      const responseTime = (temporaryAggregatedData[key].value / temporaryAggregatedData[key].hits).toFixed(2)
-      aggregatedDataPerKey[key] = responseTime
-    }
-    return { aggregatedDataPerKey, keyColumnsDisplay }
   },
 
   // from aggregated data, format data for chart and table display
