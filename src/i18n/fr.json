@@ -42,6 +42,7 @@
     "cdn_compression": "Cdn Compression",
     "cdn_ratelimit": "Cdn Rate Limit",
     "cdn_security": "Cdn Sécurité",
+    "cdn_performance": "Cdn Performance",
     "faq": "FAQ"
   },
   "notFoundPage": {
@@ -450,6 +451,14 @@
     "chart": "Requêtes bloquées par le firewall applicatif",
     "request_blocked": "Requêtes bloquées en entrée",
     "response_blocked": "Requêtes bloquées en sortie"
+  },
+  "cdn_performance": {
+    "id": "#",
+    "country": "Pays",
+    "region": "Région",
+    "count": "Temps de réponse moyen (μs)",
+    "heatmap": "Temps de réponse",
+    "topRegions": "Top des régions"
   },
   "faq": {
     "id": "#",

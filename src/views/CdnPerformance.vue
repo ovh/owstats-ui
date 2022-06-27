@@ -10,13 +10,13 @@
           <b-col>
             <b-card class="card-margin">
               <h4 class="oui-heading_4">
-                {{ $t('cdn_ratelimit.heatmap') }}
+                {{ $t('cdn_performance.heatmap') }}
               </h4>
               <heat-map
                 id="heat-map"
-                :raw-data="rateLimitData"
+                :raw-data="responseTimeData"
                 :map-columns="mapColumns"
-                :map-title="$t('cdn_ratelimit.heatmap')"
+                :map-title="$t('cdn_performance.heatmap')"
               />
             </b-card>
           </b-col>
@@ -25,13 +25,14 @@
           <b-col>
             <b-card class="card-margin">
               <h4 class="oui-heading_4">
-                {{ $t('cdn_ratelimit.topRegions') }}
+                {{ $t('cdn_performance.topRegions') }}
               </h4>
               <plain-table
                 id="top-region"
                 :aggregated-data="topRegionAggregatedData"
                 :table-columns="columnsTopRegion"
                 :table-size="20"
+                sort="ASC"
               />
             </b-card>
           </b-col>
@@ -44,7 +45,7 @@
 <script>
 import DateTimePicker from '../components/basicComponents/DateTimePicker'
 import DomainSelection from '../components/basicComponents/DomainSelection.vue'
-import HeatMap from '../components/dashboards//HeatMap'
+import HeatMap from '../components/dashboards/HeatMapCdnPerformance'
 import { BRow, BCol, BCard } from 'bootstrap-vue'
 import PlainTable from '../components/basicComponents/PlainTable'
 import utils from '../services/utils.js'
@@ -66,41 +67,33 @@ export default {
       mapColumns: [
         {
           key: 'id',
-          label: 'cdn_ratelimit.id'
+          label: 'cdn_performance.id'
         },
         {
           key: 'country',
-          label: 'cdn_ratelimit.country'
+          label: 'cdn_performance.country'
         },
         {
           key: 'count',
-          label: 'cdn_ratelimit.count'
-        },
-        {
-          key: 'ratio',
-          label: 'cdn_ratelimit.ratio'
+          label: 'cdn_performance.count'
         }
       ],
       columnsTopRegion: [
         {
           key: 'id',
-          label: 'cdn_ratelimit.id'
+          label: 'cdn_performance.id'
         },
         {
           key: 'country',
-          label: 'cdn_ratelimit.country'
+          label: 'cdn_performance.country'
         },
         {
           key: 'region',
-          label: 'cdn_ratelimit.region'
+          label: 'cdn_performance.region'
         },
         {
           key: 'count',
-          label: 'cdn_ratelimit.count'
-        },
-        {
-          key: 'ratio',
-          label: 'cdn_ratelimit.ratio'
+          label: 'cdn_performance.count'
         }
       ]
     }
@@ -125,14 +118,13 @@ export default {
     domainChanged () {
       return this.$store.state.app.domainChanged
     },
-    rateLimitData () {
-      return this.$store.state.app.data.cdnRateLimitData
+    responseTimeData () {
+      return this.$store.state.app.data.cdnResponseTimeData
     },
     topRegionAggregatedData () {
-      const rawData = this.$store.state.app.data.cdnRateLimitData
-      return utils.rawDataAggregation(rawData, this.columnsTopRegion)
+      const rawData = this.$store.state.app.data.cdnResponseTimeData
+      return utils.rawDataAverageAggregation(rawData, this.columnsTopRegion)
     }
-
   },
   watch: {
     isCdn () {
@@ -141,23 +133,23 @@ export default {
       })
     },
     dateChanged () {
-      this.fetchRateLimitData()
+      this.fetchPerformanceData()
     },
     domainChanged () {
-      this.fetchRateLimitData()
+      this.fetchPerformanceData()
     }
   },
   mounted () {
-    this.fetchRateLimitData()
+    this.fetchPerformanceData()
   },
   methods: {
-    async fetchRateLimitData () {
+    async fetchPerformanceData () {
       this.isLoading = true
 
       Promise.all([
         this.$store.dispatch('fetchData', {
-          endpoint: 'cdn/ratelimit',
-          mutation: 'setCdnRateLimitData',
+          endpoint: 'cdn/responsetime',
+          mutation: 'setCdnResponseTimeData',
           domainInParamaters: true
         })
       ]).finally(() => {

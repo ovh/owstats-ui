@@ -62,6 +62,12 @@
           index="cdn_security"
         />
         <NavLink
+          v-if="isCdn"
+          :header="$t('menu.cdn_performance')"
+          link="cdn_performance"
+          index="cdn_performance"
+        />
+        <NavLink
           :header="$t('menu.faq')"
           link="faq"
           index="faq"

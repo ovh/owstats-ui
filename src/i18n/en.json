@@ -206,6 +206,14 @@
     "region": "Region",
     "topRegions": "Top Regions"
   },
+  "cdn_performance": {
+    "id": "#",
+    "country": "Country",
+    "region": "Region",
+    "count": "Average response time (μs)",
+    "heatmap": "Average response time",
+    "topRegions": "Top Regions"
+  },
   "domain": "Domain",
   "domain_selection": "Domain Selection",
   "select_all": "All",

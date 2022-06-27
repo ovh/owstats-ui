@@ -11,6 +11,7 @@ import CdnCache from '../views/CdnCache'
 import CdnCompression from '../views/CdnCompression'
 import CdnRateLimit from '../views/CdnRateLimit'
 import CdnSecurity from '../views/CdnSecurity'
+import CdnPerformance from '../views/CdnPerformance'
 import FAQ from '../views/FAQ'
 
 Vue.use(Router)
@@ -72,6 +73,11 @@ export default new Router({
       path: '/cdn_security',
       name: 'CdnSecurity',
       component: CdnSecurity
+    },
+    {
+      path: '/cdn_performance',
+      name: 'CdnPerformance',
+      component: CdnPerformance
     },
     {
       path: '/faq',

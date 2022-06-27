@@ -43,7 +43,8 @@ const state = {
     cdnCompressionData: {},
     cdnRateLimitData: {},
     cdnWafData: {},
-    cdnHttpsRedirectData: {}
+    cdnHttpsRedirectData: {},
+    cdnResponseTimeData: {}
   }
 }
 
@@ -149,6 +150,9 @@ const mutations = {
   },
   setCdnHttpsRedirectData (state, cdnHttpsRedirectData) {
     state.data.cdnHttpsRedirectData = cdnHttpsRedirectData
+  },
+  setCdnResponseTimeData (state, cdnResponseTimeData) {
+    state.data.cdnResponseTimeData = cdnResponseTimeData
   },
   setDisplayWarning (state, displayWarning) {
     state.displayWarning = displayWarning

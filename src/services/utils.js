@@ -6,7 +6,7 @@ export default {
   // reverse an object of the form { key: value } (ex : { Chrome: 10, Firefox: 10, Opera: 30 })
   // result is the reverse object (data) and its ordered keys (keys)
   // ex of result : { keys:[30, 10],  data: { 10: [Chrome, Firefox], 30: [Opera] } }
-  reversePerKeyObject (perKey) {
+  reversePerKeyObject (perKey, sort = 'DESC') {
     const data = {}
 
     for (const key in perKey) {
@@ -20,7 +20,11 @@ export default {
 
     const keys = Object.keys(data)
 
-    keys.sort(function (a, b) { return a - b })
+    if (sort === 'ASC') {
+      keys.sort(function (a, b) { return b - a })
+    } else {
+      keys.sort(function (a, b) { return a - b })
+    }
     keys.reverse()
 
     return { keys, data }
@@ -167,6 +171,62 @@ export default {
     return { aggregatedDataPerKey, sumValues, keyColumnsDisplay }
   },
 
+  // from API response, aggregate data for tables and charts display where average computation is needed instead of addition
+  // rawData: Object, api response for which data will be aggregated
+  // columns: Array, columns to be displayed in chart/table : aggregation key will be computed with these columns
+  // aggregatedDataPerKey: Object, result of the aggregation, for example : { Safari: 10, Chrome : 15 }
+  // sumValues : Int, total of the values of the aggregated data (ex : 25)
+  // keyColumnsDisplay : if the key is composed of more than one column, object to display key in separated columns in table
+  // ex of keyColumsDisplay: { "Android - Chrome - 34 : {"platform": "Android", "browser": "Chrome", "browser_version": "34"},  ...}
+  rawDataAverageAggregation (rawData, columns) {
+    const keyColumnsDisplay = {}
+    const temporaryAggregatedData = {}
+    const aggregatedDataPerKey = {}
+
+    const responseDataType = this.apiResponseDataType(rawData)
+    const keyColumns = this.computeKeyColumns(columns)
+
+    for (const date in rawData) {
+      for (const i in rawData[date][responseDataType]) {
+        const record = rawData[date][responseDataType][i]
+        const value = parseInt(record.value)
+        const hits = parseInt(record.hits)
+        let aggregationKey = ''
+
+        // construction of aggregation keys
+        for (const j in keyColumns) {
+          const columnName = keyColumns[j]
+          const columnValue = this.dataValueReplacement(columnName, record)
+
+          let base = {}
+          if (aggregationKey !== '') {
+            base = keyColumnsDisplay[aggregationKey]
+            aggregationKey = aggregationKey.concat(' - ')
+          }
+          aggregationKey = aggregationKey.concat(columnValue)
+          keyColumnsDisplay[aggregationKey] = base
+          keyColumnsDisplay[aggregationKey][columnName] = columnValue
+        }
+
+        // construction of aggregated data
+        if (aggregationKey in temporaryAggregatedData) {
+          temporaryAggregatedData[aggregationKey].value += value
+          temporaryAggregatedData[aggregationKey].hits += hits
+        } else {
+          temporaryAggregatedData[aggregationKey] = {}
+          temporaryAggregatedData[aggregationKey].value = value
+          temporaryAggregatedData[aggregationKey].hits = hits
+        }
+      }
+    }
+
+    for (const key in temporaryAggregatedData) {
+      const responseTime = (temporaryAggregatedData[key].value / temporaryAggregatedData[key].hits).toFixed(2)
+      aggregatedDataPerKey[key] = responseTime
+    }
+    return { aggregatedDataPerKey, keyColumnsDisplay }
+  },
+
   // from aggregated data, format data for chart and table display
   // aggregatedData : Object, result of rawDataAggregation functionÒ
   // columns: Array, columns to be displayed in chart/table : aggregation key will be computed with these columns
@@ -176,9 +236,9 @@ export default {
   // tableData: Array, each element is an object representation of a row to be displayed in the table component
   // labels: Array, each element is a string with the label to be displayed in pie chart component. Computed only if hasChart is true
   // values: Array, each element is a number with the value to be displayed in pie chart component. Computed only if hasChart is true
-  computeTableAndChartData (aggregatedData, columns, tableSize, hasChart, chartSize) {
+  computeTableAndChartData (aggregatedData, columns, tableSize, hasChart, chartSize, sort = 'DESC') {
     const { aggregatedDataPerKey, sumValues, keyColumnsDisplay } = aggregatedData
-    const { keys, data } = this.reversePerKeyObject(aggregatedDataPerKey)
+    const { keys, data } = this.reversePerKeyObject(aggregatedDataPerKey, sort)
     const keyColumns = this.computeKeyColumns(columns)
 
     let others = sumValues
