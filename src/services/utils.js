@@ -289,9 +289,10 @@ export default {
           values.push(parseInt(key))
           others -= key
         }
+
         const table = {
           id: count,
-          count: formatFunction(key),
+          count: formatFunction ? formatFunction(key) : key,
           ratio: `${ratio.toFixed(1)}`
         }
         if (keyColumnsDisplay && Object.keys(keyColumnsDisplay).length > 1) {

@@ -30,7 +30,8 @@ export default {
       default: 'DESC'
     },
     formatFunction: {
-      type: Function
+      type: Function,
+      default: null
     }
   },
   data () {
