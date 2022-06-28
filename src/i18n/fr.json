@@ -422,10 +422,10 @@
     "total_traffic_bytes": "Volume de données total",
     "cache_hit_miss": "Accès au cache (requêtes)",
     "cache_hits": "Succès",
-    "cache_miss": "Echecs",
+    "cache_miss": "Echècs",
     "bytes_hit_miss": "Accès au cache (volume de données en bytes)",
     "bytes_hits": "Succès",
-    "bytes_miss": "Echecs"
+    "bytes_miss": "Echècs"
   },
   "cdn_compression": {
     "brotli": "Nombre de requêtes compressées en brotli",
@@ -456,7 +456,7 @@
     "id": "#",
     "country": "Pays",
     "region": "Région",
-    "count": "Temps de réponse moyen (μs)",
+    "count": "Temps de réponse moyen",
     "heatmap": "Temps de réponse",
     "topRegions": "Top des régions"
   },

@@ -264,7 +264,7 @@ export default {
   // tableData: Array, each element is an object representation of a row to be displayed in the table component
   // labels: Array, each element is a string with the label to be displayed in pie chart component. Computed only if hasChart is true
   // values: Array, each element is a number with the value to be displayed in pie chart component. Computed only if hasChart is true
-  computeTableAndChartData (aggregatedData, columns, tableSize, hasChart, chartSize, sort = 'DESC') {
+  computeTableAndChartData (aggregatedData, columns, tableSize, hasChart, chartSize, sort = 'DESC', formatFunction) {
     const { aggregatedDataPerKey, sumValues, keyColumnsDisplay } = aggregatedData
     const { keys, data } = this.reversePerKeyObject(aggregatedDataPerKey, sort)
     const keyColumns = this.computeKeyColumns(columns)
@@ -291,7 +291,7 @@ export default {
         }
         const table = {
           id: count,
-          count: key,
+          count: formatFunction(key),
           ratio: `${ratio.toFixed(1)}`
         }
         if (keyColumnsDisplay && Object.keys(keyColumnsDisplay).length > 1) {
@@ -525,6 +525,18 @@ export default {
     const i = Math.floor(Math.log(bytes) / Math.log(k))
 
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
+  },
+
+  formatMicroSecondes (microseconds, decimals = 2) {
+    if (microseconds === 0) return '0 µs'
+
+    const k = 1000
+    const dm = decimals < 0 ? 0 : decimals
+    const sizes = ['µs', 'ms', 's']
+
+    const i = Math.floor(Math.log(microseconds) / Math.log(k))
+
+    return parseFloat((microseconds / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
   },
 
   // functions to handle token in development mode and external users analytics service: does not impact OVH prod

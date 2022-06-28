@@ -210,7 +210,7 @@
     "id": "#",
     "country": "Country",
     "region": "Region",
-    "count": "Average response time (μs)",
+    "count": "Average response time",
     "heatmap": "Average response time",
     "topRegions": "Top Regions"
   },

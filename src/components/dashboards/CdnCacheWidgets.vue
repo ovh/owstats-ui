@@ -67,9 +67,9 @@ export default {
   },
   data () {
     return {
-      cacheHitPercentage: 0,
+      cacheHitPercentage: '0 %',
       totalTrafficBytes: '0',
-      bytesHitsPercentage: 0
+      bytesHitsPercentage: '0 %'
     }
   },
   mounted () {
@@ -105,8 +105,8 @@ export default {
         totalBytesMiss += periodMiss.reduce((a, b) => a + b, 0)
       }
 
-      this.cacheHitPercentage = (totalHits / (totalHits + totalMiss)).toPrecision(2)
-      this.bytesHitsPercentage = (totalBytesHits / (totalBytesHits + totalBytesMiss)).toPrecision(2)
+      this.cacheHitPercentage = `${((totalHits * 100) / (totalHits + totalMiss)).toFixed(0)} %`
+      this.bytesHitsPercentage = `${((totalBytesHits * 100) / (totalBytesHits + totalBytesMiss)).toFixed(0)} %`
       this.totalTrafficBytes = utils.formatBytes(totalBytesHits + totalBytesMiss)
     }
   }

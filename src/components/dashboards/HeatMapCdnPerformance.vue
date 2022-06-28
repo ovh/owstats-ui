@@ -17,6 +17,7 @@
           :aggregated-data="data.aggregatedData"
           :table-columns="mapColumns"
           :table-size="20"
+          :format-function="formatFunction"
           sort="ASC"
         />
       </b-col>
@@ -55,7 +56,8 @@ export default {
       min: 0,
       max: 0,
       height: '600px',
-      isLoading: false
+      isLoading: false,
+      formatFunction: utils.formatMicroSecondes
     }
   },
   computed: {

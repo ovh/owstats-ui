@@ -19,10 +19,10 @@
             class="widget-chart widget-chart-hover"
           >
             <div class="widget-subheading">
-              {{ $t('cdn_compression.plain') }}
+              {{ $t('cdn_compression.gzip') }}
             </div>
             <div class="widget-numbers">
-              {{ compressionPlain }}
+              {{ compressionGzip }}
             </div>
           </div>
         </b-col>
@@ -31,10 +31,10 @@
             class="widget-chart widget-chart-hover"
           >
             <div class="widget-subheading">
-              {{ $t('cdn_compression.gzip') }}
+              {{ $t('cdn_compression.plain') }}
             </div>
             <div class="widget-numbers">
-              {{ compressionGzip }}
+              {{ compressionPlain }}
             </div>
           </div>
         </b-col>

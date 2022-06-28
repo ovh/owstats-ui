@@ -28,6 +28,9 @@ export default {
     sort: {
       type: String,
       default: 'DESC'
+    },
+    formatFunction: {
+      type: Function
     }
   },
   data () {
@@ -41,7 +44,7 @@ export default {
   methods: {
     populateRecords () {
       this.table = utils.computeTableAndChartData(
-        this.aggregatedData, this.tableColumns, this.tableSize, false, null, this.sort
+        this.aggregatedData, this.tableColumns, this.tableSize, false, null, this.sort, this.formatFunction
       )
     }
   }

@@ -32,6 +32,7 @@
                 :aggregated-data="topRegionAggregatedData"
                 :table-columns="columnsTopRegion"
                 :table-size="20"
+                :format-function="formatFunction"
                 sort="ASC"
               />
             </b-card>
@@ -63,6 +64,7 @@ export default {
   },
   data () {
     return {
+      formatFunction: utils.formatMicroSecondes,
       isLoading: true,
       mapColumns: [
         {
