@@ -7,6 +7,7 @@ const state = {
     opened: false
   },
   mainDomain: '',
+  cluster: '',
   dataSource: '',
   startDate: moment().subtract(1, 'days').format('YYYY-MM-DD'),
   endDate: moment().subtract(1, 'days').format('YYYY-MM-DD'),
@@ -51,6 +52,9 @@ const state = {
 const mutations = {
   setMainDomain (state, domain) {
     state.mainDomain = domain
+  },
+  setCluster (state, cluster) {
+    state.cluster = cluster
   },
   setDataSource (state, dataSource) {
     state.dataSource = dataSource
@@ -173,13 +177,13 @@ const actions = {
     const clientAuthNeeded = process.env.VUE_APP_TARGET_REMOTE_API
     const baseUrl = process.env.VUE_APP_API_BASE_URL || process.env.BASE_URL
     const mainDomain = payload.mainDomain || context.state.mainDomain
+    const cluster = context.state.cluster
     const startDate = payload.startDate || context.state.startDate
     const endDate = payload.endDate || context.state.endDate || context.state.startDate
     const endpoint = payload.endpoint
     const mutation = payload.mutation
     const domainSelected = payload.domainSelected || context.state.domainSelected
     const domainInParamaters = payload.domainInParamaters
-    const cluster = baseUrl.split('.')[1]
     const isCdn = payload.isCdn || false
 
     const cdnEndpoint = 'shared_cdn'

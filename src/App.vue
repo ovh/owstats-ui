@@ -63,6 +63,8 @@ export default {
       }
       this.setMainDomain()
 
+      await this.setCluster()
+
       this.setDomains()
 
       this.setCdnDomains()
@@ -81,6 +83,10 @@ export default {
       let mainDomain = href.replace(origin + '/', '')
       mainDomain = mainDomain.replace(new RegExp('/owstats.*'), '')
       this.$store.commit('setMainDomain', mainDomain)
+    },
+    setCluster () {
+      const url = process.env.VUE_APP_API_BASE_URL || window.location.href
+      this.$store.commit('setCluster', url.split('.')[1])
     },
     setDomains () {
       this.$store.dispatch('fetchData', {
