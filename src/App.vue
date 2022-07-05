@@ -61,17 +61,17 @@ export default {
         const inOneHour = 1 / 24
         utils.setTokenInCookie(token, inOneHour)
       }
-      this.setMainDomain()
+      await this.setMainDomain()
 
       await this.setCluster()
 
-      this.setDomains()
+      await this.setDomains()
 
-      this.setCdnDomains()
+      await this.setCdnDomains()
 
-      this.setTimezone()
+      await this.setTimezone()
 
-      this.updateQuery()
+      await this.updateQuery()
 
       this.isLoaded = true
     }
