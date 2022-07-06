@@ -101,7 +101,7 @@ export default {
       this.$store.dispatch('fetchData', {
         startDate: '2012-01-01',
         endDate: moment().format('YYYY-MM-DD'),
-        endpoint: 'domains',
+        endpoint: 'cdn/domains',
         mutation: 'updateCdnDomains',
         isCdn: true
       })
