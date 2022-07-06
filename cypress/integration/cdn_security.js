@@ -4,19 +4,19 @@ describe('Display cdn ratelimit data', () => {
       fixture: 'webhosting/domains.json'
     }).as('domains')
 
-    cy.intercept('/test.com/v1/shared_cdn/domains**', {
+    cy.intercept('/test.com/v1/shared_cdn/cdn/domains**', {
       fixture: 'cdn/domains.json'
     }).as('cdn_domains')
 
-    cy.intercept('/test.com/v1/cdn/waf?start_date=2022-06-23&end_date=2022-06-23&subdomain=api.test.com', {
+    cy.intercept('/test.com/v1/shared_cdn/cdn/waf?start_date=2022-06-23&end_date=2022-06-23&subdomain=api.test.com', {
       fixture: 'cdn/waf.json'
     }).as('waf')
 
-    cy.intercept('/test.com/v1/cdn/https_redirect?start_date=2022-06-23&end_date=2022-06-23&subdomain=api.test.com', {
+    cy.intercept('/test.com/v1/shared_cdn/cdn/https_redirect?start_date=2022-06-23&end_date=2022-06-23&subdomain=api.test.com', {
       fixture: 'cdn/https_redirect.json'
     }).as('https_redirect')
 
-    cy.intercept('/test.com/v1/cdn/bytes?start_date=2022-06-23&end_date=2022-06-23&subdomain=api.test.com', {
+    cy.intercept('/test.com/v1/shared_cdn/cdn/bytes?start_date=2022-06-23&end_date=2022-06-23&subdomain=api.test.com', {
       fixture: 'cdn/bytes.json'
     }).as('bytes')
 

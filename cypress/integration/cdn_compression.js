@@ -4,15 +4,15 @@ describe('Display cdn compression data', () => {
       fixture: 'webhosting/domains.json'
     }).as('domains')
 
-    cy.intercept('/test.com/v1/shared_cdn/domains**', {
+    cy.intercept('/test.com/v1/shared_cdn/cdn/domains**', {
       fixture: 'cdn/domains.json'
     }).as('cdn_domains')
 
-    cy.intercept('/test.com/v1/cdn/encoding?start_date=2022-05-15&end_date=2022-05-15&subdomain=api.test.com', {
+    cy.intercept('/test.com/v1/shared_cdn/cdn/encoding?start_date=2022-05-15&end_date=2022-05-15&subdomain=api.test.com', {
       fixture: 'cdn/compression.json'
     }).as('compression')
 
-    cy.intercept('/test.com/v1/cdn/bytes?start_date=2022-05-15&end_date=2022-05-15&subdomain=api.test.com', {
+    cy.intercept('/test.com/v1/shared_cdn/cdn/bytes?start_date=2022-05-15&end_date=2022-05-15&subdomain=api.test.com', {
       fixture: 'cdn/bytes.json'
     }).as('bytes')
 

@@ -4,7 +4,7 @@ describe('Display geolocalization data', () => {
       fixture: 'webhosting/domains.json'
     }).as('domains')
 
-    cy.intercept('/test.com/v1/shared_cdn/domains**', {
+    cy.intercept('/test.com/v1/shared_cdn/cdn/domains**', {
       fixture: 'cdn/domains.json'
     }).as('cdn_domains')
 

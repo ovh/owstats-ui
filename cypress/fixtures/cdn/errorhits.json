@@ -1,0 +1,15 @@
+{
+	"records": {
+		"2022-07-01": {
+			"errorhits": [
+				{
+					"status_code": "301",
+					"request_origfilepath": "/",
+					"request_host": "",
+					"request_stem": "/",
+					"value": "1"
+				}
+			]
+		}
+	}
+}

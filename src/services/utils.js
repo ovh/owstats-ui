@@ -133,7 +133,6 @@ export default {
       aggregationKeyArray[i] ? key = aggregationKeyArray[i] : key = null
       keyColumnsDisplay[column] = key
     }
-
     return keyColumnsDisplay
   },
 
@@ -270,7 +269,7 @@ export default {
     const keyColumns = this.computeKeyColumns(columns)
 
     let others = sumValues
-    let count = 0
+    let id = 0
     let ratio = 0
 
     const values = []
@@ -282,20 +281,20 @@ export default {
       const entries = data[key]
       for (const j in entries) {
         const entry = entries[j]
-        count += 1
+        id += 1
         ratio = (key * 100) / sumValues
-        if (hasChart && count <= chartSize) {
+        if (hasChart && id <= chartSize) {
           labels.push(entry)
           values.push(parseInt(key))
           others -= key
         }
 
         const table = {
-          id: count,
+          id: id,
           count: formatFunction ? formatFunction(key) : key,
           ratio: `${ratio.toFixed(1)}`
         }
-        if (keyColumnsDisplay && Object.keys(keyColumnsDisplay).length > 1) {
+        if (keyColumnsDisplay) {
           keyColumns.forEach((e) => {
             table[e] = keyColumnsDisplay[entry][e]
           })
@@ -304,12 +303,12 @@ export default {
         }
 
         tableData.push(table)
-        if (count >= tableSize) {
+        if (id >= tableSize) {
           break
         }
       }
 
-      if (count >= tableSize) {
+      if (id >= tableSize) {
         break
       }
     }

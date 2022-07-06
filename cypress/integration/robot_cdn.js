@@ -12,7 +12,7 @@ describe('Display cdn robot data', () => {
       fixture: 'webhosting/robots_pages_hits_20180101_20210101.json'
     }).as('robots_pages_hits')
 
-    cy.intercept('/test.com/v1/shared_cdn/domains**', {
+    cy.intercept('/test.com/v1/shared_cdn/cdn/domains**', {
       fixture: 'cdn/domains.json'
     }).as('cdn_domains')
 
