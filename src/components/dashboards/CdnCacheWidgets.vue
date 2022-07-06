@@ -105,8 +105,8 @@ export default {
         totalBytesMiss += periodMiss.reduce((a, b) => a + b, 0)
       }
 
-      this.cacheHitPercentage = `${((totalHits * 100) / (totalHits + totalMiss)).toFixed(0)} %`
-      this.bytesHitsPercentage = `${((totalBytesHits * 100) / (totalBytesHits + totalBytesMiss)).toFixed(0)} %`
+      this.cacheHitPercentage = `${((totalHits * 100) / (totalHits + totalMiss)).toFixed(1)} %`
+      this.bytesHitsPercentage = `${((totalBytesHits * 100) / (totalBytesHits + totalBytesMiss)).toFixed(1)} %`
       this.totalTrafficBytes = utils.formatBytes(totalBytesHits + totalBytesMiss)
     }
   }

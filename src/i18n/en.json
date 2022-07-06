@@ -38,9 +38,11 @@
     "geoECharts": "ECharts - Geo charts",
     "variousECharts": "ECharts - Various charts",
     "invoice": "Invoice",
-    "cdn_cache": "Cdn Cache",
-    "cdn_compression": "Cdn Compression",
-    "cdn_ratelimit": "Cdn Rate Limit",
+    "cdn_cache": "CDN Cache",
+    "cdn_compression": "CDN Compression",
+    "cdn_ratelimit": "CDN Rate Limit",
+    "cdn_security": "CDN Sécurity",
+    "cdn_performance": "CDN Performance",
     "faq": "FAQ"
   },
   "notFoundPage": {
@@ -180,12 +182,12 @@
   "cdn_cache": {
     "cache_hit_pct": "Cache Hit Ratio (requests)",
     "bytes_hits_pct": "Cache Hit Ratio (data volume)",
-    "total_traffic_bytes": "Total traffic (bytes)",
+    "total_traffic_bytes": "Total traffic (data volume)",
     "cache_hit_miss": "Cache requests",
     "cache_hits": "Cache Hits",
     "cache_miss": "Cache Misses",
     "bytes_hit_miss": "Cache data volumn (bytes)",
-    "bytes_hit": "Cache Hits",
+    "bytes_hits": "Cache Hits",
     "bytes_miss": "Cache Misses"
   },
   "cdn_compression": {
@@ -205,6 +207,13 @@
     "ratio": "Ratio",
     "region": "Region",
     "topRegions": "Top Regions"
+  },
+  "cdn_security": {
+    "waf_widget": "Number of requests blocked by the application firewall",
+    "https_redirect_widget": "Number of requests redirected from HTTP to HTTPS",
+    "chart": "Requests blocked by the application firewall",
+    "request_blocked": "Requests blocked",
+    "response_blocked": "Response blocked"
   },
   "cdn_performance": {
     "id": "#",

@@ -38,11 +38,11 @@
     "geoECharts": "ECharts - Geo charts",
     "variousECharts": "ECharts - Various charts",
     "invoice": "Invoice",
-    "cdn_cache": "Cdn Cache",
-    "cdn_compression": "Cdn Compression",
-    "cdn_ratelimit": "Cdn Rate Limit",
-    "cdn_security": "Cdn Sécurité",
-    "cdn_performance": "Cdn Performance",
+    "cdn_cache": "CDN Cache",
+    "cdn_compression": "CDN Compression",
+    "cdn_ratelimit": "CDN Rate Limit",
+    "cdn_security": "CDN Sécurité",
+    "cdn_performance": "CDN Performance",
     "faq": "FAQ"
   },
   "notFoundPage": {
@@ -421,11 +421,11 @@
     "bytes_hits_pct": "Taux d'accès au cache (volume de données)",
     "total_traffic_bytes": "Volume de données total",
     "cache_hit_miss": "Accès au cache (requêtes)",
-    "cache_hits": "Succès",
-    "cache_miss": "Echècs",
+    "cache_hits": "Hits",
+    "cache_miss": "Miss",
     "bytes_hit_miss": "Accès au cache (volume de données en bytes)",
-    "bytes_hits": "Succès",
-    "bytes_miss": "Echècs"
+    "bytes_hits": "Hits",
+    "bytes_miss": "Miss"
   },
   "cdn_compression": {
     "brotli": "Nombre de requêtes compressées en brotli",
