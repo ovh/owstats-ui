@@ -152,7 +152,8 @@ export default {
         this.$store.dispatch('fetchData', {
           endpoint: 'cdn/responsetime',
           mutation: 'setCdnResponseTimeData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: true
         })
       ]).finally(() => {
         this.isLoading = false

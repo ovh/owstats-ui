@@ -205,12 +205,14 @@ export default {
         this.$store.dispatch('fetchData', {
           endpoint: 'cdn/cache',
           mutation: 'setCdnCacheData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: true
         }),
         this.$store.dispatch('fetchData', {
           endpoint: 'cdn/bytes',
           mutation: 'setCdnBytesData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: true
         })
       ]).finally(() => {
         this.isLoading = false

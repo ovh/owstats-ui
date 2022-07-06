@@ -158,7 +158,8 @@ export default {
         this.$store.dispatch('fetchData', {
           endpoint: 'cdn/ratelimit',
           mutation: 'setCdnRateLimitData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: true
         })
       ]).finally(() => {
         this.isLoading = false

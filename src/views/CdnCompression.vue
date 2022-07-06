@@ -147,7 +147,8 @@ export default {
         this.$store.dispatch('fetchData', {
           endpoint: 'cdn/encoding',
           mutation: 'setCdnCompressionData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: true
         })
       ]).finally(() => {
         this.isLoading = false

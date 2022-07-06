@@ -141,12 +141,14 @@ export default {
         this.$store.dispatch('fetchData', {
           endpoint: 'cdn/waf',
           mutation: 'setCdnWafData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: true
         }),
         this.$store.dispatch('fetchData', {
           endpoint: 'cdn/https_redirect',
           mutation: 'setCdnHttpsRedirectData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: true
         })
       ]).finally(() => {
         this.isLoading = false
