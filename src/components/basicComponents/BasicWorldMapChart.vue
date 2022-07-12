@@ -28,6 +28,14 @@ export default {
     max: {
       type: Number,
       required: true
+    },
+    reverseColor: {
+      type: Boolean,
+      default: false
+    },
+    visualMapText: {
+      type: Array,
+      default () { return [] }
     }
   },
   data () {
@@ -61,7 +69,11 @@ export default {
       let _calculable = false
       // If data is empty echarts fills the map with the pallet's "mean" color
       if (this.data.length > 0) {
-        _color = [variables.p100, variables.p700]
+        if (this.reverseColor) {
+          _color = [variables.p700, variables.p100]
+        } else {
+          _color = [variables.p100, variables.p700]
+        }
         _calculable = true
       }
 
@@ -84,7 +96,8 @@ export default {
           outOfRange: {
             color: '#eee'
           },
-          calculable: _calculable
+          calculable: _calculable,
+          text: this.visualMapText
         },
         tooltip: {
           trigger: 'item',

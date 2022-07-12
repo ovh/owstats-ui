@@ -41,7 +41,7 @@
     "cdn_cache": "CDN Cache",
     "cdn_compression": "CDN Compression",
     "cdn_ratelimit": "CDN Rate Limit",
-    "cdn_security": "CDN Sécurity",
+    "cdn_security": "CDN Security",
     "cdn_performance": "CDN Performance",
     "faq": "FAQ"
   },

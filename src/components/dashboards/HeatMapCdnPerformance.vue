@@ -8,6 +8,8 @@
             :name="mapTitle"
             :min="min"
             :max="data.mapMax"
+            :reverse-color="true"
+            :visual-map-text="['µs', '']"
           />
         </div>
       </b-col>
@@ -108,11 +110,13 @@ export default {
         })
 
         aggregatedData.aggregatedDataPerKey[country] = responseTime
+        aggregatedData.keyColumnsDisplay[country] = { country: country }
 
         if (parseFloat(responseTime) > mapMax) {
           mapMax = parseFloat(responseTime)
         }
       }
+      console.log({ aggregatedData, mapMax, mapData })
       return { aggregatedData, mapMax, mapData }
     }
   }
