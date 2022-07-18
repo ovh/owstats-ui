@@ -109,8 +109,8 @@ export default {
       case 'country':
         if (value === 'Russian Federation') {
           value = 'Russia'
-        } else if (value === 'United States') {
-          value = 'United States of America'
+        } else if (value === 'United States of America') {
+          value = 'United States'
         }
         break
     }

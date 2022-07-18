@@ -26,6 +26,7 @@
               :data="cacheYAxisData"
               :nodata="$t('nodata')"
               :granularity="cacheGranularity"
+              :stacked="true"
             />
           </b-card>
         </b-col>
@@ -42,6 +43,7 @@
               :data="bytesYAxisData"
               :nodata="$t('nodata')"
               :granularity="bytesGranularity"
+              :stacked="true"
             />
           </b-card>
         </b-col>

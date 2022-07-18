@@ -17,6 +17,7 @@
                 :raw-data="rateLimitData"
                 :map-columns="mapColumns"
                 :map-title="$t('cdn_ratelimit.heatmap')"
+                :color="color"
               />
             </b-card>
           </b-col>
@@ -63,6 +64,7 @@ export default {
   data () {
     return {
       isLoading: true,
+      color: ['#f2ee80', '#f04022'],
       mapColumns: [
         {
           key: 'id',

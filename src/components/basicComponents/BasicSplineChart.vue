@@ -30,7 +30,7 @@ export default {
     },
     colors: {
       type: Array,
-      default: () => ['#3361FF']
+      default: () => [variables.blueGraph3, variables.orangeGraph, variables.redGraph, variables.greenGraph1]
     },
     data: {
       type: Array,
@@ -76,7 +76,7 @@ export default {
       const date = this.$t('date')
       let options = {
         chart: {
-          stacked: true,
+          stacked: this.stacked,
           redrawOnParentResize: true,
           zoom: {
             enabled: false
@@ -86,7 +86,7 @@ export default {
           },
           fontFamily: variables.fontFamily
         },
-        colors: [variables.blueGraph3, variables.orangeGraph, variables.redGraph, variables.greenGraph1],
+        colors: this.colors,
         noData: {
           align: 'center',
           verticalAlign: 'middle',
@@ -130,7 +130,6 @@ export default {
           }
         },
         yaxis: {
-          stacked: this.stacked,
           type: 'value',
           labels: {
             style: {
@@ -162,6 +161,16 @@ export default {
                 return value
               }
             }
+          }
+        }
+      }
+
+      if (this.stacked) {
+        options.fill = {
+          type: 'solid',
+          gradient: {
+            opacityFrom: 1,
+            opacityTo: 1
           }
         }
       }

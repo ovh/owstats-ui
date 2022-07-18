@@ -24,6 +24,7 @@
             :data="chartYAxisData"
             :nodata="$t('nodata')"
             :granularity="chartGranularity"
+            :stacked="true"
           />
         </b-card>
       </div>

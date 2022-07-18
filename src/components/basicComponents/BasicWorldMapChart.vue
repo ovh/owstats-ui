@@ -33,6 +33,10 @@ export default {
       type: Boolean,
       default: false
     },
+    color: {
+      type: Array,
+      default () { return [variables.p100, variables.p700] }
+    },
     visualMapText: {
       type: Array,
       default () { return [] }
@@ -65,16 +69,12 @@ export default {
   },
   methods: {
     createMap () {
-      let _color = ['#eee']
-      let _calculable = false
+      let color = ['#eee']
+      let calculable = false
       // If data is empty echarts fills the map with the pallet's "mean" color
       if (this.data.length > 0) {
-        if (this.reverseColor) {
-          _color = [variables.p700, variables.p100]
-        } else {
-          _color = [variables.p100, variables.p700]
-        }
-        _calculable = true
+        color = this.color
+        calculable = true
       }
 
       const countries = this.countriesJson.data
@@ -91,12 +91,12 @@ export default {
           min: this.min,
           max: this.max,
           inRange: {
-            color: _color
+            color: color
           },
           outOfRange: {
             color: '#eee'
           },
-          calculable: _calculable,
+          calculable: calculable,
           text: this.visualMapText
         },
         tooltip: {

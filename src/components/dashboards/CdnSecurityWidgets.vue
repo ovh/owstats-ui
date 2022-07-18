@@ -64,8 +64,6 @@ export default {
       const waf = this.waf
       const httpsRedirect = this.httpsRedirect
 
-      console.log(httpsRedirect)
-
       for (const date in waf) {
         this.securityWaf += this.computeNumberOfRequests(waf, date, 'request_blocked')
         this.securityWaf += this.computeNumberOfRequests(waf, date, 'response_blocked')

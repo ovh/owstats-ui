@@ -105,8 +105,12 @@ export default {
         totalBytesMiss += periodMiss.reduce((a, b) => a + b, 0)
       }
 
-      this.cacheHitPercentage = `${((totalHits * 100) / (totalHits + totalMiss)).toFixed(1)} %`
-      this.bytesHitsPercentage = `${((totalBytesHits * 100) / (totalBytesHits + totalBytesMiss)).toFixed(1)} %`
+      const cacheHitPercentageNumber = ((totalHits * 100) / (totalHits + totalMiss)).toFixed(1)
+      this.cacheHitPercentage = isNaN(cacheHitPercentageNumber) ? '0 %' : `${cacheHitPercentageNumber} %`
+
+      const bytesHitsPercentage = ((totalBytesHits * 100) / (totalBytesHits + totalBytesMiss)).toFixed(1)
+      this.bytesHitsPercentage = isNaN(bytesHitsPercentage) ? '0 %' : `${bytesHitsPercentage} %`
+
       this.totalTrafficBytes = utils.formatBytes(totalBytesHits + totalBytesMiss)
     }
   }

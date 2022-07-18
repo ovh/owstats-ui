@@ -8,7 +8,7 @@
             :name="mapTitle"
             :min="min"
             :max="data.mapMax"
-            :reverse-color="true"
+            :color="color"
             :visual-map-text="['µs', '']"
           />
         </div>
@@ -59,7 +59,8 @@ export default {
       max: 0,
       height: '600px',
       isLoading: false,
-      formatFunction: utils.formatMicroSecondes
+      formatFunction: utils.formatMicroSecondes,
+      color: ['#0b8704', '#ecfaeb']
     }
   },
   computed: {
@@ -116,7 +117,9 @@ export default {
           mapMax = parseFloat(responseTime)
         }
       }
-      console.log({ aggregatedData, mapMax, mapData })
+
+      console.log(mapData)
+
       return { aggregatedData, mapMax, mapData }
     }
   }

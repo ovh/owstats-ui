@@ -21,6 +21,8 @@
             :data="chartYAxisData"
             :nodata="$t('nodata')"
             :granularity="chartGranularity"
+            :stacked="true"
+            :colors="colors"
           />
         </b-card>
       </div>
@@ -34,6 +36,7 @@ import DomainSelection from '../components/basicComponents/DomainSelection.vue'
 import BasicSplineChart from '../components/basicComponents/BasicSplineChart'
 import CdnSecurityWidgets from '../components/dashboards/CdnSecurityWidgets.vue'
 import utils from '../services/utils.js'
+import variables from '../assets/sass/_variables.scss'
 
 export default {
   name: 'CdnCache',
@@ -49,7 +52,8 @@ export default {
       isLoading: true,
       chartXAxisData: [],
       chartYAxisData: [],
-      chartGranularity: ''
+      chartGranularity: '',
+      colors: [variables.orangeGraph, variables.redGraph]
     }
   },
   computed: {

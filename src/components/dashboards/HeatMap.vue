@@ -8,6 +8,7 @@
             :name="mapTitle"
             :min="min"
             :max="max"
+            :color="color"
           />
         </div>
       </b-col>
@@ -27,6 +28,7 @@
 import BasicWorldMapChart from '../basicComponents/BasicWorldMapChart'
 import PlainTable from '../../components/basicComponents/PlainTable'
 import utils from '../../services/utils.js'
+import variables from '../../assets/sass/_variables.scss'
 
 export default {
   name: 'HeatMap',
@@ -46,7 +48,12 @@ export default {
     mapTitle: {
       type: String,
       required: true
+    },
+    color: {
+      type: Array,
+      default () { return [variables.p100, variables.p700] }
     }
+
   },
 
   data () {
