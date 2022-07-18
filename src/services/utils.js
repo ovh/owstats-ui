@@ -413,6 +413,7 @@ export default {
       }
 
       if (day in records) {
+        period = 'hours'
         y = this.computeChartYValue(records, day, type, time, filterParameter)
       } else if (week in records) {
         period = 'hours'

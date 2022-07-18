@@ -399,3 +399,30 @@ button.oui-sidebar-link:hover {
    border-bottom-width: $spacing-xxs;
    border-radius: 0;
 }
+
+.oui-badge {
+	max-width: 12.5rem;
+	line-height: 1;
+	display: inline;
+	overflow: hidden;
+	margin: 0 .25rem;
+	padding: 0 .5rem;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 1rem;
+	font-weight: 600;
+	color: #4d5592;
+	border: none;
+	border-radius: 1rem;
+	background: transparent;
+}
+
+.oui-badge_success {
+	background-color: $badge-success-background;
+	color: $badge-success;
+}
+
+.oui-badge_info {
+	background-color: $badge-info-background;
+	color: $badge-info;
+}

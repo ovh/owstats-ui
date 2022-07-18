@@ -143,11 +143,6 @@ export default {
     }
   },
   watch: {
-    isCdn () {
-      if (!this.isCdn || this.$store.state.app.cdnDomains.includes(this.$store.state.app.domainSelected)) {
-        this.fetchRobotData()
-      }
-    },
     dateChanged () {
       this.fetchRobotData()
     },

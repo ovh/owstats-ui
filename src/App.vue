@@ -77,19 +77,19 @@ export default {
     }
   },
   methods: {
-    setMainDomain () {
+    async setMainDomain () {
       const origin = document.location.origin
       const href = document.location.href
       let mainDomain = href.replace(origin + '/', '')
       mainDomain = mainDomain.replace(new RegExp('/owstats.*'), '')
-      this.$store.commit('setMainDomain', mainDomain)
+      await this.$store.commit('setMainDomain', mainDomain)
     },
-    setCluster () {
+    async setCluster () {
       const url = process.env.VUE_APP_API_BASE_URL || window.location.href
-      this.$store.commit('setCluster', url.split('.')[1])
+      await this.$store.commit('setCluster', url.split('.')[1])
     },
-    setDomains () {
-      this.$store.dispatch('fetchData', {
+    async setDomains () {
+      await this.$store.dispatch('fetchData', {
         startDate: '2012-01-01',
         endDate: moment().format('YYYY-MM-DD'),
         endpoint: 'domains',
@@ -97,8 +97,8 @@ export default {
       })
     },
 
-    setCdnDomains () {
-      this.$store.dispatch('fetchData', {
+    async setCdnDomains () {
+      await this.$store.dispatch('fetchData', {
         startDate: '2012-01-01',
         endDate: moment().format('YYYY-MM-DD'),
         endpoint: 'cdn/domains',

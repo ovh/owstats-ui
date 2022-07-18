@@ -16,11 +16,11 @@ describe('Display cdn robot data', () => {
       fixture: 'cdn/domains.json'
     }).as('cdn_domains')
 
-    cy.intercept('/test.com/v1/shared_cdn/robots/validhits?start_date=2018-01-01&end_date=2021-01-01&subdomain=api.test.com ', {
+    cy.intercept('/test.com/v1/shared_cdn/robots/validhits?start_date=2018-01-01&end_date=2021-01-01&subdomain=cdn.test.com ', {
       fixture: 'cdn/robots_validhits_20180101_20210101.json'
     }).as('cdn_robots_validhits')
 
-    cy.intercept('/test.com/v1/shared_cdn/robots_pages/hits?start_date=2018-01-01&end_date=2021-01-01&subdomain=api.test.com ', {
+    cy.intercept('/test.com/v1/shared_cdn/robots_pages/hits?start_date=2018-01-01&end_date=2021-01-01&subdomain=cdn.test.com ', {
       fixture: 'cdn/robots_pages_hits_20180101_20210101.json'
     }).as('cdn_robots_pages_hits')
 
@@ -41,7 +41,8 @@ describe('Display cdn robot data', () => {
     cy.get('#top-robot').find('tr').filter(':contains("Go-http-client/1.1")').contains('100.0')
 
     // switch to cdn
-    cy.get('#data-source-cdn').click()
+    cy.get('.domain-selection').click()
+    cy.get('.dropdown-item').contains('cdn.test.com').click()
     cy.wait('@cdn_domains')
     cy.wait('@cdn_robots_validhits')
     cy.wait('@cdn_robots_pages_hits')

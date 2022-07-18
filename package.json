@@ -36,7 +36,7 @@
     "basic-ftp": "^4.6.6",
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.2.2",
-    "buefy": "^0.8.10",
+    "buefy": "^0.9.21",
     "core-js": "^3.15.1",
     "echarts": "^4.6.0",
     "inquirer": "^8.2.0",

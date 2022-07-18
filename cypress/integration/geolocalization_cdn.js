@@ -12,7 +12,7 @@ describe('Display geolocalization data', () => {
       fixture: 'webhosting/geolocalization_visits_20190710_20190720.json'
     }).as('geolocalization_visits')
 
-    cy.intercept('/test.com/v1/shared_cdn/geolocalization/visits?start_date=2019-07-10&end_date=2019-07-20&subdomain=api.test.com', {
+    cy.intercept('/test.com/v1/shared_cdn/geolocalization/visits?start_date=2019-07-10&end_date=2019-07-20&subdomain=cdn.test.com', {
       fixture: 'cdn/geolocalization_visits_20190710_20190720.json'
     }).as('cdn_geolocalization_visits')
 
@@ -28,7 +28,8 @@ describe('Display geolocalization data', () => {
     cy.get('.geoloc-visits').find('tr').filter(':contains("États-Unis"), :contains("United States of America")').contains('40')
     cy.get('.geoloc-visits').find('tr').filter(':contains("États-Unis"), :contains("United States of America")').contains('87.0')
 
-    cy.get('#data-source-cdn').click()
+    cy.get('.domain-selection').click()
+    cy.get('.dropdown-item').contains('cdn.test.com').click()
     cy.wait('@cdn_domains')
     cy.wait('@cdn_geolocalization_visits')
 

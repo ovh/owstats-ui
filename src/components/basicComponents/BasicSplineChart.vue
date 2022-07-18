@@ -52,6 +52,10 @@ export default {
       type: String,
       default: '300'
     },
+    stacked: {
+      type: Boolean,
+      default: false
+    },
     nodata: {
       type: String,
       default: ''
@@ -72,6 +76,7 @@ export default {
       const date = this.$t('date')
       let options = {
         chart: {
+          stacked: true,
           redrawOnParentResize: true,
           zoom: {
             enabled: false
@@ -125,6 +130,7 @@ export default {
           }
         },
         yaxis: {
+          stacked: this.stacked,
           type: 'value',
           labels: {
             style: {
@@ -171,7 +177,6 @@ export default {
       }
 
       this.options = options
-      this.series = []
       this.series = this.data
     }
   }

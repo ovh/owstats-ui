@@ -231,13 +231,6 @@ export default {
     }
   },
   watch: {
-    isCdn () {
-      if (!this.isCdn || this.$store.state.app.cdnDomains.includes(this.$store.state.app.domainSelected)) {
-        this.fetchingStatusData()
-        this.fetchingHourData()
-        this.fetchingStatuspagesData()
-      }
-    },
     dateChanged () {
       this.fetchingStatusData()
       this.fetchingHourData()

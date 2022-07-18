@@ -38,8 +38,6 @@ describe('Display Dashboard page when there is no subdomain', () => {
 
     // filter on period is present and set to correct date
     cy.get('#RangeDatePicker-input')
-    cy.get('.domain-selection').should('not.exist')
-    // filter on domain is present and set to all
 
     // domain info is present and all values are correct
     cy.get('[data-cy="top-domain-card"]')
