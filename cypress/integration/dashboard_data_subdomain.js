@@ -34,32 +34,6 @@ describe('Display Dashboard page when a subdomain is selected', () => {
     cy.wait('@domains_errorpages')
   })
 
-  it('displays domain info data', () => {
-    cy.get('[data-cy="top-domain-card"]')
-      .filter(':contains("www.test.com")')
-      .find('[data-cy="top-domain-valid-pages"]').should('have.text', ' 62 ')
-
-    cy.get('[data-cy="top-domain-card"]')
-      .filter(':contains("www.test.com")')
-      .find('[data-cy="top-domain-error-pages"]').should('have.text', ' 22 ')
-
-    cy.get('[data-cy="top-domain-card"]')
-      .filter(':contains("shop.test.com")')
-      .find('[data-cy="top-domain-valid-pages"]').should('have.text', ' 29 ')
-
-    cy.get('[data-cy="top-domain-card"]')
-      .filter(':contains("shop.test.com")')
-      .find('[data-cy="top-domain-error-pages"]').should('have.text', ' 0 ')
-
-    cy.get('[data-cy="top-domain-card"]')
-      .filter(':contains("api.test.com")')
-      .find('[data-cy="top-domain-valid-pages"]').should('have.text', ' 28 ')
-
-    cy.get('[data-cy="top-domain-card"]')
-      .filter(':contains("api.test.com")')
-      .find('[data-cy="top-domain-error-pages"]').should('have.text', ' 0 ')
-  })
-
   it('displays traffic data', () => {
     // simulate hovering on spline chart
     cy.get('#traffic').click(600, 100)
@@ -78,7 +52,7 @@ describe('Display Dashboard page when a subdomain is selected', () => {
   it('displays domain info data', () => {
     cy.get('#domain-info')
       .find('.widget-chart')
-      .filter(':contains("Pages vues et en erreur"), :contains("View and error pages")')
+      .filter(':contains("Pages vues"), :contains("Pages viewed")')
       .find('.widget-numbers')
       .filter(':contains("29")')
 

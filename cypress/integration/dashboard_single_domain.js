@@ -40,12 +40,6 @@ describe('Display Dashboard page when there is no subdomain', () => {
     cy.get('#RangeDatePicker-input')
 
     // domain info is present and all values are correct
-    cy.get('[data-cy="top-domain-card"]')
-      .filter(':contains("www.test.com")')
-      .find('[data-cy="top-domain-valid-pages"]').should('have.text', ' 62 ')
-
-    cy.get('[data-cy="top-domain-card"]')
-      .filter(':contains("www.test.com")')
-      .find('[data-cy="top-domain-error-pages"]').should('have.text', ' 22 ')
+    cy.get('[data-cy="top-domain-card"]').should('not.exist')
   })
 })

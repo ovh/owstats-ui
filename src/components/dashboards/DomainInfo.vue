@@ -2,7 +2,7 @@
   <b-card class="card-margin">
     <div>
       <b-row>
-        <b-col class="col-sm-4">
+        <b-col class="col-sm-3">
           <div
             class="widget-chart widget-chart-hover"
             data-toggle="tooltip"
@@ -13,15 +13,34 @@
               <i class="oui-icon oui-icon-book-open_concept" />
             </div>
             <div class="widget-numbers">
-              {{ totalPages }}
+              {{ validPagesNumber }}
             </div>
             <div class="widget-subheading">
-              {{ $t("dashboard.totalPages") }}
+              {{ $t("dashboard.short_pages") }}
             </div>
           </div>
         </b-col>
 
-        <b-col class="col-sm-4">
+        <b-col class="col-sm-3">
+          <div
+            class="widget-chart widget-chart-hover"
+            data-toggle="tooltip"
+            :title="$t('tooltips.errorpages')"
+          >
+            <div class="icon-wrapper rounded-circle">
+              <div class="icon-wrapper-bg" />
+              <i class="oui-icon oui-icon-book-close_concept" />
+            </div>
+            <div class="widget-numbers">
+              {{ errorPagesNumber }}
+            </div>
+            <div class="widget-subheading">
+              {{ $t("dashboard.short_errorpages") }}
+            </div>
+          </div>
+        </b-col>
+
+        <b-col class="col-sm-3">
           <div
             class="widget-chart widget-chart-hover"
             data-toggle="tooltip"
@@ -40,7 +59,7 @@
           </div>
         </b-col>
 
-        <b-col class="col-sm-4">
+        <b-col class="col-sm-3">
           <div
             class="widget-chart widget-chart-hover"
             data-toggle="tooltip"
@@ -64,7 +83,6 @@
 </template>
 
 <script>
-import moment from 'moment-timezone'
 import utils from '../../services/utils.js'
 
 export default {
@@ -82,7 +100,11 @@ export default {
       type: Object,
       required: true
     },
-    pages: {
+    validPages: {
+      type: Object,
+      required: true
+    },
+    errorPages: {
       type: Object,
       required: true
     },
@@ -95,74 +117,41 @@ export default {
     return {
       totalVisits: 0,
       totalPages: 0,
-      avgSessionTime: 0
+      avgSessionTime: 0,
+      validPagesNumber: 0,
+      errorPagesNumber: 0
     }
   },
   mounted () {
     this.loadingInfo()
   },
   methods: {
-    loadingInfo () {
-      const visits = this.visits
-      const pages = this.pages
-      const start = this.startDate
-      const end = this.endDate
-      let period = 'hours'
+    computeSumOfMetric (data, metric, isFilterByDomain = true) {
+      let result = 0
 
-      const dayFormat = 'YYYY-MM-DD'
-      const weekFormat = 'GGGG-[W]WW' /* Use ISO year GGGG with ISO week WW */
-      const monthFormat = 'YYYY-MM'
-      const yearFormat = 'YYYY'
-      const timeFormat = 'YYYY-MM-DDTHH:mm:ss[Z]'
+      /* Aggregate results */
+      for (const date in data) {
+        for (const d in data[date][metric]) {
+          const record = data[date][metric][d]
+          const value = parseInt(record.value)
 
-      this.totalVisits = 0
-      this.totalPages = 0
-      this.avgSessionTime = 0
-      this.totalError = 0
-
-      this.avgSessionTime = utils.computeAvgSessionTime(this.session, this.visits, this.startDate, this.endDate)
-
-      for (let m = moment(start); m.diff(end, 'days') <= 0; m.add(1, period)) {
-        const day = m.format(dayFormat)
-        const week = m.format(weekFormat)
-        const month = m.format(monthFormat)
-        const year = m.format(yearFormat)
-        const time = m.format(timeFormat)
-
-        let v = null
-        let p = null
-        let compute = 0
-
-        if (day in visits || day in pages) {
-          period = 'hours'
-          v = visits[day] ? visits[day].visits : undefined
-          p = pages[day] ? pages[day].pages : undefined
-          compute = 1
-        } else if (week in visits || week in pages) {
-          period = 'hours'
-          v = visits[week] ? visits[week].visits : undefined
-          p = pages[week] ? pages[week].pages : undefined
-          compute = 1
-        } else if (month in visits || month in pages) {
-          period = 'days'
-          v = visits[month] ? visits[month].visits : undefined
-          p = pages[month] ? pages[month].pages : undefined
-          compute = 1
-        } else if (year in visits || year in pages) {
-          period = 'days'
-          v = visits[year] ? visits[year].visits : undefined
-          p = pages[year] ? pages[year].pages : undefined
-          compute = 1
-        }
-
-        if (compute) {
-          const recordVisits = v ? v.find(elem => elem.time === time) : undefined
-          if (recordVisits) this.totalVisits += parseInt(recordVisits.value)
-
-          const recordPages = p ? p.find(elem => elem.time === time) : undefined
-          if (recordPages) this.totalPages += parseInt(recordPages.value)
+          if (isFilterByDomain) {
+            const subdomain = record.subdomain
+            if (subdomain === this.$store.state.app.domainSelected || this.$store.state.app.domainSelected === 'all') {
+              result += value
+            }
+          } else {
+            result += value
+          }
         }
       }
+      return result
+    },
+    loadingInfo () {
+      this.validPagesNumber = this.computeSumOfMetric(this.validPages, 'validpages', true)
+      this.errorPagesNumber = this.computeSumOfMetric(this.errorPages, 'errorpages', true)
+      this.totalVisits = this.computeSumOfMetric(this.visits, 'visits', false)
+      this.avgSessionTime = utils.computeAvgSessionTime(this.session, this.visits, this.startDate, this.endDate)
     }
   }
 }

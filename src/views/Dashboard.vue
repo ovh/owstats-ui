@@ -9,13 +9,19 @@
       class="loader"
     />
     <div v-if="!isLoading">
-      <top-domains
-        id="top-domain"
-        :error="domainError"
-        :hits="domainValid"
-        :start-date="startDate"
-        :end-date="endDate"
-      />
+      <b-row>
+        <b-col class="col-lg-12 col-xl-12">
+          <domain-info
+            id="domain-info"
+            :visits="visits"
+            :valid-pages="domainValid"
+            :error-pages="domainError"
+            :session="session"
+            :start-date="startDate"
+            :end-date="endDate"
+          />
+        </b-col>
+      </b-row>
       <b-row>
         <b-col class="col-sm-12">
           <b-card class="card-margin">
@@ -32,18 +38,14 @@
           </b-card>
         </b-col>
       </b-row>
-      <b-row>
-        <b-col class="col-lg-12 col-xl-12">
-          <domain-info
-            id="domain-info"
-            :visits="visits"
-            :pages="pages"
-            :session="session"
-            :start-date="startDate"
-            :end-date="endDate"
-          />
-        </b-col>
-      </b-row>
+      <top-domains
+        v-if="isTopDomainsDisplayed"
+        id="top-domain"
+        :error="domainError"
+        :hits="domainValid"
+        :start-date="startDate"
+        :end-date="endDate"
+      />
     </div>
   </section>
 </template>
@@ -81,6 +83,9 @@ export default {
   computed: {
     isCdn () {
       return this.$store.state.app.dataSource === 'cdn'
+    },
+    isTopDomainsDisplayed () {
+      return (this.$store.state.app.domainSelected === 'all' && this.$store.state.app.domains.length > 1)
     },
     isLoading () {
       return this.isLoadingHour | this.isLoadingDomain
@@ -148,6 +153,7 @@ export default {
   mounted () {
     this.fetchingHourData()
     this.fetchingDomainData()
+    console.log({ domainValid: this.domainValid, pages: this.pages })
   },
   methods: {
     loadingTraffic () {

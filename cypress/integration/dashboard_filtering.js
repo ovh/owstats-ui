@@ -79,9 +79,15 @@ describe('Dashboard page filtering', () => {
     // domain info is present and all values are correct
     cy.get('#domain-info')
       .find('.widget-chart')
-      .filter(':contains("Pages vues et en erreur"), :contains("View and error pages")')
+      .filter(':contains("Pages vues"), :contains("Pages viewed")')
       .find('.widget-numbers')
-      .filter(':contains("141")')
+      .filter(':contains("119")')
+
+    cy.get('#domain-info')
+      .find('.widget-chart')
+      .filter(':contains("Pages en erreur"), :contains("Error pages")')
+      .find('.widget-numbers')
+      .filter(':contains("22")')
 
     cy.get('#domain-info')
       .find('.widget-chart')
@@ -129,9 +135,15 @@ describe('Dashboard page filtering', () => {
     // domain info is present and all values are correct
     cy.get('#domain-info')
       .find('.widget-chart')
-      .filter(':contains("Pages vues et en erreur"), :contains("View and error pages")')
+      .filter(':contains("Pages vues"), :contains("Pages viewed")')
       .find('.widget-numbers')
       .filter(':contains("29")')
+
+    cy.get('#domain-info')
+      .find('.widget-chart')
+      .filter(':contains("Pages en erreur"), :contains("Error Pages")')
+      .find('.widget-numbers')
+      .filter(':contains("0")')
 
     cy.get('#domain-info')
       .find('.widget-chart')

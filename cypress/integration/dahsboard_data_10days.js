@@ -82,15 +82,15 @@ describe('Display Dashboard page: 10 days period', () => {
   it('displays domain info', () => {
     cy.get('#domain-info')
       .find('.widget-chart')
-      .filter(':contains("Pages vues et en erreur"), :contains("View and error pages")')
+      .filter(':contains("Pages vues"), :contains("Pages viewed")')
       .find('.widget-numbers')
-      .filter(':contains("1551")')
+      .filter(':contains("1309")')
 
     cy.get('#domain-info')
       .find('.widget-chart')
-      .filter(':contains("Nombre de sessions"), :contains("Number of sessions")')
+      .filter(':contains("Pages en erreur"), :contains("Error pages")')
       .find('.widget-numbers')
-      .filter(':contains("176")')
+      .filter(':contains("242")')
 
     cy.get('#domain-info')
       .find('.widget-chart')

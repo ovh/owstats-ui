@@ -5,6 +5,8 @@
         <b-col class="col-sm-6">
           <div
             class="widget-chart widget-chart-hover"
+            data-toggle="tooltip"
+            :title="$t('tooltips.cdn_security_waf')"
           >
             <div class="widget-subheading">
               {{ $t('cdn_security.waf_widget') }}

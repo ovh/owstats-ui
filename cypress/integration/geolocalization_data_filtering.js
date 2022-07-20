@@ -21,8 +21,8 @@ describe('Display geolocalization data', () => {
   it('displays heat map component with correct values', () => {
     cy.get('#data_source_world_map').should('exist')
     cy.get('.geoloc-visits').find('tr').should('have.length', 4)
-    cy.get('.geoloc-visits').find('tr').filter(':contains("États-Unis"), :contains("United States of America")').contains('40')
-    cy.get('.geoloc-visits').find('tr').filter(':contains("États-Unis"), :contains("United States of America")').contains('87.0')
+    cy.get('.geoloc-visits').find('tr').filter(':contains("États-Unis"), :contains("United States")').contains('40')
+    cy.get('.geoloc-visits').find('tr').filter(':contains("États-Unis"), :contains("United States")').contains('87.0')
 
     cy.get('.geoloc-visits').find('tr').filter(':contains("France")').contains('4')
     cy.get('.geoloc-visits').find('tr').filter(':contains("France")').contains('8.7')
@@ -33,9 +33,9 @@ describe('Display geolocalization data', () => {
 
   it('displays top region component with correct values', () => {
     cy.get('#top-region').find('tr').should('have.length', 4)
-    cy.get('#top-region').find('tr').filter(':contains("États-Unis"), :contains("United States of America")').contains('California')
-    cy.get('#top-region').find('tr').filter(':contains("États-Unis"), :contains("United States of America")').contains('40')
-    cy.get('#top-region').find('tr').filter(':contains("États-Unis"), :contains("United States of America")').contains('87.0')
+    cy.get('#top-region').find('tr').filter(':contains("États-Unis"), :contains("United States")').contains('California')
+    cy.get('#top-region').find('tr').filter(':contains("États-Unis"), :contains("United States")').contains('40')
+    cy.get('#top-region').find('tr').filter(':contains("États-Unis"), :contains("United States")').contains('87.0')
 
     cy.get('#top-region').find('tr').filter(':contains("France")').contains('Occitanie')
     cy.get('#top-region').find('tr').filter(':contains("France")').contains('4')
@@ -58,10 +58,10 @@ describe('Display geolocalization data', () => {
     cy.wait('@geolocalization_visits_20190810_20190820')
 
     cy.get('#top-region').find('tr').should('have.length', 2)
-    cy.get('#top-region').find('tr').filter(':contains("États-Unis"), :contains("United States of America")').contains('California')
+    cy.get('#top-region').find('tr').filter(':contains("États-Unis"), :contains("United States")').contains('California')
 
     cy.get('.geoloc-visits').find('tr').should('have.length', 2)
-    cy.get('.geoloc-visits').find('tr').filter(':contains("États-Unis"), :contains("United States of America")').contains('44')
-    cy.get('.geoloc-visits').find('tr').filter(':contains("États-Unis"), :contains("United States of America")').contains('100.0')
+    cy.get('.geoloc-visits').find('tr').filter(':contains("États-Unis"), :contains("United States")').contains('44')
+    cy.get('.geoloc-visits').find('tr').filter(':contains("États-Unis"), :contains("United States")').contains('100.0')
   })
 })

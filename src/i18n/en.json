@@ -38,11 +38,11 @@
     "geoECharts": "ECharts - Geo charts",
     "variousECharts": "ECharts - Various charts",
     "invoice": "Invoice",
-    "cdn_cache": "CDN Cache",
-    "cdn_compression": "CDN Compression",
-    "cdn_ratelimit": "CDN Rate Limit",
-    "cdn_security": "CDN Security",
-    "cdn_performance": "CDN Performance",
+    "cdn_cache": "Cache",
+    "cdn_compression": "Compression",
+    "cdn_ratelimit": "Anti-DDoS protection",
+    "cdn_security": "Application Firewall",
+    "cdn_performance": "Response time",
     "faq": "FAQ"
   },
   "notFoundPage": {
@@ -85,7 +85,7 @@
     "count": "Number of sessions",
     "region": "Region",
     "topCountry": "Top country",
-    "topRegions": "Top regions",
+    "topRegions": "Top regions - Geolocalization",
     "pages": "Top pages",
     "ratio": "Ratio (%)",
     "other": "Unknown",
@@ -164,9 +164,10 @@
     "top400": "Invalid requests (Errors 4xx: file not found, unauthorized access ...)",
     "top500": "Website's errors (Errors 5xx: code errors, database ...)",
     "topform": "Data sent by users using a form (POST requests)",
-    "cache_hit_pct": "percentage of requests served by cache",
-    "bytes_hits_pct": "percentage of data volume served by cache",
-    "total_traffic_bytes": "Total data volume served by both cache and web server"
+    "cache_hit_pct": "Percentage of requests served by cache",
+    "bytes_hits_pct": "Percentage of data volume served by cache",
+    "total_traffic_bytes": "Total data volume served by both cache and web hosting",
+    "cdn_security_waf": "Requests blocked in input and output"
   },
   "faq": {
     "id": "#",
@@ -180,40 +181,40 @@
     "status": "Status"
   },
   "cdn_cache": {
-    "cache_hit_pct": "Cache Hit Ratio (requests)",
-    "bytes_hits_pct": "Cache Hit Ratio (data volume)",
-    "total_traffic_bytes": "Total traffic (data volume)",
-    "cache_hit_miss": "Cache requests",
-    "cache_hits": "Cache Hits",
-    "cache_miss": "Cache Misses",
-    "bytes_hit_miss": "Cache data volumn (bytes)",
-    "bytes_hits": "Cache Hits",
-    "bytes_miss": "Cache Misses"
+    "cache_hit_pct": "Requests handled by CDN",
+    "bytes_hits_pct": "Volume of data handled by CDN",
+    "total_traffic_bytes": "Total data volume (htis and miss)",
+    "cache_hit_miss": "Requests handled by CDN",
+    "cache_hits": "Hits (CDN)",
+    "cache_miss": "Misses (Web hosting)",
+    "bytes_hit_miss": "Volume of data handled by CDN",
+    "bytes_hits": "Hits (CDN)",
+    "bytes_miss": "Misses (Web hosting)"
   },
   "cdn_compression": {
-    "brotli": "Number of requests encoded in brotli",
-    "plain": "Number of uncompressed requests",
-    "gzip": "Number of requests encoded in gzip",
-    "chart": "Requests encoding",
-    "chart_brotli": "brotli",
+    "brotli": "Number of requests - Brotli compression",
+    "plain": "Number of requests - Uncompressed",
+    "gzip": "Number of requests - Gzip compression",
+    "chart": "Number of requests per compression type",
+    "chart_brotli": "Brotli",
     "chart_plain": "none",
-    "chart_gzip": "gzip"
+    "chart_gzip": "Gzip"
   },
   "cdn_ratelimit": {
-    "heatmap": "Rate Limit",
+    "heatmap": "Origin of requests blocked by anti-DDoS protection",
     "id": "#",
     "country": "Country",
-    "count": "Number of requests",
+    "count": "Number of requests blocked",
     "ratio": "Ratio",
     "region": "Region",
-    "topRegions": "Top Regions"
+    "topRegions": "Top Regions - Requests blocked"
   },
   "cdn_security": {
     "waf_widget": "Number of requests blocked by the application firewall",
-    "https_redirect_widget": "Number of requests redirected from HTTP to HTTPS",
+    "https_redirect_widget": "Number of requests redirected  automatically to HTTPS",
     "chart": "Requests blocked by the application firewall",
-    "request_blocked": "Requests blocked",
-    "response_blocked": "Response blocked"
+    "request_blocked": "Requests blocked in input",
+    "response_blocked": "Requests blocked in output"
   },
   "cdn_performance": {
     "id": "#",
@@ -221,7 +222,7 @@
     "region": "Region",
     "count": "Average response time",
     "heatmap": "Average response time",
-    "topRegions": "Top Regions"
+    "topRegions": "Top Regions - Response time"
   },
   "domain": "Domain",
   "domain_selection": "Domain Selection",

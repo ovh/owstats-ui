@@ -25,8 +25,8 @@ describe('Display geolocalization data', () => {
   it('displays cdn data', () => {
     cy.get('#data_source_world_map').should('exist')
     cy.get('.geoloc-visits').find('tr').should('have.length', 4)
-    cy.get('.geoloc-visits').find('tr').filter(':contains("États-Unis"), :contains("United States of America")').contains('40')
-    cy.get('.geoloc-visits').find('tr').filter(':contains("États-Unis"), :contains("United States of America")').contains('87.0')
+    cy.get('.geoloc-visits').find('tr').filter(':contains("États-Unis"), :contains("United States")').contains('40')
+    cy.get('.geoloc-visits').find('tr').filter(':contains("États-Unis"), :contains("United States")').contains('87.0')
 
     cy.get('.domain-selection').click()
     cy.get('.dropdown-item').contains('cdn.test.com').click()
@@ -34,6 +34,6 @@ describe('Display geolocalization data', () => {
     cy.wait('@cdn_geolocalization_visits')
 
     cy.get('.geoloc-visits').find('tr').should('have.length', 4)
-    cy.get('.geoloc-visits').find('tr').filter(':contains("États-Unis"), :contains("United States of America")').contains('328')
+    cy.get('.geoloc-visits').find('tr').filter(':contains("États-Unis"), :contains("United States")').contains('328')
   })
 })
