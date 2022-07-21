@@ -123,3 +123,15 @@ html {
 #page-title{
   color: $p-700
 }
+
+h2{
+  color: $p-700;
+  font-weight: $font-weight-semi-bold;
+  font-size: $font-size-xl
+}
+
+h3{
+  color: $p-700;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-lg
+}
