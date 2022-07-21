@@ -153,7 +153,6 @@ export default {
   mounted () {
     this.fetchingHourData()
     this.fetchingDomainData()
-    console.log({ domainValid: this.domainValid, pages: this.pages })
   },
   methods: {
     loadingTraffic () {

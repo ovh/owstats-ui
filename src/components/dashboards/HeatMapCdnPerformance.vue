@@ -118,8 +118,6 @@ export default {
         }
       }
 
-      console.log(mapData)
-
       return { aggregatedData, mapMax, mapData }
     }
   }
