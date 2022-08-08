@@ -178,12 +178,16 @@
     "geolocalization": "Geolocalization",
     "request": "Requests",
     "robot": "Robots",
-    "status": "Status"
+    "status": "Status",
+    "cdn_cache": "Cache",
+    "cdn_compression": "Compression",
+    "cdn_ratelimit": "Anti-DDoS protection",
+    "cdn_security": "Application Firewall"
   },
   "cdn_cache": {
     "cache_hit_pct": "Requests handled by CDN",
     "bytes_hits_pct": "Volume of data handled by CDN",
-    "total_traffic_bytes": "Total data volume (htis and miss)",
+    "total_traffic_bytes": "Total data volume (hits and miss)",
     "cache_hit_miss": "Requests handled by CDN",
     "cache_hits": "Hits (CDN)",
     "cache_miss": "Misses (Web hosting)",

@@ -470,7 +470,11 @@
     "geolocalization": "Géolocalisation",
     "request": "Requêtes",
     "robot": "Robots",
-    "status": "Status"
+    "status": "Status",
+    "cdn_cache": "Cache",
+    "cdn_compression": "Compression",
+    "cdn_ratelimit": "Protection anti-DDoS",
+    "cdn_security": "Pare-feu Applicatif"
   },
   "domain": "Domaine",
   "domain_selection": "Sélection du domaine",

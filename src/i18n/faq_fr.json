@@ -1,77 +1,103 @@
 [
   {
-    "title": "OVHcloud Web Statistics est-il payant?",
-    "value": "L’accès aux statistiques de votre site est compris dans votre hébergement. Vous n’avez pas besoin de souscrire à un autre abonnement pour bénéficier de ce service.",
+    "title": "OVHcloud Web Statistics est-il payant ?",
+    "value": "L’accès aux statistiques de votre site est inclus et compris dans le tarif votre hébergement (tout comme vos logs techniques). Vous n’avez pas besoin de souscrire à un autre abonnement pour bénéficier de ce service.",
     "category": "global"
   },
   {
-    "title": "Qu'est-ce qu'une page vue?",
-    "value": "Une page vue est une page qu'un utilisateur a pu voir avec succès.",
+    "title": "Dans le filtre SELECTION DU DOMAINE pourquoi mes domaines sont-ils précédés de WEB ou CDN ?",
+    "value": "Vous avez souscrit à une offre CDN (Content Delivery Network) pour au moins l'un des domaines de votre hébergement web. Pour la période où le CDN est actif, veuillez sélectionner le nom de domaine précédé de CDN pour obtenir des statistiques fiables et complètes (calculées à partir des logs techniques CDN).",
+    "category": "global",
+    "cdnOnly": true
+  },
+  {
+    "title": "Qu'est-ce qu'une PAGE VUE ?",
+    "value": "Une page vue est une page qu'un utilisateur a pu voir affichée avec succès sur son écran.",
     "category": "dashboard"
   },
   {
-    "title": "Qu'est-ce qu'une page en erreur?",
+    "title": "Qu'est-ce qu'une PAGE EN ERREUR ?",
     "value": "Une page est considérée en erreur lorsque la page ou l'un de ses éléments n'a pas pu etre affiché. Il peut s'agir d'une erreur client web, d'une erreur serveur ou d'une erreur de redirection (code 301).",
     "category": "dashboard"
   },
   {
-    "title": "Qu'est-ce qu'une session?",
-    "value": "Elle correspond à un visiteur qui a parcouru une ou plusieurs pages du site durant une fenêtre de temps. Une session se termine après 30 minutes d'inactivité.",
+    "title": "Qu'est-ce qu'une SESSION ?",
+    "value": "Une session correspond à un visiteur qui a parcouru une ou plusieurs pages du site durant une période de temps donnée. Une session se termine après 30 minutes d'inactivité.",
     "category": "dashboard"
   },
   {
-    "title": "Qu'est-ce que le temps moyen d'une session?",
+    "title": "Qu'est-ce que le TEMPS MOYEN D'UNE SESSION ?",
     "value": "Moyenne des durées durant lesquelles les utilisateurs sont actifs et naviguent sur votre site.",
     "category": "dashboard"
   },
   {
-    "title": "Quels sont les navigateurs?",
-    "value": "Les navigateurs référencés sont les principaux utilisés par les visiteurs, tels que : Mozilla Firefox, Safari, Chrome, IE+Edge, etc.",
+    "title": "Comment sont sélectionnés les NAVIGATEURS ?",
+    "value": "Les navigateurs sont utilisés par vos visiteurs pour consulter votre site web. Vous verez apparaitre les principaux navigateurs connus, tels que : Mozilla Firefox, Safari, Chrome, IE+Edge, etc.",
     "category": "browser"
   },
   {
-    "title": "A quoi correspondent les Plateformes?",
-    "value": "Les plateformes correspondent aux systèmes d'exploitations utilisés par les visiteurs. Cela permet entre autres de distinguer la part des appareils mobiles.",
+    "title": "A quoi correspondent les PLATEFORMES ?",
+    "value": "Les plateformes correspondent aux systèmes d'exploitations utilisés par les visiteurs. Cela permet aussi de distinguer la part de vos visiteurs qui accède à votre site depuis un appareils mobiles, tablette, etc autre qu'un ordinateur.",
     "category": "browser"
   },
   {
-    "title": "A quoi correspond l'origine?",
-    "value": "L'origine des visiteurs permet d'indiquer la provenance géographique des visiteurs.",
+    "title": "A quoi correspond l'ORIGINE ?",
+    "value": "L'origine des visiteurs permet d'indiquer la provenance géographique des visiteurs. Cette donnée vous permettra de connaitre le pays voire la région de votre visiteur. Cette donnée est volontairement anonymisée pour respecter les informations personnelles de chacun.",
     "category": "geolocalization"
   },
   {
-    "title": "A quoi correspond une page?",
-    "value": "Il s'agit d'une page ou plus précisément d'une url spécifique du site web.",
+    "title": "A quoi correspond une PAGE ?",
+    "value": "Il s'agit d'une page ou plus précisément d'une URL spécifique de votre site web.",
     "category": "request"
   },
   {
-    "title": "A quoi correspond un Formulaire?",
-    "value": "Il s'agit d'une page de votre site dans laquelle un visiteur peut saisir des données via un formulaire. Par exemple, formulaire de contact, identifiants de connexion ... Et plus généralement toute requête HTTP de type POST",
+    "title": "A quoi correspond un FORMULAIRE ?",
+    "value": "Il s'agit d'une page de votre site dans laquelle un visiteur peut saisir des données afin de vous les envoyer. Par exemple, formulaire de contact, identifiants de connexion ... Et plus généralement toute requête HTTP de type POST",
     "category": "request"
   },
   {
-    "title": "A quoi correspond un Parcours de navigation?",
-    "value": "Il s'agit des enchainements de pages les plus fréquemment réalisé par vos visiteurs. Ces informations peuvent vous permettre d'améliorer les pages les plus souvent parcourues.",
+    "title": "A quoi correspond un PARCOURS de navigation ?",
+    "value": "Il s'agit des enchainements de pages les plus fréquemment réalisés par vos visiteurs. Ces informations peuvent vous permettre d'identifier l'ordre dans lequel les pages sont consultées.",
     "category": "request"
   },
   {
-    "title": "Qu'est-ce qu'un robot?",
+    "title": "Qu'est-ce qu'un ROBOT ?",
     "value": "Les robots sont utilisés par de nombreux moteurs de recherche pour parcourir automatiquement le web et procéder à l'indexation de votre site. Ils vous permettent d'apparaître dans les résultats de recherche. Ces robots ont des noms techniques. Ils sont nombreux et évoluent très souvent. Depuis le 1er avril 2022, pour vous proposer une meilleure analyse de vos données, OVHcloud Web Statistics isole le trafic des robots qui viennent visiter vos sites web, de celui de vos visiteurs réels. Le trafic des robots est désormais exclu de toutes les statistiques en dehors de la page 'Robots'. Vous pourriez observer une baisse de votre fréquentation à partir de cette date.",
     "category": "robot"
   },
   {
-    "title": "Qu'est-ce qu'un accès?",
+    "title": "Qu'est-ce qu'un ACCES ?",
     "value": "Un accès est une requête pour obtenir un fichier (.html, .css, .js, .jpg ..). Il peut donc y avoir plusieurs accès par page.",
     "category": "status"
   },
   {
-    "title": "Qu'est ce qu'une erreur client ?",
+    "title": "Qu'est ce qu'une ERREUR CLIENT ?",
     "value": "Une erreur client est une requête qui renvoie une erreur 40x.",
     "category": "status"
   },
   {
-    "title": "Qu'est ce qu'une erreur site ?",
+    "title": "Qu'est ce qu'une ERREUR SITE ?",
     "value": "Une erreur site est une requête qui renvoie une erreur 50x.",
     "category": "status"
+  },
+  {
+    "title": "Qu'est ce que veut dire HIT et MISS ?",
+    "value": "Un hit est une requête à laquelle le cache CDN a répondu directement. Un miss est une requête non disponible en cache pour laquelle le serveur d'origine a du être contacté.",
+    "category": "cdn_cache"
+  },
+  {
+    "title": "Qu'est ce que veut dire BROTLI et GZIP ?",
+    "value": "Brotli et Gzip sont des algorithmes de compression qui servent à réduire la taille des données transférées et accélerer le chargement de votre site web.",
+    "category": "cdn_compression"
+  },
+  {
+    "title": "Qu'est ce qu'une PROTECTION ANTI-DDOS ?",
+    "value": "Une attaque DDoS est une attaque par déni de service distribuée, ayant pour but de rendre indisponible un service. La protection anti-DDoS de l'offre CDN d'OVH protège contre ces attaques.",
+    "category": "cdn_ratelimit"
+  },
+  {
+    "title": "Qu'est ce que le PARE-FEU APPLICATIF ?",
+    "value": "Le pare-feu applicatif de l'offre CDN d'OVH (WAF) protège votre site des attaques frauduleuses telles que l’injection de code, les requêtes illégitimes ou le vol de données. Il vous couvre des principales failles connues du web en filtrant les requêtes entrantes et sortantes.",
+    "category": "cdn_security"
   }
 ]

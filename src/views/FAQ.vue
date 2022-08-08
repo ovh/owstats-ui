@@ -1,21 +1,27 @@
 <template>
   <div>
-    <b-card
+    <div
       v-for="(category, i) in categories"
       :key="`category-${i}`"
-      class="card-margin"
     >
-      <h2>
-        {{ $t('faq.' + category) }}
-      </h2>
-      <div
-        v-for="(item, j) in categoryItems(category)"
-        :key="`item-${j}`"
+      <b-card
+        v-if="isCategoryDisplayed(category)"
+        class="card-margin"
       >
-        <h3> {{ item.title }} </h3>
-        <p> {{ item.value }} </p>
-      </div>
-    </b-card>
+        <h2>
+          {{ $t('faq.' + category) }}
+        </h2>
+        <div
+          v-for="(item, j) in categoryItems(category)"
+          :key="`item-${j}`"
+        >
+          <div v-if="isItemDisplayed(item)">
+            <h3> {{ item.title }} </h3>
+            <p> {{ item.value }} </p>
+          </div>
+        </div>
+      </b-card>
+    </div>
   </div>
 </template>
 
@@ -49,6 +55,25 @@ export default {
   methods: {
     categoryItems (category) {
       return this.items.filter(item => item.category === category)
+    },
+    isCategoryDisplayed (category) {
+      const isCategoryCdn = category.includes('cdn')
+      const isCustomerCdn = this.$store.state.app.cdnDomains.length > 0
+
+      if (isCategoryCdn && !isCustomerCdn) {
+        return false
+      }
+
+      return true
+    },
+    isItemDisplayed (item) {
+      const isCustomerCdn = this.$store.state.app.cdnDomains.length > 0
+
+      if (item.cdnOnly && !isCustomerCdn) {
+        return false
+      }
+
+      return true
     }
   }
 }
