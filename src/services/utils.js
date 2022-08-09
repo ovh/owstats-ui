@@ -520,24 +520,46 @@ export default {
     if (bytes === 0) return '0 Bytes'
 
     const k = 1024
-    const dm = decimals < 0 ? 0 : decimals
     const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
 
     const i = Math.floor(Math.log(bytes) / Math.log(k))
 
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(decimals)) + ' ' + sizes[i]
   },
 
   formatMicroSecondes (microseconds, decimals = 2) {
     if (microseconds === 0) return '0 µs'
 
     const k = 1000
-    const dm = decimals < 0 ? 0 : decimals
     const sizes = ['µs', 'ms', 's']
 
     const i = Math.floor(Math.log(microseconds) / Math.log(k))
 
-    return parseFloat((microseconds / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
+    return parseFloat((microseconds / Math.pow(k, i)).toFixed(decimals)) + ' ' + sizes[i]
+  },
+
+  convertArraysOfBytes (arraysOfBytes) {
+    // get the minimun value of all arrays
+    const minValue = Math.min.apply(null, arraysOfBytes.flat().filter(Boolean))
+
+    const k = 1024
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+
+    const i = Math.floor(Math.log(minValue) / Math.log(k))
+
+    // convert every value of the input arrays to the most readable unit of the minimum value
+    const convertedValues = []
+    arraysOfBytes.forEach(arr => {
+      convertedValues.push(arr.map(bytes => parseFloat((bytes / Math.pow(k, i)).toFixed(2))))
+    })
+
+    // get the corresponding unit
+    const unit = sizes[i]
+
+    return {
+      convertedValues,
+      unit
+    }
   },
 
   // functions to handle token in development mode and external users analytics service: does not impact OVH prod

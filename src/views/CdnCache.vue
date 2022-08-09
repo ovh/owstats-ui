@@ -35,7 +35,7 @@
         <b-col class="col-sm-12">
           <b-card class="card-margin">
             <h4 class="oui-heading_4">
-              {{ $t('cdn_cache.bytes_hit_miss') }}
+              {{ `${$t('cdn_cache.bytes_hit_miss')} (${bytesUnit})` }}
             </h4>
             <basic-spline
               id="bytes-spline"
@@ -75,7 +75,8 @@ export default {
       cacheGranularity: '',
       bytesXAxisData: [],
       bytesYAxisData: [],
-      bytesGranularity: ''
+      bytesGranularity: '',
+      bytesUnit: ''
     }
   },
   computed: {
@@ -182,7 +183,9 @@ export default {
       this.bytesXAxisData = []
       this.bytesYAxisData = []
       this.bytesGranularity = ''
+      this.bytesUnit = ''
 
+      const rawBytesYAxisData = []
       this.chartsInputDataBytes.forEach(e => {
         const { chartData, axisData, granularity } = utils.computeSplineChartData(
           this.startDate,
@@ -194,9 +197,20 @@ export default {
         this.bytesGranularity = granularity
         this.bytesXAxisData = axisData
 
-        this.bytesYAxisData.push({
+        rawBytesYAxisData.push({
           name: e.displayName,
           data: chartData
+        })
+      })
+
+      // convert data volumes to the most readable human format
+      const convertedBytesYAxisData = utils.convertArraysOfBytes(rawBytesYAxisData.map(e => e.data))
+      this.bytesUnit = convertedBytesYAxisData.unit
+
+      rawBytesYAxisData.forEach((element, index) => {
+        this.bytesYAxisData.push({
+          name: element.name,
+          data: convertedBytesYAxisData.convertedValues[index]
         })
       })
     },
