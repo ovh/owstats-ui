@@ -76,7 +76,7 @@ export default {
       bytesXAxisData: [],
       bytesYAxisData: [],
       bytesGranularity: '',
-      bytesUnit: ''
+      bytesUnit: 'Bytes'
     }
   },
   computed: {
@@ -183,7 +183,7 @@ export default {
       this.bytesXAxisData = []
       this.bytesYAxisData = []
       this.bytesGranularity = ''
-      this.bytesUnit = ''
+      this.bytesUnit = 'Bytes'
 
       const rawBytesYAxisData = []
       this.chartsInputDataBytes.forEach(e => {
@@ -205,7 +205,7 @@ export default {
 
       // convert data volumes to the most readable human format
       const convertedBytesYAxisData = utils.convertArraysOfBytes(rawBytesYAxisData.map(e => e.data))
-      this.bytesUnit = convertedBytesYAxisData.unit
+      this.bytesUnit = convertedBytesYAxisData.unit || 'Bytes'
 
       rawBytesYAxisData.forEach((element, index) => {
         this.bytesYAxisData.push({
