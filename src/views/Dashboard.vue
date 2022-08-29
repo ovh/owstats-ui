@@ -19,6 +19,7 @@
             :session="session"
             :start-date="startDate"
             :end-date="endDate"
+            :is-cdn="isCdn"
           />
         </b-col>
       </b-row>
@@ -178,17 +179,23 @@ export default {
     },
     fetchingDomainData () {
       this.isLoadingDomain = true
+      let domainInParamaters = false
+      if (this.isCdn) {
+        domainInParamaters = true
+      }
 
       Promise.all([
         this.$store.dispatch('fetchData', {
           endpoint: 'domains/validpages',
           mutation: 'setDomainValidpagesData',
-          isCdn: this.isCdn
+          isCdn: this.isCdn,
+          domainInParamaters: domainInParamaters
         }),
         this.$store.dispatch('fetchData', {
           endpoint: 'domains/errorpages',
           mutation: 'setDomainErrorpagesData',
-          isCdn: this.isCdn
+          isCdn: this.isCdn,
+          domainInParamaters: domainInParamaters
         })
       ]).finally(() => {
         this.isLoadingDomain = false

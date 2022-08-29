@@ -111,6 +111,10 @@ export default {
     session: {
       type: Object,
       required: true
+    },
+    isCdn: {
+      type: Boolean,
+      required: true
     }
   },
   data () {
@@ -148,8 +152,13 @@ export default {
       return result
     },
     loadingInfo () {
-      this.validPagesNumber = this.computeSumOfMetric(this.validPages, 'validpages', true)
-      this.errorPagesNumber = this.computeSumOfMetric(this.errorPages, 'errorpages', true)
+      let isFilterByDomain = true
+      if (this.isCdn) {
+        isFilterByDomain = false
+      }
+
+      this.validPagesNumber = this.computeSumOfMetric(this.validPages, 'validpages', isFilterByDomain)
+      this.errorPagesNumber = this.computeSumOfMetric(this.errorPages, 'errorpages', isFilterByDomain)
       this.totalVisits = this.computeSumOfMetric(this.visits, 'visits', false)
       this.avgSessionTime = utils.computeAvgSessionTime(this.session, this.visits, this.startDate, this.endDate)
     }
