@@ -39,6 +39,9 @@ export default {
     },
     isLoginNeeded () {
       return this.isTargetRemoteApi && this.nodeEnv === 'production' && !this.isTokenInCookie
+    },
+    startDate () {
+      return moment().subtract(5, 'years').format('YYYY-MM-DD')
     }
   },
   watch: {
@@ -90,7 +93,7 @@ export default {
     },
     async setDomains () {
       await this.$store.dispatch('fetchData', {
-        startDate: '2012-01-01',
+        startDate: this.startDate,
         endDate: moment().format('YYYY-MM-DD'),
         endpoint: 'domains',
         mutation: 'updateDomains'
@@ -99,7 +102,7 @@ export default {
 
     async setCdnDomains () {
       await this.$store.dispatch('fetchData', {
-        startDate: '2012-01-01',
+        startDate: this.startDate,
         endDate: moment().format('YYYY-MM-DD'),
         endpoint: 'cdn/domains',
         mutation: 'updateCdnDomains',
