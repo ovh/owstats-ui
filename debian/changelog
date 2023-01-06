@@ -1,3 +1,9 @@
+owstats-ui (1.2.1) unstable; urgency=high
+
+  * Fix bug: get domain list was failing (times span > 10 years)
+
+ -- Lucas Chaigne <lucas.chaigne@corp.ovh.com>  Fri, 06 Jan 2022 15:18:38 +0200
+
 owstats-ui (1.2.0) unstable; urgency=medium
 
   * Add CDN data
