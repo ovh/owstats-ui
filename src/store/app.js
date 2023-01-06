@@ -72,10 +72,10 @@ const mutations = {
     state.domainSelected = domain
   },
   updateDomains (state, domains) {
-    state.domains = domains
+    state.domains = domains || []
   },
   updateCdnDomains (state, cdnDomains) {
-    state.cdnDomains = cdnDomains
+    state.cdnDomains = cdnDomains || []
   },
   setBrowserData (state, browserData) {
     state.data.browserData = browserData
