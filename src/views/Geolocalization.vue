@@ -20,6 +20,8 @@
               <heat-map
                 id="heat-map"
                 :raw-data="geolocalizationVisits"
+                :map-columns="mapColumns"
+                :map-title="$t('dashboard.visits')"
               />
             </b-card>
           </b-col>
@@ -67,6 +69,24 @@ export default {
   data () {
     return {
       isLoading: true,
+      mapColumns: [
+        {
+          key: 'id',
+          label: 'geoloc.id'
+        },
+        {
+          key: 'country',
+          label: 'geoloc.country'
+        },
+        {
+          key: 'count',
+          label: 'geoloc.count'
+        },
+        {
+          key: 'ratio',
+          label: 'geoloc.ratio'
+        }
+      ],
       columnsTopRegion: [
         {
           key: 'id',
@@ -93,6 +113,9 @@ export default {
   },
 
   computed: {
+    isCdn () {
+      return this.$store.state.app.dataSource === 'cdn'
+    },
     startDate () {
       return this.$store.state.app.startDate
     },
@@ -135,7 +158,8 @@ export default {
       await this.$store.dispatch('fetchData', {
         endpoint: 'geolocalization/visits',
         mutation: 'setGeolocalizationVisitsData',
-        domainInParamaters: true
+        domainInParamaters: true,
+        isCdn: this.isCdn
       })
 
       this.isLoading = false

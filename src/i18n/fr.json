@@ -38,6 +38,11 @@
     "geoECharts": "ECharts - Geo charts",
     "variousECharts": "ECharts - Various charts",
     "invoice": "Invoice",
+    "cdn_cache": "Cache",
+    "cdn_compression": "Compression",
+    "cdn_ratelimit": "Protection anti-DDoS",
+    "cdn_security": "Pare-feu Applicatif",
+    "cdn_performance": "Temps de réponse",
     "faq": "FAQ"
   },
   "notFoundPage": {
@@ -54,7 +59,7 @@
     "topBrowserDetails": "Combinaisons de navigateurs/plateformes les plus rencontrées",
     "platform": "Plateforme",
     "topPlatform": "Top des plateformes",
-    "count": "Total",
+    "count": "Nombre de sessions",
     "ratio": "Ratio (%)"
   },
   "dashboard": {
@@ -132,14 +137,14 @@
     "Colombia": "Colombie",
     "Comoros": "Comores",
     "Mayotte": "Mayotte",
-    "Republic of the Congo": "République du Congo",
-    "The Democratic Republic Of The Congo": "République Démocratique du Congo",
+    "DR Congo": "République du Congo",
+    "The DR Congo": "République Démocratique du Congo",
     "Cook Islands": "Îles Cook",
     "Costa Rica": "Costa Rica",
     "Croatia": "Croatie",
     "Cuba": "Cuba",
     "Cyprus": "Chypre",
-    "Czech Republic": "République Tchèque",
+    "Czechia": "République Tchèque",
     "Benin": "Bénin",
     "Denmark": "Danemark",
     "Dominica": "Dominique",
@@ -313,7 +318,7 @@
     "United Kingdom": "Royaume-Uni",
     "Isle of Man": "Île de Man",
     "United Republic Of Tanzania": "République-Unie de Tanzanie",
-    "United States of America": "États-Unis",
+    "United States": "États-Unis",
     "U.S. Virgin Islands": "Îles Vierges des États-Unis",
     "Burkina Faso": "Burkina Faso",
     "Uruguay": "Uruguay",
@@ -331,7 +336,7 @@
     "count": "Nombre de sessions",
     "region": "Région",
     "topCountry": "Top des pays",
-    "topRegions": "Top des régions",
+    "topRegions": "Top des régions - Géolocalisation",
     "pages": "Nombre de pages vues",
     "ratio": "Ratio (%)",
     "heatmap": "Origine des requêtes"
@@ -344,7 +349,7 @@
     "page_3": "Troisième page",
     "topForm": "Formulaires les plus utilisés",
     "topInitial": "Parcours les plus fréquents",
-    "topPaths": "Pages les plus visitées",
+    "topPaths": "Requêtes les plus fréquentes",
     "origfilepath": "Pages",
     "pages": "Nombre de pages vues",
     "ratio": "Ratio (%)",
@@ -353,33 +358,34 @@
   },
   "robots": {
     "id": "#",
-    "page": "Page",
+    "page": "Requête",
     "robots": "Robot",
     "robot_agent": "Robot",
     "topRobot": "Top des robots ayant visité le domaine",
     "topRobotDetailed": "Pages les plus accédées par des robots",
     "ratio": "Ratio (%)",
     "validhits": "Nombre d'accès valides",
-    "hits": "Nombre d'accès"
+    "hits": "Nombre d'erreurs et d'accès valides"
   },
   "status": {
     "id": "#",
-    "codes_2xx": "Accès valides (vs jour précédent)",
-    "codes_2xx_ndays": "Accès valides (vs {count} jours précédents)",
-    "codes_4xx": "Erreurs client (vs jour précédent)",
-    "codes_4xx_ndays": "Erreurs client (vs {count} jours précédents)",
-    "codes_5xx": "Erreurs site (vs jour précédent)",
-    "codes_5xx_ndays": "Erreurs site (vs {count} jours précédents)",
-    "hits": "Nombre d'accès",
+    "codes_2xx": "Accès aux pages valides (vs jour précédent)",
+    "codes_2xx_ndays": "Accès aux pages valides (vs {count} jours précédents)",
+    "codes_4xx": "Pages en erreur client (vs jour précédent)",
+    "codes_4xx_ndays": "Pages en erreur client (vs {count} jours précédents)",
+    "codes_5xx": "Pages en erreur site (vs jour précédent)",
+    "codes_5xx_ndays": "Pages en erreur site (vs {count} jours précédents)",
+    "hits": "Nombre d'accès valides",
     "errorhits": "Nombre d'accès en erreur",
     "topErrorPages": "Top des erreurs",
     "status_code": "Code HTTP",
-    "status_pages": "Page en erreur",
+    "status_pages": "Requête",
     "topStatus": "Top codes HTTP",
     "count": "Total",
     "ratio": "Ratio (%)",
-    "errorPie": "Code d´état HTTP",
-    "errorPages": "Pages en erreur"
+    "errorPie": "code HTTP des accès aux pages",
+    "errorPages": "Pages en erreur",
+    "chart": "Requêtes valides et en erreurs"
   },
   "calendar": {
     "id": "#",
@@ -391,7 +397,10 @@
     "lastMonth": "Le mois dernier",
     "thisYear": "Cette année",
     "lastYear": "L'année dernière",
-    "selectPeriod": "Sélection de la période"
+    "selectPeriod": "Sélection de la période",
+    "timezone": "fuseau horaire",
+    "warningTitle": "Avertissement",
+    "warningRobots": "Depuis le 1er avril 2022, OVHcloud Web Statistics exclu de vos principales statistiques le trafic effectué par des robots sur vos sites web. L'activité des robots sur vos sites est désormais uniquement comptabilisée à part dans la page 'Robots'. Reportez-vous à la FAQ pour en savoir plus."
   },
   "tooltips": {
     "id": "#",
@@ -402,7 +411,55 @@
     "top200": "Nombre de pages vues (requètes HTTP valides)",
     "top400": "Requêtes invalides (erreurs 4xx: ressource non existante, accès non authorisé ...)",
     "top500": "Erreur du site (erreurs 5xx: Code non fonctionnel, erreur de base de données ...)",
-    "topform": "Données envoyées par un utilisateur via un formulaire (requêtes POST)"
+    "topform": "Données envoyées par un utilisateur via un formulaire (requêtes POST)",
+    "cache_hit_pct": "Pourcentage de requêtes traitées par le cache",
+    "bytes_hits_pct": "Pourcentage de volume de données traitées par le cache",
+    "total_traffic_bytes": "Volume de données total traitées par le cache et l'hébergement web",
+    "cdn_security_waf": "Requêtes bloquées en entrée et en sortie"
+  },
+  "cdn_cache": {
+    "cache_hit_pct": "Requêtes traitées par le CDN",
+    "bytes_hits_pct": "Volume de données traité par le CDN",
+    "total_traffic_bytes": "Volume de données total (hits et miss)",
+    "cache_hit_miss": "Requêtes traitées par le CDN",
+    "cache_hits": "Hits (CDN)",
+    "cache_miss": "Miss (Hébergement Web)",
+    "bytes_hit_miss": "Volume de données traité par le CDN",
+    "bytes_hits": "Hits (CDN)",
+    "bytes_miss": "Miss (Hébergement Web)"
+  },
+  "cdn_compression": {
+    "brotli": "Nombre de requêtes - Compression Brotli",
+    "plain": "Nombre de requêtes - Non compressées",
+    "gzip": "Nombre de requêtes - Compression Gzip",
+    "chart": "Nombre de requetes par type de compression",
+    "chart_brotli": "Brotli",
+    "chart_plain": "non compressé",
+    "chart_gzip": "Gzip"
+  },
+  "cdn_ratelimit": {
+    "heatmap": "Origine des requêtes bloquées par protection anti-DDoS",
+    "id": "#",
+    "country": "Pays",
+    "count": "Nombre de requêtes bloquées",
+    "ratio": "Ratio",
+    "region": "Région",
+    "topRegions": "Top des régions - Requêtes bloquées"
+  },
+  "cdn_security": {
+    "waf_widget": "Nombre de requêtes bloquées par le pare-feu applicatif",
+    "https_redirect_widget": "Nombre de requêtes redirigées automatiquement vers HTTPS",
+    "chart": "Requêtes bloquées par le pare-feu applicatif",
+    "request_blocked": "Requêtes bloquées en entrée",
+    "response_blocked": "Requêtes bloquées en sortie"
+  },
+  "cdn_performance": {
+    "id": "#",
+    "country": "Pays",
+    "region": "Région",
+    "count": "Temps de réponse moyen",
+    "heatmap": "Temps de réponse",
+    "topRegions": "Top des régions - Temps de réponse"
   },
   "faq": {
     "id": "#",
@@ -413,7 +470,11 @@
     "geolocalization": "Géolocalisation",
     "request": "Requêtes",
     "robot": "Robots",
-    "status": "Status"
+    "status": "Status",
+    "cdn_cache": "Cache",
+    "cdn_compression": "Compression",
+    "cdn_ratelimit": "Protection anti-DDoS",
+    "cdn_security": "Pare-feu Applicatif"
   },
   "domain": "Domaine",
   "domain_selection": "Sélection du domaine",

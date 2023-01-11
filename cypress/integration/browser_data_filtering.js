@@ -1,15 +1,15 @@
 describe('Display browser data', () => {
   beforeEach(() => {
     cy.intercept('/test.com/v1/domains**', {
-      fixture: 'domains.json'
+      fixture: 'webhosting/domains.json'
     }).as('domains')
 
     cy.intercept('/test.com/v1/browser/visits?start_date=2019-06-06&end_date=2019-06-06', {
-      fixture: 'browser_visits_20190606.json'
+      fixture: 'webhosting/browser_visits_20190606.json'
     }).as('browser_visits')
 
     cy.intercept('/test.com/v1/browser/visits?start_date=2019-06-06&end_date=2019-06-06&subdomain=api.test.com', {
-      fixture: 'browser_visits_20190606_api.json'
+      fixture: 'webhosting/browser_visits_20190606_api.json'
     }).as('browser_visits_api')
 
     cy.visit('/test.com/owstats#/browser?start_date=2019-06-06&end_date=2019-06-06&domain=all')

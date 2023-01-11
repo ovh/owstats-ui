@@ -1,15 +1,15 @@
 describe('Display robot data', () => {
   beforeEach(() => {
     cy.intercept('/test.com/v1/domains**', {
-      fixture: 'domains.json'
+      fixture: 'webhosting/domains.json'
     }).as('domains')
 
     cy.intercept('/test.com/v1/robots/validhits?start_date=2018-01-01&end_date=2021-01-01', {
-      fixture: 'robots_validhits_20180101_20210101.json'
+      fixture: 'webhosting/robots_validhits_20180101_20210101.json'
     }).as('robots_validhits')
 
     cy.intercept('/test.com/v1/robots_pages/hits?start_date=2018-01-01&end_date=2021-01-01', {
-      fixture: 'robots_pages_hits_20180101_20210101.json'
+      fixture: 'webhosting/robots_pages_hits_20180101_20210101.json'
     }).as('robots_pages_hits')
 
     cy.visit('/test.com/owstats#/robot?start_date=2018-01-01&end_date=2021-01-01')

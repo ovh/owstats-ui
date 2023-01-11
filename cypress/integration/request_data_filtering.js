@@ -1,31 +1,31 @@
 describe('Display requests data', () => {
   beforeEach(() => {
     cy.intercept('/test.com/v1/domains**', {
-      fixture: 'domains.json'
+      fixture: 'webhosting/domains.json'
     }).as('domains')
 
     cy.intercept('/test.com/v1/request_origfilepath/validhits?start_date=2018-12-12&end_date=2019-03-01', {
-      fixture: 'request_origfilepath_validhits_20181212_20190301.json'
+      fixture: 'webhosting/request_origfilepath_validhits_20181212_20190301.json'
     }).as('request_origfilepath_validhits')
 
     cy.intercept('/test.com/v1/request_origfilepath/validhits?start_date=2018-12-12&end_date=2019-03-01&subdomain=www.test.com', {
-      fixture: 'request_origfilepath_validhits_20181212_20190301_test.json'
+      fixture: 'webhosting/request_origfilepath_validhits_20181212_20190301_test.json'
     }).as('request_origfilepath_validhits_test')
 
     cy.intercept('/test.com/v1/request_form/validhits?start_date=2018-12-12&end_date=2019-03-01', {
-      fixture: 'request_form_validhits_20181212_20190301.json'
+      fixture: 'webhosting/request_form_validhits_20181212_20190301.json'
     }).as('request_form_validhits')
 
     cy.intercept('/test.com/v1/request_form/validhits?start_date=2018-12-12&end_date=2019-03-01&subdomain=www.test.com', {
-      fixture: 'request_form_validhits_20181212_20190301_test.json'
+      fixture: 'webhosting/request_form_validhits_20181212_20190301_test.json'
     }).as('request_form_validhits_test')
 
     cy.intercept('/test.com/v1/initial_path/visits?start_date=2018-12-12&end_date=2019-03-01', {
-      fixture: 'initial_path_visits_20181212_20190301.json'
+      fixture: 'webhosting/initial_path_visits_20181212_20190301.json'
     }).as('initial_path_visits')
 
     cy.intercept('/test.com/v1/initial_path/visits?start_date=2018-12-12&end_date=2019-03-01&subdomain=www.test.com', {
-      fixture: 'initial_path_visits_20181212_20190301_test.json'
+      fixture: 'webhosting/initial_path_visits_20181212_20190301_test.json'
     }).as('initial_path_visits_test')
 
     cy.visit('/test.com/owstats#/request?start_date=2018-12-12&end_date=2019-03-01&domain=www.test.com')

@@ -216,7 +216,7 @@ test('dataValueReplacement of browser, browser version and country values', () =
   expect(utils.dataValueReplacement('browser_version', recordWithFloatBrowserVersion)).toEqual('12')
   expect(utils.dataValueReplacement('browser_version', recordWithOtherBrowserVersion)).toEqual('Unknown')
   expect(utils.dataValueReplacement('country', recordWithRussia)).toEqual('Russia')
-  expect(utils.dataValueReplacement('country', recordWithUSA)).toEqual('United States of America')
+  expect(utils.dataValueReplacement('country', recordWithUSA)).toEqual('United States')
   expect(utils.dataValueReplacement('country', recordWithOtherCountry)).toEqual('France')
 })
 

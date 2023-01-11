@@ -1,35 +1,35 @@
 describe('Display status data', () => {
   beforeEach(() => {
     cy.intercept('/test.com/v1/domains**', {
-      fixture: 'domains.json'
+      fixture: 'webhosting/domains.json'
     }).as('domains')
 
     cy.intercept('/test.com/v1/status/pages?start_date=2018-07-31&end_date=2018-07-31', {
-      fixture: 'status_pages_20180731.json'
+      fixture: 'webhosting/status_pages_20180731.json'
     }).as('status_pages_20180731')
 
     cy.intercept('/test.com/v1/status/pages?start_date=2018-08-01&end_date=2018-08-01', {
-      fixture: 'status_pages_20180801.json'
+      fixture: 'webhosting/status_pages_20180801.json'
     }).as('status_pages_20180801')
 
     cy.intercept('/test.com/v1/status_pages/errorhits?start_date=2018-08-01&end_date=2018-08-01', {
-      fixture: 'status_pages_errorhits_20180801.json'
+      fixture: 'webhosting/status_pages_errorhits_20180801.json'
     }).as('status_pages_errorhits_20180801')
 
     cy.intercept('/test.com/v1/hour/hits?start_date=2018-08-01&end_date=2018-08-01', {
-      fixture: 'hour_hits_20180801.json'
+      fixture: 'webhosting/hour_hits_20180801.json'
     }).as('hour_hits_20180801')
 
     cy.intercept('/test.com/v1/hour/errorpages?start_date=2018-08-01&end_date=2018-08-01', {
-      fixture: 'hour_errorpages_20180801.json'
+      fixture: 'webhosting/hour_errorpages_20180801.json'
     }).as('hour_errorpages_20180801')
 
     cy.intercept('/test.com/v1/hour/pages?start_date=2018-08-01&end_date=2018-08-01', {
-      fixture: 'hour_pages_20180801.json'
+      fixture: 'webhosting/hour_pages_20180801.json'
     }).as('hour_pages_20180801')
 
     cy.intercept('/test.com/v1/hour/errorhits?start_date=2018-08-01&end_date=2018-08-01', {
-      fixture: 'hour_errorhits_20180801.json'
+      fixture: 'webhosting/hour_errorhits_20180801.json'
     }).as('hour_errorhits_20180801')
 
     cy.visit('/test.com/owstats#/status?start_date=2018-08-01&end_date=2018-08-01')
@@ -60,7 +60,7 @@ describe('Display status data', () => {
     // verifying tooltip values
     cy.get('.apexcharts-tooltip')
       .find('.apexcharts-tooltip-y-group')
-      .filter(':contains("Nombre d\'accès:"), :contains("Valid Hits")')
+      .filter(':contains("Nombre d\'accès valides:"), :contains("Valid Hits")')
       .find('.apexcharts-tooltip-text-y-value').should('have.text', '264')
 
     cy.get('.apexcharts-tooltip')

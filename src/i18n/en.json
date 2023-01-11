@@ -38,6 +38,11 @@
     "geoECharts": "ECharts - Geo charts",
     "variousECharts": "ECharts - Various charts",
     "invoice": "Invoice",
+    "cdn_cache": "Cache",
+    "cdn_compression": "Compression",
+    "cdn_ratelimit": "Anti-DDoS protection",
+    "cdn_security": "Application Firewall",
+    "cdn_performance": "Response time",
     "faq": "FAQ"
   },
   "notFoundPage": {
@@ -54,7 +59,7 @@
     "topBrowserDetails": "Most common browsers/platforms combinations",
     "platform": "Platform",
     "topPlatform": "Top platforms",
-    "count": "Total",
+    "count": "Number of sessions",
     "ratio": "Ratio (%)"
   },
   "dashboard": {
@@ -67,9 +72,9 @@
     "exitpages": "Number of exit pages",
     "hits": "Viewed pages count",
     "pages": "Number of pages",
-    "totalPages": "View and error pages",
-    "short_pages": "Valid access",
-    "short_errorpages": "Error access",
+    "totalPages": "Valid and error pages access",
+    "short_pages": "Valid pages access",
+    "short_errorpages": "Error pages access",
     "pagetime": "Time on page",
     "validhits": "Number of valid hits",
     "visits": "Number of sessions"
@@ -80,7 +85,7 @@
     "count": "Number of sessions",
     "region": "Region",
     "topCountry": "Top country",
-    "topRegions": "Top regions",
+    "topRegions": "Top regions - Geolocalization",
     "pages": "Top pages",
     "ratio": "Ratio (%)",
     "other": "Unknown",
@@ -93,7 +98,7 @@
     "page_2": "Second page",
     "page_3": "Third page",
     "topForm": "Top Forms",
-    "topPaths": "Top pages",
+    "topPaths": "Top Paths",
     "topInitial": "Top initial browsing pages",
     "origfilepath": "Path",
     "pages": "Count",
@@ -103,35 +108,36 @@
   },
   "robots": {
     "id": "#",
-    "page": "Page",
+    "page": "Request",
     "robots": "Robot",
     "robot_agent": "Robot",
     "topRobot": "Top robot agents",
     "topRobotDetailed": "Most common robots/pages combinations",
     "ratio": "Ratio (%)",
     "validhits": "Valid Hits",
-    "hits": "Valid Hits"
+    "hits": "Valid and Error Hits"
   },
   "status": {
     "id": "#",
-    "codes_2xx": "Valid hits (vs previous day)",
-    "codes_2xx_ndays": "Valid hits (vs {count} previous days)",
-    "codes_4xx": "Client errors (vs previous day)",
-    "codes_4xx_ndays": "Client errors (vs {count} previous days)",
-    "codes_5xx": "Website errors (vs previous day)",
-    "codes_5xx_ndays": "Website errors (vs {count} previous days)",
+    "codes_2xx": "Valid pages access (vs previous day)",
+    "codes_2xx_ndays": "Valid pages (vs {count} previous days)",
+    "codes_4xx": "Client error pages (vs previous day)",
+    "codes_4xx_ndays": "Client error pages (vs {count} previous days)",
+    "codes_5xx": "Website error pages (vs previous day)",
+    "codes_5xx_ndays": "Website error pages (vs {count} previous days)",
     "scale_day": "previous day",
     "scale_days": "previous days",
     "hits": "Valid Hits",
-    "errorhits": "Error hits count",
-    "topErrorPages": "Top error",
+    "errorhits": "Error hits",
+    "topErrorPages": "Top error hits",
     "status_code": "HTTP code",
-    "status_pages": "Error page",
+    "status_pages": "Request",
     "topStatus": "Top HTTP code",
     "count": "Total",
     "ratio": "Ratio (%)",
-    "errorPie": "HTTP status code",
-    "errorPages": "Error pages"
+    "errorPie": "Pages HTTP status code",
+    "errorPages": "Error pages",
+    "chart": "Valid and Error Requests"
   },
   "calendar": {
     "id": "#",
@@ -143,7 +149,10 @@
     "lastMonth": "Last month",
     "thisYear": "This year",
     "lastYear": "Last year",
-    "selectPeriod": "Period selection"
+    "selectPeriod": "Period selection",
+    "timezone": "timezone",
+    "warningTitle": "Warning",
+    "warningRobots": "Since April 1, 2022, OVHcloud Web Statistics excludes from your main statistics the traffic made by robots on your websites. Robots activity on your sites is now only counted separately in the 'Robots' page. See the FAQ for more information."
   },
   "tooltips": {
     "id": "#",
@@ -154,7 +163,11 @@
     "top200": "Viewed pages count (Valid HTTP request)",
     "top400": "Invalid requests (Errors 4xx: file not found, unauthorized access ...)",
     "top500": "Website's errors (Errors 5xx: code errors, database ...)",
-    "topform": "Data sent by users using a form (POST requests)"
+    "topform": "Data sent by users using a form (POST requests)",
+    "cache_hit_pct": "Percentage of requests served by cache",
+    "bytes_hits_pct": "Percentage of data volume served by cache",
+    "total_traffic_bytes": "Total data volume served by both cache and web hosting",
+    "cdn_security_waf": "Requests blocked in input and output"
   },
   "faq": {
     "id": "#",
@@ -165,7 +178,55 @@
     "geolocalization": "Geolocalization",
     "request": "Requests",
     "robot": "Robots",
-    "status": "Status"
+    "status": "Status",
+    "cdn_cache": "Cache",
+    "cdn_compression": "Compression",
+    "cdn_ratelimit": "Anti-DDoS protection",
+    "cdn_security": "Application Firewall"
+  },
+  "cdn_cache": {
+    "cache_hit_pct": "Requests handled by CDN",
+    "bytes_hits_pct": "Volume of data handled by CDN",
+    "total_traffic_bytes": "Total data volume (hits and miss)",
+    "cache_hit_miss": "Requests handled by CDN",
+    "cache_hits": "Hits (CDN)",
+    "cache_miss": "Misses (Web hosting)",
+    "bytes_hit_miss": "Volume of data handled by CDN",
+    "bytes_hits": "Hits (CDN)",
+    "bytes_miss": "Misses (Web hosting)"
+  },
+  "cdn_compression": {
+    "brotli": "Number of requests - Brotli compression",
+    "plain": "Number of requests - Uncompressed",
+    "gzip": "Number of requests - Gzip compression",
+    "chart": "Number of requests per compression type",
+    "chart_brotli": "Brotli",
+    "chart_plain": "none",
+    "chart_gzip": "Gzip"
+  },
+  "cdn_ratelimit": {
+    "heatmap": "Origin of requests blocked by anti-DDoS protection",
+    "id": "#",
+    "country": "Country",
+    "count": "Number of requests blocked",
+    "ratio": "Ratio",
+    "region": "Region",
+    "topRegions": "Top Regions - Requests blocked"
+  },
+  "cdn_security": {
+    "waf_widget": "Number of requests blocked by the application firewall",
+    "https_redirect_widget": "Number of requests redirected  automatically to HTTPS",
+    "chart": "Requests blocked by the application firewall",
+    "request_blocked": "Requests blocked in input",
+    "response_blocked": "Requests blocked in output"
+  },
+  "cdn_performance": {
+    "id": "#",
+    "country": "Country",
+    "region": "Region",
+    "count": "Average response time",
+    "heatmap": "Average response time",
+    "topRegions": "Top Regions - Response time"
   },
   "domain": "Domain",
   "domain_selection": "Domain Selection",

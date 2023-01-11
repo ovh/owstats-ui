@@ -1,67 +1,103 @@
 [
   {
     "title": "Is OVHcloud Web Statistics free of charge?",
-    "value": "Access to the statistics of your site is included in your hosting. You do not need to subscribe to another subscription to benefit from this service.",
+    "value": "Access to your site statistics is included in the price of your hosting (as are your technical logs). You don't need to subscribe to another service to benefit from this service.",
     "category": "global"
   },
   {
-    "title": "What is a page viewed?",
-    "value": "A viewed page is a page that the user has successfully viewed.",
+    "title": "In the DOMAIN SELECTION filter why are my domains preceded by WEB or CDN?",
+    "value": "You have subscribed to a CDN (Content Delivery Network) offer for at least one of your web hosting domains. For the period when the CDN is active, please select the domain name preceded by CDN to obtain reliable and complete statistics (computed from the CDN technical logs).",
+    "category": "global",
+    "cdnOnly": true
+  },
+  {
+    "title": "What is a PAGE VIEWED?",
+    "value": "A page view is a page that a user has successfully viewed on their screen.",
     "category": "dashboard"
   },
   {
-    "title": "What is a page in error?",
-    "value": "A page is considered in error when the page or one of its elements could not be displayed. This may be a web client error or a server error.",
+    "title": "What is a PAGE IN ERROR?",
+    "value": "A page is considered in error when the page or one of its elements could not be displayed. This may be a web client error, a server error or a redirection error (code 301).",
     "category": "dashboard"
   },
   {
-    "title": "What is a session?",
-    "value": "It corresponds to a visitor browsing one or more website's pages during a time window. A session ends after 30 minutes of inactivity.",
+    "title": "What is a SESSION?",
+    "value": "A session corresponds to a visitor who has browsed one or more pages of the site during a given period of time. A session ends after 30 minutes of inactivity.",
     "category": "dashboard"
   },
   {
-    "title": "What is the average time of a session?",
+    "title": "What is the AVERAGE TIME OF A SESSION?",
     "value": "Average time during which users are active and browsing on your site. A session ends after 30 minutes of inactivity.",
     "category": "dashboard"
   },
   {
-    "title": "What is a browser?",
-    "value": "It corresponds to the name of the browsers used by your visitors, such as: Mozilla Firefox, Safari, Chrome, IE+Edge, etc.",
+    "title": "What is a BROWSER?",
+    "value": "Browsers are used by your visitors to consult your website. You will see the main known browsers, such as: Mozilla Firefox, Safari, Chrome, IE+Edge, etc.",
     "category": "browser"
   },
   {
-    "title": "What is a Platform?",
-    "value": "A platform is the type of operating system used by a visitor. For instance, this allows among other things to distinguish the proportion of mobile devices.",
+    "title": "What is a PLATFORM?",
+    "value": "The platforms correspond to the operating systems used by the visitors. This also allows you to distinguish the proportion of your visitors who access your site from mobile devices, tablets, etc. other than a computer.",
     "category": "browser"
   },
   {
-    "title": "What is the origin?",
-    "value": "The origin of the visitors makes it possible to indicate their geographical location.",
+    "title": "What is the ORIGIN?",
+    "value": "The origin of the visitors allows you to indicate the geographical origin of the visitors. This data will allow you to know the country or the region of your visitor. This data is voluntarily anonymised to respect the personal information of each person.",
     "category": "geolocalization"
   },
   {
-    "title": "What is a page?",
-    "value": "It's a specific url of the web site.",
+    "title": "What is a PAGE?",
+    "value": "This is a page or more precisely a specific URL on your website.",
     "category": "request"
   },
   {
-    "title": "What is a form?",
-    "value": "It's a page on your website where a visitor can fill data in a form. e.g. contact form, authentication textbox ... And in general, any HTTP POST request.",
+    "title": "What is a FORM?",
+    "value": "This is a page on your site where a visitor can enter data in order to send it to you. For example, contact form, login details... And more generally any HTTP request of type POST.",
     "category": "request"
   },
   {
-    "title": "What is a browsing journey?",
-    "value": "This is the sequence of pages most frequently followed by your visitors. This information can be used to improve specific pages the user is most likely to browse.",
+    "title": "What is a browsing JOURNEY?",
+    "value": "These are the page sequences most frequently performed by your visitors. This information can help you identify the order in which pages are viewed.",
     "category": "request"
   },
   {
-    "title": "What is a robot?",
-    "value": "Robots are used by many search engines to automatically browse the web and index your site. They allow you to appear in search results. These robots have technical names. They are numerous and evolve very often.",
+    "title": "What is a ROBOT?",
+    "value": "Robots are used by many search engines to automatically crawl the web and index your site. They allow you to appear in the search results. These robots have technical names. They are numerous and evolve very often. Since April 1, 2022, in order to offer you a better analysis of your data, OVHcloud Web Statistics isolates the traffic of the robots that visit your websites from that of your real visitors. Robot traffic is now excluded from all statistics outside the 'Robots' page. You may notice a decrease in your traffic from this date on.",
     "category": "robot"
   },
   {
-    "title": "What is a hit?",
-    "value": "A hit is a request to get a file (.html, .css, .js, .jpg ..).",
+    "title": "What is a HIT?",
+    "value": "A hit is a request to get a file (.html, .css, .js, .jpg ..). Therefore there can be several hits per page request.",
     "category": "status"
+  },
+  {
+    "title": "What is a CLIENT ERROR ?",
+    "value": "A client error is a request which ends up in 40x status code.",
+    "category": "status"
+  },
+  {
+    "title": "What is a WEBSITE ERROR ?",
+    "value": "A website error is a request which ends up in 50x code.",
+    "category": "status"
+  },
+  {
+    "title": "What does HIT and MISS mean?",
+    "value": "A hit is a request that the CDN cache responded to directly. A miss is a request not available in the cache for which the origin server had to be contacted.",
+    "category": "cdn_cache"
+  },
+  {
+    "title": "What do BROTLI and GZIP mean?",
+    "value": "Brotli and Gzip are compression algorithms that are used to reduce the size of transferred data and speed up the loading of your website.",
+    "category": "cdn_compression"
+  },
+  {
+    "title": "What is an ANTI-DDOS PROTECTION?",
+    "value": "A DDoS attack is a distributed denial of service attack, aimed at making a service unavailable. The anti-DDoS protection of the OVH CDN offer protects against these attacks.",
+    "category": "cdn_ratelimit"
+  },
+  {
+    "title": "What is an APPLICATION FIREWALL ?",
+    "value": "The OVH CDN application firewall (WAF) protects your site from fraudulent attacks such as code injection, illegitimate requests or data theft. It covers you from the main known web vulnerabilities by filtering incoming and outgoing requests.",
+    "category": "cdn_security"
   }
 ]
