@@ -149,6 +149,9 @@ export default {
     }
   },
   computed: {
+    isCdn () {
+      return this.$store.state.app.dataSource === 'cdn'
+    },
     dateChanged () {
       return this.$store.state.app.dateChanged
     },
@@ -189,7 +192,8 @@ export default {
       await this.$store.dispatch('fetchData', {
         endpoint: 'browser/visits',
         mutation: 'setBrowserData',
-        domainInParamaters: true
+        domainInParamaters: true,
+        isCdn: this.isCdn
       })
 
       this.isLoading = false

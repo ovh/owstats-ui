@@ -161,3 +161,78 @@ test('computeSplineChartData : empty data', () => {
   expect(result.granularity).toEqual('hours')
   expect(result.chartData).toEqual(expectedChartData)
 })
+
+test('computeSplineChartData with filter', () => {
+  const records = {
+    2020: {
+      visits: [
+        {
+          time: '2020-12-30T00:00:00Z',
+          value: '10',
+          param: 'A'
+        },
+        {
+          time: '2020-12-31T00:00:00Z',
+          value: '5',
+          param: 'B'
+        }
+      ]
+    },
+    '2021-01': {
+      visits: [
+        {
+          time: '2021-01-01T00:00:00Z',
+          value: '1'
+        },
+        {
+          time: '2021-01-02T00:00:00Z',
+          value: '2',
+          param: 'A'
+        }
+      ]
+    },
+    '2021-W05': {
+      visits: [
+        {
+          time: '2021-02-01T00:00:00Z',
+          value: '5',
+          param: 'A'
+        },
+        {
+          time: '2021-02-01T01:00:00Z',
+          value: '3',
+          param: 'A'
+        }
+      ]
+    },
+    '2021-02-07': {
+      visits: [
+        {
+          time: '2021-02-07T00:00:00Z',
+          value: '7',
+          param: 'A'
+        },
+        {
+          time: '2021-02-07T01:00:00Z',
+          value: '6',
+          param: 'B'
+        }
+      ]
+    }
+  }
+
+  const startDate = '2020-12-30'
+  const endDate = '2021-02-08'
+
+  const expectedChartData = [
+    10, 0, 0, 2, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 8, 0, 0, 0, 0, 0, 7,
+    0
+  ]
+
+  const result = utils.computeSplineChartData(startDate, endDate, records, { key: 'param', value: 'A' })
+  expect(result.granularity).toEqual('days')
+  expect(result.chartData).toEqual(expectedChartData)
+})

@@ -1,0 +1,57 @@
+{
+  "records": {
+    "2019-06-06": {
+      "visits": [
+        {
+          "browser": "Chromium",
+          "browser_version": "76.0.3809.100",
+          "platform": "X11",
+          "platform_version": "Linux x86_64",
+          "value": "40"
+        },
+        {
+          "browser": "Firefox",
+          "browser_version": "47.0",
+          "platform": "Macintosh",
+          "platform_version": "Intel Mac OS X 10.11",
+          "value": "10"
+        },
+        {
+          "browser": "Firefox",
+          "browser_version": "69.0",
+          "platform": "Unknown",
+          "platform_version": "Unknown",
+          "value": "10"
+        },
+        {
+          "browser": "Firefox",
+          "browser_version": "71.0",
+          "platform": "Macintosh",
+          "platform_version": "Intel Mac OS X 10.13",
+          "value": "10"
+        },
+        {
+          "browser": "Firefox",
+          "browser_version": "58.0",
+          "platform": "X11",
+          "platform_version": "Ubuntu",
+          "value": "30"
+        },
+        {
+          "browser": "Firefox",
+          "browser_version": "69.0",
+          "platform": "X11",
+          "platform_version": "Ubuntu",
+          "value": "20"
+        },
+        {
+          "browser": "Safari",
+          "browser_version": "537.36",
+          "platform": "X11",
+          "platform_version": "Linux x86_64",
+          "value": "20"
+        }
+      ]
+    }
+  }
+}

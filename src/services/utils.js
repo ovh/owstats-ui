@@ -6,7 +6,7 @@ export default {
   // reverse an object of the form { key: value } (ex : { Chrome: 10, Firefox: 10, Opera: 30 })
   // result is the reverse object (data) and its ordered keys (keys)
   // ex of result : { keys:[30, 10],  data: { 10: [Chrome, Firefox], 30: [Opera] } }
-  reversePerKeyObject (perKey) {
+  reversePerKeyObject (perKey, sort = 'DESC') {
     const data = {}
 
     for (const key in perKey) {
@@ -20,7 +20,11 @@ export default {
 
     const keys = Object.keys(data)
 
-    keys.sort(function (a, b) { return a - b })
+    if (sort === 'ASC') {
+      keys.sort(function (a, b) { return b - a })
+    } else {
+      keys.sort(function (a, b) { return a - b })
+    }
     keys.reverse()
 
     return { keys, data }
@@ -105,13 +109,132 @@ export default {
       case 'country':
         if (value === 'Russian Federation') {
           value = 'Russia'
-        } else if (value === 'United States') {
-          value = 'United States of America'
+        } else if (value === 'United States of America') {
+          value = 'United States'
         }
         break
     }
 
     return value
+  },
+
+  // given key columns and aggregation key, get the values to be displayed in plain table for key columns
+  // aggregationKey: string, key columns values sepatated by " - ", ex : "Microsoft Windows - Chrome - 83"
+  // columns: Array, key columns to be displayed in plain table, ex : "platform, browser, version"
+  // keyColumnsDiplay : object to display key in separated columns in table
+  // ex of keyColumsDisplay: {"platform": "Android", "browser": "Chrome", "browser_version": "34"}
+  getRecordKeyColumnsDisplay (aggregationKey, columns) {
+    const aggregationKeyArray = aggregationKey.split(' - ')
+    const keyColumns = this.computeKeyColumns(columns)
+    const keyColumnsDisplay = {}
+    for (const i in keyColumns) {
+      const column = keyColumns[i]
+      let key
+      aggregationKeyArray[i] ? key = aggregationKeyArray[i] : key = null
+      keyColumnsDisplay[column] = key
+    }
+    return keyColumnsDisplay
+  },
+
+  // given a record and a list of key columns, get the correspoding aggregation key
+  // record : Object corresponding to one entry of raw data (ex: {"browser": "Chrome", "browser_version": "83.0.4099.2", "platform": "NT", "platform_version": "10.0", "value": "1"}})
+  // columns: list of string: key columns of the plain table (ex: [ "platform", "browser", "browser_version" ])
+  // aggregation key : string, aggregation of the values of the key columns for the record, separated by "-", for example : "Microsoft Windows - Chrome - 83"
+  getRecordAggregationKey (record, columns) {
+    let aggregationKey = ''
+    const keyColumns = this.computeKeyColumns(columns)
+
+    // code specific for tables which are more complex than key/total/ratio
+    if (keyColumns.length > 1) {
+      for (const j in keyColumns) {
+        const columnName = keyColumns[j]
+        const columnValue = this.dataValueReplacement(columnName, record)
+
+        if (aggregationKey !== '') {
+          aggregationKey = aggregationKey.concat(' - ')
+        }
+        aggregationKey = aggregationKey.concat(columnValue)
+      }
+      // code specific for simple table (key/total/ratio)
+    } else {
+      aggregationKey = this.dataValueReplacement(keyColumns[0], record)
+    }
+
+    return aggregationKey
+  },
+
+  // from raw owstats-api response, key columns and column on which sum is to be done, compute the sum of values by key
+  // rawData: Object, api response for which data will be aggregated
+  // columns: list of string: key columns of the plain table (ex: [ "browser" ])
+  // aggregationOnColumn : string, name of the column on which the sum will be performed (ex: "value")
+  // aggregatedDataPerKey: Object, result of the aggregation, for example : { Safari: 10, Chrome : 15 }
+  // sumValues : Int, total of the values of the aggregated data (ex : 25)
+  // keyColumnsDisplay : if the key is composed of more than one column, object to display key in separated columns in table
+  computeAggregationSum (rawData, columns, aggregationOnColumn) {
+    let sumValues = 0
+    const aggregatedDataPerKey = {}
+    const responseDataType = this.apiResponseDataType(rawData)
+    const keyColumnsDisplay = {}
+
+    for (const date in rawData) {
+      for (const i in rawData[date][responseDataType]) {
+        const record = rawData[date][responseDataType][i]
+        const onColumnValue = parseInt(record[aggregationOnColumn])
+        const aggregationKey = this.getRecordAggregationKey(record, columns)
+        keyColumnsDisplay[aggregationKey] = this.getRecordKeyColumnsDisplay(aggregationKey, columns)
+
+        if (aggregationKey in aggregatedDataPerKey) {
+          aggregatedDataPerKey[aggregationKey] += onColumnValue
+        } else {
+          aggregatedDataPerKey[aggregationKey] = onColumnValue
+        }
+        sumValues += onColumnValue
+      }
+    }
+
+    return { aggregatedDataPerKey, sumValues, keyColumnsDisplay }
+  },
+
+  // from raw owstats-api response, key columns and columns on which average is to be done, compute the avergage of values by key
+  // rawData: Object, api response for which data will be aggregated
+  // columns: list of string: key columns of the plain table (ex: [ "country" ])
+  // aggregationOnColumn : string, name of the column on which the sum will be performed (ex: "value")
+  // aggregationByColumn : string, name of the column by which the sum will be divided to get the avergage (ex: "hits")
+  // aggregatedDataPerKey: Object, result of the aggregation, for example : { France: 210, Belgium : 234 }
+  // sumValues : null, this metric is not needed fot average
+  // keyColumnsDisplay : if the key is composed of more than one column, object to display key in separated columns in table
+  computeAggregationAverage (rawData, columns, aggregationOnColumn, aggregationByColumn) {
+    const aggregatedDataPerKey = {}
+    const responseDataType = this.apiResponseDataType(rawData)
+    const temporaryAggregatedData = {}
+    const keyColumnsDisplay = {}
+
+    for (const date in rawData) {
+      for (const i in rawData[date][responseDataType]) {
+        const record = rawData[date][responseDataType][i]
+        const onColumnValue = parseInt(record[aggregationOnColumn])
+        const byColumnValue = parseInt(record[aggregationByColumn])
+
+        const aggregationKey = this.getRecordAggregationKey(record, columns)
+        keyColumnsDisplay[aggregationKey] = this.getRecordKeyColumnsDisplay(aggregationKey, columns)
+
+        if (aggregationKey in temporaryAggregatedData) {
+          temporaryAggregatedData[aggregationKey].onColumnValue += onColumnValue
+          temporaryAggregatedData[aggregationKey].byColumnValue += byColumnValue
+        } else {
+          temporaryAggregatedData[aggregationKey] = {}
+          temporaryAggregatedData[aggregationKey].onColumnValue = onColumnValue
+          temporaryAggregatedData[aggregationKey].byColumnValue = byColumnValue
+        }
+      }
+    }
+
+    for (const key in temporaryAggregatedData) {
+      const responseTime = (temporaryAggregatedData[key].onColumnValue / temporaryAggregatedData[key].byColumnValue).toFixed(2)
+      aggregatedDataPerKey[key] = responseTime
+    }
+
+    return { aggregatedDataPerKey, sumValues: null, keyColumnsDisplay }
   },
 
   // from API response, aggregate data for tables and charts display
@@ -121,50 +244,14 @@ export default {
   // sumValues : Int, total of the values of the aggregated data (ex : 25)
   // keyColumnsDisplay : if the key is composed of more than one column, object to display key in separated columns in table
   // ex of keyColumsDisplay: { "Android - Chrome - 34 : {"platform": "Android", "browser": "Chrome", "browser_version": "34"},  ...}
-  rawDataAggregation (rawData, columns) {
-    const keyColumnsDisplay = {}
-    let sumValues = 0
-    const aggregatedDataPerKey = {}
-
-    const responseDataType = this.apiResponseDataType(rawData)
-    const keyColumns = this.computeKeyColumns(columns)
-
-    for (const date in rawData) {
-      for (const i in rawData[date][responseDataType]) {
-        const record = rawData[date][responseDataType][i]
-        const intValue = parseInt(record.value)
-        let aggregationKey = ''
-
-        // code specific for tables which are more complex than key/total/ratio
-        if (keyColumns.length > 1) {
-          for (const j in keyColumns) {
-            const columnName = keyColumns[j]
-            const columnValue = this.dataValueReplacement(columnName, record)
-
-            let base = {}
-            if (aggregationKey !== '') {
-              base = keyColumnsDisplay[aggregationKey]
-              aggregationKey = aggregationKey.concat(' - ')
-            }
-            aggregationKey = aggregationKey.concat(columnValue)
-            keyColumnsDisplay[aggregationKey] = base
-            keyColumnsDisplay[aggregationKey][columnName] = columnValue
-          }
-          // code specific for simple table (key/total/ratio)
-        } else {
-          const keyColumn = keyColumns[0]
-          aggregationKey = this.dataValueReplacement(keyColumn, record)
-        }
-
-        if (aggregationKey in aggregatedDataPerKey) {
-          aggregatedDataPerKey[aggregationKey] += intValue
-        } else {
-          aggregatedDataPerKey[aggregationKey] = intValue
-        }
-        sumValues += intValue
-      }
+  rawDataAggregation (rawData, columns, aggregationType = { type: 'sum', onColumn: 'value' }) {
+    if (aggregationType.type === 'sum') {
+      const { aggregatedDataPerKey, sumValues, keyColumnsDisplay } = this.computeAggregationSum(rawData, columns, aggregationType.onColumn)
+      return { aggregatedDataPerKey, sumValues, keyColumnsDisplay }
+    } else {
+      const { aggregatedDataPerKey, sumValues, keyColumnsDisplay } = this.computeAggregationAverage(rawData, columns, aggregationType.onColumn, aggregationType.byColumn)
+      return { aggregatedDataPerKey, sumValues, keyColumnsDisplay }
     }
-    return { aggregatedDataPerKey, sumValues, keyColumnsDisplay }
   },
 
   // from aggregated data, format data for chart and table display
@@ -176,13 +263,13 @@ export default {
   // tableData: Array, each element is an object representation of a row to be displayed in the table component
   // labels: Array, each element is a string with the label to be displayed in pie chart component. Computed only if hasChart is true
   // values: Array, each element is a number with the value to be displayed in pie chart component. Computed only if hasChart is true
-  computeTableAndChartData (aggregatedData, columns, tableSize, hasChart, chartSize) {
+  computeTableAndChartData (aggregatedData, columns, tableSize, hasChart, chartSize, sort = 'DESC', formatFunction) {
     const { aggregatedDataPerKey, sumValues, keyColumnsDisplay } = aggregatedData
-    const { keys, data } = this.reversePerKeyObject(aggregatedDataPerKey)
+    const { keys, data } = this.reversePerKeyObject(aggregatedDataPerKey, sort)
     const keyColumns = this.computeKeyColumns(columns)
 
     let others = sumValues
-    let count = 0
+    let id = 0
     let ratio = 0
 
     const values = []
@@ -194,19 +281,20 @@ export default {
       const entries = data[key]
       for (const j in entries) {
         const entry = entries[j]
-        count += 1
+        id += 1
         ratio = (key * 100) / sumValues
-        if (hasChart && count <= chartSize) {
+        if (hasChart && id <= chartSize) {
           labels.push(entry)
           values.push(parseInt(key))
           others -= key
         }
+
         const table = {
-          id: count,
-          count: key,
+          id: id,
+          count: formatFunction ? formatFunction(key) : key,
           ratio: `${ratio.toFixed(1)}`
         }
-        if (keyColumnsDisplay && Object.keys(keyColumnsDisplay).length > 1) {
+        if (keyColumnsDisplay) {
           keyColumns.forEach((e) => {
             table[e] = keyColumnsDisplay[entry][e]
           })
@@ -215,12 +303,12 @@ export default {
         }
 
         tableData.push(table)
-        if (count >= tableSize) {
+        if (id >= tableSize) {
           break
         }
       }
 
-      if (count >= tableSize) {
+      if (id >= tableSize) {
         break
       }
     }
@@ -264,14 +352,30 @@ export default {
     return granularity
   },
 
+  computeChartYValue (records, period, type, time, filterParameter) {
+    let y = 0
+    const r = records[period][type]
+    let record
+
+    if (filterParameter) {
+      record = r.find(e => (e.time === time && e[filterParameter.key] === filterParameter.value))
+    } else {
+      record = r.find(e => e.time === time)
+    }
+    if (record) y = parseInt(record.value)
+
+    return y
+  },
+
   // compute x and y data for spline chart
   // startDate: string, beginning of x axis
   // endDate: String, end of x axis
   // records: Object, raw data to be displayed in the chart
+  // filterParameter: optional, Object of format {key:param, value:hits} : filter only records with param equal to hits
   // chartData: Object, data to be displayed in the chart
   // axisData: Array, points of the x axis
   // granularity: string, represents the interval between 2 points of the x axis (hours, days...)
-  computeSplineChartData (startDate, endDate, records) {
+  computeSplineChartData (startDate, endDate, records, filterParameter) {
     moment.tz.setDefault('UTC')
     const { dayFormat, weekFormat, monthFormat, yearFormat, timeFormat } = this.initializeMoment()
     const type = this.apiResponseDataType(records)
@@ -310,24 +414,16 @@ export default {
 
       if (day in records) {
         period = 'hours'
-        const r = records[day][type]
-        const record = r.find(elem => elem.time === time)
-        if (record) y = parseInt(record.value)
+        y = this.computeChartYValue(records, day, type, time, filterParameter)
       } else if (week in records) {
         period = 'hours'
-        const r = records[week][type]
-        const record = r.find(elem => elem.time === time)
-        if (record) y = parseInt(record.value)
+        y = this.computeChartYValue(records, week, type, time, filterParameter)
       } else if (month in records) {
-        const r = records[month][type]
-        const record = r.find(elem => elem.time === time)
         period = 'days'
-        if (record) y = parseInt(record.value)
+        y = this.computeChartYValue(records, month, type, time, filterParameter)
       } else if (year in records) {
-        const r = records[year][type]
-        const record = r.find(elem => elem.time === time)
         period = 'days'
-        if (record) y = parseInt(record.value)
+        y = this.computeChartYValue(records, year, type, time, filterParameter)
       }
       stats[x] || (stats[x] = 0)
       stats[x] += y
@@ -417,6 +513,52 @@ export default {
     if (visitsValue != null && avgSessionTimeValue != null) {
       visitsAndTotalTime.visits += visitsValue
       visitsAndTotalTime.totalTime += visitsValue * avgSessionTimeValue
+    }
+  },
+
+  formatBytes (bytes, decimals = 2) {
+    if (bytes === 0) return '0 Bytes'
+
+    const k = 1024
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(decimals)) + ' ' + sizes[i]
+  },
+
+  formatMicroSecondes (microseconds, decimals = 2) {
+    if (microseconds === 0) return '0 µs'
+
+    const k = 1000
+    const sizes = ['µs', 'ms', 's']
+
+    const i = Math.floor(Math.log(microseconds) / Math.log(k))
+
+    return parseFloat((microseconds / Math.pow(k, i)).toFixed(decimals)) + ' ' + sizes[i]
+  },
+
+  convertArraysOfBytes (arraysOfBytes) {
+    // get the minimun value of all arrays
+    const minValue = Math.min.apply(null, arraysOfBytes.flat().filter(Boolean))
+
+    const k = 1024
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+
+    const i = Math.floor(Math.log(minValue) / Math.log(k))
+
+    // convert every value of the input arrays to the most readable unit of the minimum value
+    const convertedValues = []
+    arraysOfBytes.forEach(arr => {
+      convertedValues.push(arr.map(bytes => parseFloat((bytes / Math.pow(k, i)).toFixed(2))))
+    })
+
+    // get the corresponding unit
+    const unit = sizes[i]
+
+    return {
+      convertedValues,
+      unit
     }
   },
 

@@ -1,0 +1,288 @@
+{
+    "records": {
+     "2022-06-23": {
+      "waf": [
+       {
+        "time": "2022-06-23T00:00:00Z",
+        "param": "pass",
+        "value": "10201"
+       },
+       {
+        "time": "2022-06-23T00:00:00Z",
+        "param": "request_blocked",
+        "value": "5288"
+       },
+       {
+        "time": "2022-06-23T01:00:00Z",
+        "param": "pass",
+        "value": "9658"
+       },
+       {
+        "time": "2022-06-23T01:00:00Z",
+        "param": "request_blocked",
+        "value": "5218"
+       },
+       {
+        "time": "2022-06-23T02:00:00Z",
+        "param": "pass",
+        "value": "8549"
+       },
+       {
+        "time": "2022-06-23T02:00:00Z",
+        "param": "request_blocked",
+        "value": "5468"
+       },
+       {
+        "time": "2022-06-23T03:00:00Z",
+        "param": "pass",
+        "value": "12002"
+       },
+       {
+        "time": "2022-06-23T03:00:00Z",
+        "param": "request_blocked",
+        "value": "4643"
+       },
+       {
+        "time": "2022-06-23T03:00:00Z",
+        "param": "response_blocked",
+        "value": "3"
+       },
+       {
+        "time": "2022-06-23T04:00:00Z",
+        "param": "pass",
+        "value": "6519"
+       },
+       {
+        "time": "2022-06-23T04:00:00Z",
+        "param": "request_blocked",
+        "value": "4566"
+       },
+       {
+        "time": "2022-06-23T05:00:00Z",
+        "param": "pass",
+        "value": "6020"
+       },
+       {
+        "time": "2022-06-23T05:00:00Z",
+        "param": "request_blocked",
+        "value": "3400"
+       },
+       {
+        "time": "2022-06-23T05:00:00Z",
+        "param": "response_blocked",
+        "value": "1"
+       },
+       {
+        "time": "2022-06-23T06:00:00Z",
+        "param": "response_blocked",
+        "value": "1"
+       },
+       {
+        "time": "2022-06-23T10:00:00Z",
+        "param": "response_blocked",
+        "value": "1"
+       },
+       {
+        "time": "2022-06-23T13:00:00Z",
+        "param": "response_blocked",
+        "value": "1"
+       },
+       {
+        "time": "2022-06-23T15:00:00Z",
+        "param": "response_blocked",
+        "value": "1"
+       },
+       {
+        "time": "2022-06-23T23:00:00Z",
+        "param": "response_blocked",
+        "value": "1"
+       },
+       {
+        "time": "2022-06-23T06:00:00Z",
+        "param": "pass",
+        "value": "6743"
+       },
+       {
+        "time": "2022-06-23T06:00:00Z",
+        "param": "request_blocked",
+        "value": "3325"
+       },
+       {
+        "time": "2022-06-23T07:00:00Z",
+        "param": "pass",
+        "value": "6201"
+       },
+       {
+        "time": "2022-06-23T07:00:00Z",
+        "param": "request_blocked",
+        "value": "4260"
+       },
+       {
+        "time": "2022-06-23T08:00:00Z",
+        "param": "pass",
+        "value": "6745"
+       },
+       {
+        "time": "2022-06-23T08:00:00Z",
+        "param": "request_blocked",
+        "value": "4573"
+       },
+       {
+        "time": "2022-06-23T09:00:00Z",
+        "param": "pass",
+        "value": "6180"
+       },
+       {
+        "time": "2022-06-23T09:00:00Z",
+        "param": "request_blocked",
+        "value": "3950"
+       },
+       {
+        "time": "2022-06-23T10:00:00Z",
+        "param": "pass",
+        "value": "6134"
+       },
+       {
+        "time": "2022-06-23T10:00:00Z",
+        "param": "request_blocked",
+        "value": "4158"
+       },
+       {
+        "time": "2022-06-23T11:00:00Z",
+        "param": "pass",
+        "value": "7570"
+       },
+       {
+        "time": "2022-06-23T11:00:00Z",
+        "param": "request_blocked",
+        "value": "4077"
+       },
+       {
+        "time": "2022-06-23T12:00:00Z",
+        "param": "pass",
+        "value": "11189"
+       },
+       {
+        "time": "2022-06-23T12:00:00Z",
+        "param": "request_blocked",
+        "value": "5925"
+       },
+       {
+        "time": "2022-06-23T13:00:00Z",
+        "param": "pass",
+        "value": "11610"
+       },
+       {
+        "time": "2022-06-23T13:00:00Z",
+        "param": "request_blocked",
+        "value": "5408"
+       },
+       {
+        "time": "2022-06-23T14:00:00Z",
+        "param": "pass",
+        "value": "10527"
+       },
+       {
+        "time": "2022-06-23T14:00:00Z",
+        "param": "request_blocked",
+        "value": "4712"
+       },
+       {
+        "time": "2022-06-23T15:00:00Z",
+        "param": "pass",
+        "value": "12813"
+       },
+       {
+        "time": "2022-06-23T15:00:00Z",
+        "param": "request_blocked",
+        "value": "7237"
+       },
+       {
+        "time": "2022-06-23T16:00:00Z",
+        "param": "pass",
+        "value": "11441"
+       },
+       {
+        "time": "2022-06-23T16:00:00Z",
+        "param": "request_blocked",
+        "value": "7834"
+       },
+       {
+        "time": "2022-06-23T17:00:00Z",
+        "param": "pass",
+        "value": "14592"
+       },
+       {
+        "time": "2022-06-23T17:00:00Z",
+        "param": "request_blocked",
+        "value": "7063"
+       },
+       {
+        "time": "2022-06-23T18:00:00Z",
+        "param": "pass",
+        "value": "12288"
+       },
+       {
+        "time": "2022-06-23T18:00:00Z",
+        "param": "request_blocked",
+        "value": "6330"
+       },
+       {
+        "time": "2022-06-23T19:00:00Z",
+        "param": "pass",
+        "value": "12260"
+       },
+       {
+        "time": "2022-06-23T19:00:00Z",
+        "param": "request_blocked",
+        "value": "6132"
+       },
+       {
+        "time": "2022-06-23T20:00:00Z",
+        "param": "pass",
+        "value": "12572"
+       },
+       {
+        "time": "2022-06-23T20:00:00Z",
+        "param": "request_blocked",
+        "value": "7753"
+       },
+       {
+        "time": "2022-06-23T21:00:00Z",
+        "param": "pass",
+        "value": "14076"
+       },
+       {
+        "time": "2022-06-23T21:00:00Z",
+        "param": "request_blocked",
+        "value": "7560"
+       },
+       {
+        "time": "2022-06-23T21:00:00Z",
+        "param": "response_blocked",
+        "value": "2"
+       },
+       {
+        "time": "2022-06-23T22:00:00Z",
+        "param": "pass",
+        "value": "14190"
+       },
+       {
+        "time": "2022-06-23T22:00:00Z",
+        "param": "request_blocked",
+        "value": "8588"
+       },
+       {
+        "time": "2022-06-23T23:00:00Z",
+        "param": "pass",
+        "value": "11826"
+       },
+       {
+        "time": "2022-06-23T23:00:00Z",
+        "param": "request_blocked",
+        "value": "7078"
+       }
+      ]
+     }
+    }
+   }

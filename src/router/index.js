@@ -7,6 +7,11 @@ import Geolocalization from '../views/Geolocalization'
 import Request from '../views/Request'
 import Status from '../views/Status'
 import Robot from '../views/Robot'
+import CdnCache from '../views/CdnCache'
+import CdnCompression from '../views/CdnCompression'
+import CdnRateLimit from '../views/CdnRateLimit'
+import CdnSecurity from '../views/CdnSecurity'
+import CdnPerformance from '../views/CdnPerformance'
 import FAQ from '../views/FAQ'
 
 Vue.use(Router)
@@ -48,6 +53,31 @@ export default new Router({
       path: '/status',
       name: 'Status',
       component: Status
+    },
+    {
+      path: '/cdn_cache',
+      name: 'CdnCache',
+      component: CdnCache
+    },
+    {
+      path: '/cdn_compression',
+      name: 'CdnCompression',
+      component: CdnCompression
+    },
+    {
+      path: '/cdn_ratelimit',
+      name: 'CdnRateLimit',
+      component: CdnRateLimit
+    },
+    {
+      path: '/cdn_security',
+      name: 'CdnSecurity',
+      component: CdnSecurity
+    },
+    {
+      path: '/cdn_performance',
+      name: 'CdnPerformance',
+      component: CdnPerformance
     },
     {
       path: '/faq',

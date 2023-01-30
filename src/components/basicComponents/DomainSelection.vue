@@ -1,13 +1,11 @@
 <template>
   <div
-    v-if="isComponentDisplayed"
     class="domain-selection"
   >
     <div class="oui-field__header">
       <label class="oui-field__label">{{ $t('domain_selection') }}</label>
     </div>
     <section
-      v-if="isComponentDisplayed"
       class="domain-selection-wrapper"
     >
       <b-autocomplete
@@ -15,11 +13,19 @@
         open-on-focus
         :placeholder="placeholder"
         clear-on-select
-        :data="filteredOptions"
+        :data="filteredDataObj"
+        field="domain.name"
         @select="e => onChange(e)"
       >
-        <template #empty>
-          {{ noResult }}
+        <template slot-scope="props">
+          <div>
+            <span
+              v-if="isBadgeDisplayed"
+              class="oui-badge"
+              :class="{'oui-badge_info': props.option.domain.type==='cdn', 'oui-badge_success': props.option.domain.type==='webhosting'}"
+            >{{ props.option.domain.type==='cdn'? 'cdn': 'web' }} </span>
+            <span>{{ props.option.domain.name }}</span>
+          </div>
         </template>
       </b-autocomplete>
     </section>
@@ -36,42 +42,88 @@ export default {
     } else {
       selection = this.$store.state.app.domainSelected
     }
+
     return {
       selected: selection,
       display: '',
-      placeholder: selection,
+      placeholder: '',
       noResult: this.$t('noresult')
     }
   },
   computed: {
-    isComponentDisplayed () {
-      return this.$store.state.app.domains.length > 1
+    isBadgeDisplayed () {
+      return this.$store.state.app.cdnDomains.length > 0
     },
     options () {
-      const domainList = this.$store.state.app.domains.slice()
-      domainList.unshift(this.$t('select_all'))
+      const domainListWeb = this.$store.state.app.domains.slice()
+      domainListWeb.unshift(this.$t('select_all'))
 
-      return domainList
+      const domainObjectsWeb = []
+      let id = 0
+      domainListWeb.forEach(domain => {
+        const domainObject = {
+          id: id,
+          domain: {
+            type: 'webhosting',
+            name: domain
+          }
+        }
+        id += 1
+        domainObjectsWeb.push(domainObject)
+      })
+
+      const domainListCdn = this.$store.state.app.cdnDomains.slice()
+      const domainObjectsCdn = []
+
+      id = 0
+      domainListCdn.forEach(domain => {
+        const domainObject = {
+          id: id,
+          domain: {
+            type: 'cdn',
+            name: domain
+          }
+        }
+        id += 1
+        domainObjectsCdn.push(domainObject)
+      })
+
+      return domainObjectsWeb.concat(domainObjectsCdn)
     },
-    filteredOptions () {
+    filteredDataObj () {
       return this.options.filter((e) => {
-        return e
+        return e.domain.name
           .toString()
           .toLowerCase()
           .indexOf(this.display.toLowerCase()) >= 0
       })
     }
   },
+  created () {
+    this.placeholder = this.getPlaceholderPrefix(this.$store.state.app.dataSource) + this.selected
+  },
   methods: {
+    getPlaceholderPrefix (type) {
+      if (this.$store.state.app.cdnDomains.length > 0) {
+        const shortType = type === 'cdn' ? 'cdn' : 'web'
+        return `${shortType} - `
+      } else {
+        return ''
+      }
+    },
     onChange (e) {
       if (e) {
-        if (e === this.$t('select_all')) {
+        const domain = e.domain.name
+        const type = e.domain.type
+
+        if (domain === this.$t('select_all')) {
           this.$store.commit('setDomainSelected', 'all')
         } else {
-          this.$store.commit('setDomainSelected', e)
+          this.$store.commit('setDomainSelected', domain)
         }
+        this.$store.commit('setDataSource', type)
         this.$store.commit('toggleDomainChanged')
-        this.placeholder = e
+        this.placeholder = this.getPlaceholderPrefix(type) + domain
       }
     }
   }

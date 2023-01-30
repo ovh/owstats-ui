@@ -152,6 +152,9 @@ export default {
     }
   },
   computed: {
+    isCdn () {
+      return this.$store.state.app.dataSource === 'cdn'
+    },
     startDate () {
       return this.$store.state.app.startDate
     },
@@ -201,17 +204,20 @@ export default {
         this.$store.dispatch('fetchData', {
           endpoint: 'initial_path/visits',
           mutation: 'setInitialpathVisitsData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: this.isCdn
         }),
         this.$store.dispatch('fetchData', {
           endpoint: 'request_form/validhits',
           mutation: 'setRequestformValidhitsData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: this.isCdn
         }),
         this.$store.dispatch('fetchData', {
           endpoint: 'request_origfilepath/validhits',
           mutation: 'setRequestorigfilepathValidhitsData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: this.isCdn
         })
       ]).finally(() => {
         this.isLoading = false

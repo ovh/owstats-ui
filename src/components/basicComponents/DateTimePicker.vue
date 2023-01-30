@@ -1,7 +1,15 @@
 <template>
   <div class="datetimepicker">
+    <b-alert
+      v-model="visible"
+      class="position-fixed fixed-top m-0 rounded-0"
+      style="z-index: 2000;"
+      variant="success"
+    >
+      {{ $t('calendar.warningRobots') }}
+    </b-alert>
     <div class="oui-field__header">
-      <label class="oui-field__label">{{ $t('calendar.selectPeriod') }}</label>
+      <label class="oui-field__label">{{ `${$t('calendar.selectPeriod')} (${$t('calendar.timezone')} ${timezone})` }}</label>
     </div>
     <div
       class="text-nowrap"
@@ -53,6 +61,8 @@
             :right="picker.options.right"
             :no-clear-button="picker.options.noClearButton"
             @validate="updateDate"
+            @input="displayWarning"
+            @is-hidden="onHide"
           />
         </div>
       </div>
@@ -102,12 +112,17 @@ export default {
           ],
           noClearButton: true
         }
-      }
+      },
+      robotsSeparationDate: '2022-04-01',
+      timezone: this.$store.state.app.timezone
     }
   },
   computed: {
     queryUpdated () {
       return this.$route.query
+    },
+    visible () {
+      return this.$store.state.app.displayWarning
     }
   },
   watch: {
@@ -116,6 +131,16 @@ export default {
     }
   },
   methods: {
+    displayWarning () {
+      if (this.$data.picker.value.start < this.robotsSeparationDate && this.$store.state.app.startDate !== this.$data.picker.value.start) {
+        this.$store.commit('setDisplayWarning', true)
+      } else {
+        this.$store.commit('setDisplayWarning', false)
+      }
+    },
+    onHide () {
+      this.$store.commit('setDisplayWarning', false)
+    },
     updateDate () {
       if (this.$store.state.app.startDate !== this.$data.picker.value.start ||
           this.$store.state.app.endDate !== this.$data.picker.value.end) {

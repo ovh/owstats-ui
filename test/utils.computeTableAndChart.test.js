@@ -7,7 +7,7 @@ test('computeTableAndChartData for simple chart and table', () => {
       Firefox: 10,
       Safari: 5
     },
-    keyColumnsDisplay: {},
+    keyColumnsDisplay: { Chrome: { browser: 'Chrome' }, Firefox: { browser: 'Firefox' }, Safari: { browser: 'Safari' } },
     sumValues: 35
   }
 
@@ -68,7 +68,7 @@ test('computeTableAndChartData for simple chart and table with more data than ta
       Edge: 3,
       'Internet Explorer': 2
     },
-    keyColumnsDisplay: {},
+    keyColumnsDisplay: { Chrome: { browser: 'Chrome' }, Firefox: { browser: 'Firefox' }, Safari: { browser: 'Safari' }, Edge: { browser: 'Edge' }, 'Internet Explorer': { browser: 'Internet Explorer' } },
     sumValues: 40
   }
 

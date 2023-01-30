@@ -59,7 +59,7 @@
           <b-col>
             <b-card class="card-margin">
               <h4 class="oui-heading_4">
-                {{ $t('status.errorhits') }}
+                {{ $t('status.chart') }}
               </h4>
               <basic-spline
                 id="error-hits"
@@ -163,6 +163,9 @@ export default {
   },
 
   computed: {
+    isCdn () {
+      return this.$store.state.app.dataSource === 'cdn'
+    },
     isLoading () {
       return [this.isLoadingHour, this.isLoadingStatus, this.isLoadingStatuspage].includes(true)
     },
@@ -277,22 +280,26 @@ export default {
         this.$store.dispatch('fetchData', {
           endpoint: 'hour/errorhits',
           mutation: 'setHourErrorhitsData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: this.isCdn
         }),
         this.$store.dispatch('fetchData', {
           endpoint: 'hour/pages',
           mutation: 'setHourPagesData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: this.isCdn
         }),
         this.$store.dispatch('fetchData', {
           endpoint: 'hour/hits',
           mutation: 'setHourHitsData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: this.isCdn
         }),
         this.$store.dispatch('fetchData', {
           endpoint: 'hour/errorpages',
           mutation: 'setHourErrorpagesData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: this.isCdn
         })
       ]).finally(() => {
         this.isLoadingHour = false
@@ -312,14 +319,16 @@ export default {
         this.$store.dispatch('fetchData', {
           endpoint: 'status/pages',
           mutation: 'setStatusPagesData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: this.isCdn
         }),
         this.$store.dispatch('fetchData', {
           endpoint: 'status/pages',
           mutation: 'setStatusPagesPreviousData',
           startDate: prevStart,
           endDate: prevEnd,
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: this.isCdn
         })
       ]).finally(() => {
         this.isLoadingStatus = false
@@ -333,7 +342,8 @@ export default {
         this.$store.dispatch('fetchData', {
           endpoint: 'status_pages/errorhits',
           mutation: 'setStatuspagesErrorhitsData',
-          domainInParamaters: true
+          domainInParamaters: true,
+          isCdn: this.isCdn
         })
       ]).finally(() => {
         this.isLoadingStatuspage = false

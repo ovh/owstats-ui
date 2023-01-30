@@ -150,6 +150,9 @@ h4 {
    background-color: $white
 }
 
+.navbar-large {
+   margin-right: $spacing-m;
+}
 
 // sidebar
 .oui-sidebar {
@@ -202,6 +205,11 @@ h4 {
    border-left: .125rem solid transparent;
    background-color: transparent
 }
+
+.oui-sidebar-link-top-line {
+   border-top: .125rem solid $p-100
+}
+
 
 a.oui-sidebar-link[aria-expanded=true],
 a.oui-sidebar-link_active,
@@ -382,4 +390,39 @@ button.oui-sidebar-link:hover {
    border-width: 0;
    background-color: transparent;
    color: $p-500;
+}
+
+.oui-button.button-header_active{
+   background-color: $p-100;
+   border-bottom-style: solid;
+   border-bottom-color: $p-500;
+   border-bottom-width: $spacing-xxs;
+   border-radius: 0;
+}
+
+.oui-badge {
+	max-width: 12.5rem;
+	line-height: 1;
+	display: inline;
+	overflow: hidden;
+	margin: 0 .25rem;
+	padding: 0 .5rem;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 1rem;
+	font-weight: 600;
+	color: #4d5592;
+	border: none;
+	border-radius: 1rem;
+	background: transparent;
+}
+
+.oui-badge_success {
+	background-color: $badge-success-background;
+	color: $badge-success;
+}
+
+.oui-badge_info {
+	background-color: $badge-info-background;
+	color: $badge-info;
 }

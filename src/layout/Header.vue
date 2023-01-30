@@ -23,12 +23,14 @@
     <ul class="oui-navbar-list navbar-large">
       <li class="oui-navbar-list__item">
         <a
+          id="page-title"
           class="oui-navbar-link oui-navbar-link_primary"
           href
         >{{ "navbar.title" | translate }} &nbsp; - &nbsp; {{ this.$store.state.app.mainDomain }}
         </a>
       </li>
     </ul>
+
     <button
       v-if="logoutButtonDisplay"
       class="oui-button oui-button_ghost logout-button"
@@ -59,6 +61,9 @@ export default {
       } else {
         return false
       }
+    },
+    dataSourceSelectionDisplay () {
+      return this.$store.state.app.cdnDomains.length > 0
     }
   },
   created () {

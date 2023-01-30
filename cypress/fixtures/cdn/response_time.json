@@ -1,0 +1,106 @@
+{
+    "records": {
+     "2022-06-22": {
+      "responsetime": [
+       {
+        "country": "Belgium",
+        "region": "Wallonia",
+        "value": "1000",
+        "hits": "1"
+       },
+       {
+        "country": "France",
+        "region": "(no data)",
+        "value": "135406448",
+        "hits": "642688"
+       },
+       {
+        "country": "France",
+        "region": "Auvergne-Rhone-Alpes",
+        "value": "553372",
+        "hits": "1920"
+       },
+       {
+        "country": "France",
+        "region": "Hauts-de-France",
+        "value": "67738142",
+        "hits": "320428"
+       },
+       {
+        "country": "France",
+        "region": "Île-de-France",
+        "value": "198556122",
+        "hits": "938856"
+       }
+      ]
+     },
+     "2022-06-23": {
+      "responsetime": [
+       {
+        "country": "Belgium",
+        "region": "Wallonia",
+        "value": "1000",
+        "hits": "1"
+       },
+       {
+        "country": "France",
+        "region": "(no data)",
+        "value": "217704182",
+        "hits": "642300"
+       },
+       {
+        "country": "France",
+        "region": "Auvergne-Rhone-Alpes",
+        "value": "550534",
+        "hits": "1920"
+       },
+       {
+        "country": "France",
+        "region": "Hauts-de-France",
+        "value": "110913568",
+        "hits": "320576"
+       },
+       {
+        "country": "France",
+        "region": "Île-de-France",
+        "value": "324031811",
+        "hits": "938523"
+       }
+      ]
+     },
+     "2022-06-24": {
+      "responsetime": [
+       {
+        "country": "Belgium",
+        "region": "Wallonia",
+        "value": "1000",
+        "hits": "1"
+       },
+       {
+        "country": "France",
+        "region": "(no data)",
+        "value": "11281693",
+        "hits": "53657"
+       },
+       {
+        "country": "France",
+        "region": "Auvergne-Rhone-Alpes",
+        "value": "46283",
+        "hits": "160"
+       },
+       {
+        "country": "France",
+        "region": "Hauts-de-France",
+        "value": "5670702",
+        "hits": "26788"
+       },
+       {
+        "country": "France",
+        "region": "Île-de-France",
+        "value": "16576613",
+        "hits": "78432"
+       }
+      ]
+     }
+    }
+   } 

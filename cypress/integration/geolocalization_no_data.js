@@ -1,11 +1,11 @@
 describe('Display geolocalization data: no data', () => {
   beforeEach(() => {
     cy.intercept('/test.com/v1/domains**', {
-      fixture: 'domains.json'
+      fixture: 'webhosting/domains.json'
     }).as('domains')
 
     cy.intercept('/test.com/v1/geolocalization/visits?start_date=2019-07-10&end_date=2019-07-20', {
-      fixture: 'no_data.json'
+      fixture: 'webhosting/no_data.json'
     }).as('geolocalization_visits_20190710_20190720')
 
     cy.visit('/test.com/owstats#/geolocalization?start_date=2019-07-10&end_date=2019-07-20&domain=all')

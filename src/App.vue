@@ -28,6 +28,9 @@ export default {
   },
 
   computed: {
+    isCdn () {
+      return this.$store.state.app.dataSource === 'cdn'
+    },
     dateChanged () {
       return this.$store.state.app.dateChanged
     },
@@ -36,15 +39,22 @@ export default {
     },
     isLoginNeeded () {
       return this.isTargetRemoteApi && this.nodeEnv === 'production' && !this.isTokenInCookie
+    },
+    startDate () {
+      return moment().subtract(5, 'years').format('YYYY-MM-DD')
     }
   },
   watch: {
+    isCdn () {
+      this.updateQuery()
+    },
     dateChanged () {
       this.updateQuery()
     },
     domainChanged () {
       this.updateQuery()
     }
+
   },
   async beforeMount () {
     if (!this.isLoginNeeded) {
@@ -54,30 +64,54 @@ export default {
         const inOneHour = 1 / 24
         utils.setTokenInCookie(token, inOneHour)
       }
-      this.setMainDomain()
+      await this.setMainDomain()
 
-      this.setDomains()
+      await this.setCluster()
 
-      this.updateQuery()
+      await this.setDomains()
+
+      await this.setCdnDomains()
+
+      await this.setTimezone()
+
+      await this.updateQuery()
 
       this.isLoaded = true
     }
   },
   methods: {
-    setMainDomain () {
+    async setMainDomain () {
       const origin = document.location.origin
       const href = document.location.href
       let mainDomain = href.replace(origin + '/', '')
       mainDomain = mainDomain.replace(new RegExp('/owstats.*'), '')
-      this.$store.commit('setMainDomain', mainDomain)
+      await this.$store.commit('setMainDomain', mainDomain)
     },
-    setDomains () {
-      this.$store.dispatch('fetchData', {
-        startDate: '2012-01-01',
+    async setCluster () {
+      const url = process.env.VUE_APP_API_BASE_URL || window.location.href
+      await this.$store.commit('setCluster', url.split('.')[1])
+    },
+    async setDomains () {
+      await this.$store.dispatch('fetchData', {
+        startDate: this.startDate,
         endDate: moment().format('YYYY-MM-DD'),
         endpoint: 'domains',
         mutation: 'updateDomains'
       })
+    },
+
+    async setCdnDomains () {
+      await this.$store.dispatch('fetchData', {
+        startDate: this.startDate,
+        endDate: moment().format('YYYY-MM-DD'),
+        endpoint: 'cdn/domains',
+        mutation: 'updateCdnDomains',
+        isCdn: true
+      })
+    },
+
+    setTimezone () {
+      this.$store.dispatch('setTimezone')
     },
 
     updateQuery () {
@@ -91,6 +125,11 @@ export default {
         queryDomain = 'all'
       }
 
+      let queryDataSource = this.$route.query.dataSource
+      if (!queryDataSource) {
+        queryDataSource = 'webhosting'
+      }
+
       const storeStart = this.$store.state.app.startDate
       let storeEnd = this.$store.state.app.endDate
       if (!storeEnd) {
@@ -101,16 +140,20 @@ export default {
         storeDomain = 'all'
       }
 
+      const storeDataSource = this.$store.state.app.dataSource
+
       if (this.isLoaded) {
         if (queryDomain !== storeDomain ||
         queryStart !== storeStart ||
-        queryEnd !== storeEnd) {
+        queryEnd !== storeEnd ||
+        queryDataSource !== storeDataSource) {
           this.$router.replace({
             path: this.$route.path,
             query: {
               start_date: storeStart,
               end_date: storeEnd,
-              domain: storeDomain
+              domain: storeDomain,
+              dataSource: storeDataSource
             }
           })
         }
@@ -118,6 +161,7 @@ export default {
         this.$store.commit('setStartDate', queryStart || storeStart)
         this.$store.commit('setEndDate', queryEnd || storeEnd)
         this.$store.commit('setDomainSelected', queryDomain || storeDomain)
+        this.$store.commit('setDataSource', queryDataSource || storeDataSource)
       }
     }
   }

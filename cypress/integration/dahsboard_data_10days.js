@@ -1,27 +1,27 @@
 describe('Display Dashboard page: 10 days period', () => {
   beforeEach(() => {
     cy.intercept('/test.com/v1/domains**', {
-      fixture: 'domains.json'
+      fixture: 'webhosting/domains.json'
     }).as('domains')
 
     cy.intercept('/test.com/v1/hour/visits?start_date=2018-08-01&end_date=2018-08-11', {
-      fixture: 'hour_visits_20180801_20180811.json'
+      fixture: 'webhosting/hour_visits_20180801_20180811.json'
     }).as('hour_visits')
 
     cy.intercept('/test.com/v1/hour/pages?start_date=2018-08-01&end_date=2018-08-11', {
-      fixture: 'hour_pages_20180801_20180811.json'
+      fixture: 'webhosting/hour_pages_20180801_20180811.json'
     }).as('hour_pages')
 
     cy.intercept('/test.com/v1/hour/avgsessiontime?start_date=2018-08-01&end_date=2018-08-11', {
-      fixture: 'hour_avgsessiontime_20180801_20180811.json'
+      fixture: 'webhosting/hour_avgsessiontime_20180801_20180811.json'
     }).as('hour_avgsessiontime')
 
     cy.intercept('/test.com/v1/domains/validpages?start_date=2018-08-01&end_date=2018-08-11', {
-      fixture: 'domains_validpages_20180801_20180811.json'
+      fixture: 'webhosting/domains_validpages_20180801_20180811.json'
     }).as('domains_validpages')
 
     cy.intercept('/test.com/v1/domains/errorpages?start_date=2018-08-01&end_date=2018-08-11', {
-      fixture: 'domains_errorpages_20180801_20180811.json'
+      fixture: 'webhosting/domains_errorpages_20180801_20180811.json'
     }).as('domains_errorpages')
 
     cy.visit('/test.com/owstats#/dashboard?start_date=2018-08-01&end_date=2018-08-11&domain=all')
@@ -82,15 +82,15 @@ describe('Display Dashboard page: 10 days period', () => {
   it('displays domain info', () => {
     cy.get('#domain-info')
       .find('.widget-chart')
-      .filter(':contains("Pages vues et en erreur"), :contains("View and error pages")')
+      .filter(':contains("Pages vues"), :contains("Pages viewed")')
       .find('.widget-numbers')
-      .filter(':contains("1551")')
+      .filter(':contains("1309")')
 
     cy.get('#domain-info')
       .find('.widget-chart')
-      .filter(':contains("Nombre de sessions"), :contains("Number of sessions")')
+      .filter(':contains("Pages en erreur"), :contains("Error pages")')
       .find('.widget-numbers')
-      .filter(':contains("176")')
+      .filter(':contains("242")')
 
     cy.get('#domain-info')
       .find('.widget-chart')

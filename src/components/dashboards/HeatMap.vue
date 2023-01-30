@@ -5,17 +5,18 @@
         <div :class="{ 'd-none': isLoading }">
           <heat-map
             :data="map_data"
-            :name="name | translate"
+            :name="mapTitle"
             :min="min"
             :max="max"
+            :color="color"
           />
         </div>
       </b-col>
       <b-col md="4">
         <plain-table
           class="geoloc-visits"
-          :aggregated-data="geolocVisitsAggregatedData"
-          :table-columns="geolocVisitsColumns"
+          :aggregated-data="aggregatedData"
+          :table-columns="mapColumns"
           :table-size="20"
         />
       </b-col>
@@ -27,6 +28,7 @@
 import BasicWorldMapChart from '../basicComponents/BasicWorldMapChart'
 import PlainTable from '../../components/basicComponents/PlainTable'
 import utils from '../../services/utils.js'
+import variables from '../../assets/sass/_variables.scss'
 
 export default {
   name: 'HeatMap',
@@ -38,32 +40,26 @@ export default {
     rawData: {
       type: Object,
       required: true
+    },
+    mapColumns: {
+      type: Array,
+      required: true
+    },
+    mapTitle: {
+      type: String,
+      required: true
+    },
+    color: {
+      type: Array,
+      default () { return [variables.p100, variables.p700] }
     }
+
   },
 
   data () {
     return {
       map_data: [],
-      geolocVisitsTable: [],
-      geolocVisitsColumns: [
-        {
-          key: 'id',
-          label: 'geoloc.id'
-        },
-        {
-          key: 'country',
-          label: 'geoloc.country'
-        },
-        {
-          key: 'count',
-          label: 'geoloc.count'
-        },
-        {
-          key: 'ratio',
-          label: 'geoloc.ratio'
-        }
-      ],
-      name: 'dashboard.visits',
+      table: [],
       min: 0,
       max: 0,
       height: '600px',
@@ -71,20 +67,21 @@ export default {
     }
   },
   computed: {
-    geolocVisitsAggregatedData () {
-      return utils.rawDataAggregation(this.rawData, this.geolocVisitsColumns)
+    aggregatedData () {
+      return utils.rawDataAggregation(this.rawData, this.mapColumns)
     }
   },
   mounted () {
-    this.populateRecords(this.rawData, 'visits')
+    this.populateRecords(this.rawData)
   },
   methods: {
-    populateRecords (records, type) {
+    populateRecords (records) {
+      const type = utils.apiResponseDataType(records)
       const data = {}
       let mapMax = 0
 
       // Re-initialize this.data
-      this.geolocVisitsTable = []
+      this.table = []
       this.map_data = []
 
       for (const key in records) {
